@@ -19,7 +19,7 @@ export const styles = css`
   align-items: center;
   user-select: none;
   
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(255, 255, 255, 0.8);
 
   font-family: var(--ronin-font-family, Work Sans,sans-serif,Nunito Sans,Helvetica Neue,Helvetica,Arial);
   font-weight: var(--ronin-font-weight,500);
@@ -29,7 +29,7 @@ export const styles = css`
 #card{
   will-change: transform, opacity;
 
-  background: var(--ronin-modal-bg, #111417);
+  background: var(--ronin-modal-bg, #2d2c2c);
   color: #fff;
 
   max-width: 340px;
@@ -38,10 +38,7 @@ export const styles = css`
   margin: 10px;
   padding:15px 20px 19px 20px;
   
-  border: 3px solid #3c424d;
   border-radius: 24px;
-
-  
 
   animation-duration: 0.2s;
   animation-name: zoom-in;

@@ -6,19 +6,15 @@ export const styles = css`
 }
 
 #card{
-  border: 3px solid #282c34;
-  border-radius: 24px;
-  width: 130px;
-  height: 150px;
+  border-radius: 14px;
+  height: 50px;
+  background-color: rgba(54,54,54);
 
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  gap:10px;
 
-
-  padding: 5px;
+  padding: 5px 15px;
   cursor:pointer;
   user-select: none;
 
@@ -26,14 +22,11 @@ export const styles = css`
 }
 
 #card:hover{
-  border-color: #3c424d;
-  box-shadow: 0 12px 20px #0d0e12;
-
-  background-color: rgba(0,0,0, 0.3)
+  background-color: rgba(64,64,64);
 }
 
 img{
-  width: var(--ronin-small-card-img-width, 100px);
-  height: var(--ronin-small-card-img-height, 100px);
+  width: var(--ronin-small-card-img-width, 34px);
+  height: var(--ronin-small-card-img-height, 34px);
 }
 `

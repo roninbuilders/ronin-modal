@@ -11,10 +11,10 @@ export class QRCode extends LitElement {
   static styles = styles;
 
   @property()
-  size: number = 200;
+  size: number = 230;
   
   @state()
-  uri: string = "www.walletconnect.com";
+  uri: string = "";
 
   protected _handleUri(uri: string){
     this.uri = uri
@@ -33,11 +33,12 @@ export class QRCode extends LitElement {
   }
 
   private svgTemplate() {
-    return svg`                
-      <svg height=${this.size} width=${this.size}>
-        ${QrCodeUtil.generate(this.uri, this.size, this.size / 4)}
-      </svg>
-    `
+    return this.uri ? 
+      svg`                
+        <svg height=${this.size} width=${this.size}>
+          ${QrCodeUtil.generate(this.uri, this.size, this.size / 4)}
+        </svg>` :
+      html`<span class="qr-place-holder" ><div></div></span>`
   }
 
   goBack(){
@@ -56,7 +57,7 @@ export class QRCode extends LitElement {
             <path d="M8 1L1 8L8 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
         </button>
-        <p>Log in by QR Code</p>
+        <p>Scan QR Code</p>
         <button @click="${this.close}" id="close">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" data-projection-id="467">
             <path d="M1 13L13 1M1 1L13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
@@ -64,8 +65,8 @@ export class QRCode extends LitElement {
         </button>
       </span>
       <div id="qr-code">
-        <img src='/logo-on-white.svg' alt='' />
         ${this.svgTemplate()}
+        <img src='/logo-on-white.svg' alt='' />
       </div>
 
     `;

@@ -17,8 +17,8 @@ export const styles = css`
 
 #card-container{
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  flex-direction:column;
+  gap: 8px;
 
   width: 100%;
 }
@@ -32,7 +32,7 @@ export const styles = css`
 }
 
 #title img{
-  width: 20px;
+  width: 16px;
 }
 
 #title p{

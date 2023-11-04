@@ -13,7 +13,7 @@ export class RoninModal extends LitElement {
 
   static styles = styles;
 
-  @state() protected _open: boolean = false;
+  @state() protected _open: boolean = true;
 
   protected unsubscribe: ()=>void;
 
@@ -42,8 +42,8 @@ export class RoninModal extends LitElement {
 
     return html`
       <div id="container" @click="${this.close}" >
-      <div id='card' @click="${(e: Event)=>e.stopPropagation()}" >
-        <routes-modal></routes-modal>
+        <div id='card' @click="${(e: Event)=>e.stopPropagation()}" >
+          <routes-modal></routes-modal>
         </div>
       </div>`;
   }

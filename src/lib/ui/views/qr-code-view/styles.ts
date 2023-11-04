@@ -66,10 +66,10 @@ export const styles = css`
   align-items: center;
   
   padding: 10px;
-  box-shadow: 0 0 10px #1A66FF;
   border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.3);
 
-  margin: 10px 22px 10px 22px;
+  margin: 10px 16px 10px 16px;
 }
 
 #qr-code img{
@@ -83,5 +83,33 @@ export const styles = css`
 
 #go-back:hover{
   transform: scale(1.2)
+}
+
+.qr-place-holder{
+  width: 230px;
+  height: 230px;
+  background-color: rgba(64,64,64);
+  border-radius: 14px;
+
+  background: linear-gradient(110deg, rgba(80,80,80) 30%, rgba(125,125,125) 50%, rgba(80,80,80) 70%);
+  background-size: 200% 100%;
+  animation: 1s shine linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+.qr-place-holder div {
+  position: absolute;
+  width: 50px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -55%);
+  width: 65px;
+  height: 65px;
+  background-color: #2d2c2c;
 }
 `

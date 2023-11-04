@@ -43,8 +43,8 @@ export class SmallCard extends LitElement {
   render() {
     return html`
     <div @click="${this.connect}" id='card'>
-      <img src="${this.img}" alt="${this.text}" />
       ${this.text}
+      <img src="${this.img}" alt="${this.text}" />
     </div>
     `;
   }
