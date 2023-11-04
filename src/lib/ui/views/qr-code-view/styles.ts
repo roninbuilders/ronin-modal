@@ -91,7 +91,7 @@ export const styles = css`
   background-color: rgba(64,64,64);
   border-radius: 14px;
 
-  background: linear-gradient(110deg, rgba(80,80,80) 30%, rgba(125,125,125) 50%, rgba(80,80,80) 70%);
+  background: linear-gradient(110deg, rgba(64,64,64) 30%, rgba(125,125,125) 50%, rgba(64,64,64) 70%);
   background-size: 200% 100%;
   animation: 1s shine linear infinite;
 }

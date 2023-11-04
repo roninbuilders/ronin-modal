@@ -13,7 +13,7 @@ export class RoninModal extends LitElement {
 
   static styles = styles;
 
-  @state() protected _open: boolean = true;
+  @state() protected _open: boolean = false;
 
   protected unsubscribe: ()=>void;
 
