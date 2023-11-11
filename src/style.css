@@ -12,8 +12,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width:100%;
+  width: 100%;
   min-height: 100vh;
   color: rgba(255, 255, 255, 0.87);
   background-color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1b1b1b;
+    color: #fff;
+  }
 }
