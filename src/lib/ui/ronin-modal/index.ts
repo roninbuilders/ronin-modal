@@ -10,6 +10,8 @@ import './routes';
 import { isMobile } from '../../utils/mobile';
 import { classMap } from 'lit/directives/class-map.js';
 
+const images = ["logo-on-white.svg", "qr1.svg", "Ronin_Mark_Blue.svg", "Ronin_Mark_White.svg"]
+
 @customElement('ronin-modal')
 export class RoninModal extends LitElement {
 
@@ -42,7 +44,16 @@ export class RoninModal extends LitElement {
     const fontEl = document.createElement('link');
     fontEl.rel = 'stylesheet';
     fontEl.href = 'https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap';
+
     document.head.appendChild(fontEl);
+
+    images.forEach(img=>{
+      const el = document.createElement('link');
+      el.rel = 'preload';
+      el.href = `/img/${img}`;
+      el.as = "image";
+      document.head.appendChild(fontEl);
+    })
   }
 
   disconnectedCallback() {
