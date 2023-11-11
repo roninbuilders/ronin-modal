@@ -8,5 +8,5 @@ type ModalStore = {
 
 export const { set, get, sub } = createStore<ModalStore>({
   open: false,
-  view: 'main'
+  view: 'main',
 })

@@ -1,14 +1,25 @@
 import {LitElement, html} from 'lit';
-import {customElement} from 'lit/decorators.js';
+import {customElement, state} from 'lit/decorators.js';
 import { styles } from './styles';
 
 import './svg/index'
 import { set } from '../../../store';
+import { Connector, connectW3, getW3, subW3 } from '@w3vm/core';
+import { Status } from '../../../types';
+import { INJECTED_ID } from '../../../w3vm/constants';
 
 @customElement('extension-view')
 export class ExtensionView extends LitElement {
 
   static styles = styles;
+
+  @state() protected _status: Status;
+
+  protected unsubscribe: (()=>void);
+
+  protected _handleWait(wait: Status){
+    this._status = wait
+  }
 
   goBack(){
     set.view('main')
@@ -16,6 +27,49 @@ export class ExtensionView extends LitElement {
 
   close(){
     set.open(false)
+  }
+
+  connect(){
+    const connector = getW3.connectors().find(({ id })=> id === INJECTED_ID) as Connector
+    connectW3({ connector })
+  }
+
+
+  installWallet(){
+    window.open("https://wallet.roninchain.com/", "_blank")
+  }
+
+  constructor(){
+    super()
+    this._status = getW3.wait()
+    this.unsubscribe = subW3.wait(this._handleWait.bind(this))
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback()
+    this.unsubscribe()
+  }
+
+  private statusTemplate(){
+    if(!window.ronin){
+      return html`
+      <p>Ronin Wallet is not installed</p>
+      <div class="button" @click="${this.installWallet}" >Install Wallet</div>
+      `
+    }
+    switch(this._status){
+      case 'Connecting':
+        return 'Requesting Connection'
+      case undefined:
+        if(getW3.address()){
+          set.open(false)
+          return
+        }
+        return html`
+        <p>Failed to connect</p>
+        <div class="button" @click="${this.connect}" >Try Again</div>
+        `
+    }
   }
 
   render() {
@@ -34,7 +88,7 @@ export class ExtensionView extends LitElement {
         </button>
       </span>
       <logo-svg></logo-svg>
-      <p>Requesting Connection</p>
+      ${this.statusTemplate()}
     `;
   }
 }

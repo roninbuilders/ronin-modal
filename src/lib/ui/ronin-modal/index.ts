@@ -15,7 +15,7 @@ export class RoninModal extends LitElement {
 
   @state() protected _open: boolean = false;
 
-  protected unsubscribe: ()=>void;
+  protected unsub_open: ()=>void;
 
   protected _handleOpen(open: boolean){
     this._open = open
@@ -27,7 +27,7 @@ export class RoninModal extends LitElement {
 
   constructor(){
     super()
-    this.unsubscribe = sub.open(this._handleOpen.bind(this))
+    this.unsub_open = sub.open(this._handleOpen.bind(this))
 
     // Font Family
     const fontEl = document.createElement('link');
@@ -36,6 +36,10 @@ export class RoninModal extends LitElement {
     document.head.appendChild(fontEl);
   }
 
+  disconnectedCallback() {
+    super.disconnectedCallback()
+    this.unsub_open()
+  }
 
   render() {
     if(!this._open) return

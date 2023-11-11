@@ -2,7 +2,7 @@ import { css } from "lit";
 
 export const styles = css`
   :host{
-    height: 300px;
+    height: 320px;
     min-width: 250px;
 
     display: flex;
@@ -65,5 +65,25 @@ export const styles = css`
 
   #go-back:hover{
     transform: scale(1.2)
+  }
+
+  .button{
+    border-radius: 14px;
+    height: 40px;
+    background-color: rgba(54,54,54);
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    padding: 5px 15px;
+    cursor:pointer;
+    user-select: none;
+  
+    transition: all .2s ease;
+  }
+  
+  .button:hover{
+    background-color: rgba(64,64,64);
   }
 `

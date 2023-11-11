@@ -65,16 +65,23 @@ export const styles = css`
   justify-content: center;
   align-items: center;
   
-  padding: 10px;
-  border-radius: 24px;
+  border-radius: 14px;
   border: 1px solid rgba(255,255,255,0.3);
 
   margin: 10px 16px 10px 16px;
 }
 
+.svg{
+  background-color: #fff;
+  border: 10px solid #fff;
+  border-radius: 14px;
+}
+
 #qr-code img{
-  position: absolute;
+  margin-top:4px;
   width: 50px;
+  height: auto;
+  position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -55%);
@@ -86,8 +93,8 @@ export const styles = css`
 }
 
 .qr-place-holder{
-  width: 230px;
-  height: 230px;
+  width: 249px;
+  height: 249px;
   background-color: rgba(64,64,64);
   border-radius: 14px;
 
@@ -110,6 +117,5 @@ export const styles = css`
   transform: translate(-50%, -55%);
   width: 65px;
   height: 65px;
-  background-color: #2d2c2c;
 }
 `

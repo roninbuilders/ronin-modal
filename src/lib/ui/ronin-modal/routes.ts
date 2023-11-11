@@ -13,14 +13,9 @@ export class RotesModal extends LitElement {
 
   static styles = styles;
 
-  @state() protected _open: boolean = false;
   @state() protected _view: View = 'main';
 
-  protected unsubscribe: (()=>void)[] = [];
-
-  protected _handleOpen(open: boolean){
-    this._open = open
-  }
+  protected unsubscribe: (()=>void);
 
   private async _handleView(newView: View) {
     // await this.animate(
@@ -46,16 +41,12 @@ export class RotesModal extends LitElement {
 
   constructor(){
     super()
-    const unsubscribeOpen = sub.open(this._handleOpen.bind(this))
-    const unsubscribeView = sub.view(this._handleView.bind(this))
-    this.unsubscribe = [unsubscribeOpen, unsubscribeView]
+    this.unsubscribe = sub.view(this._handleView.bind(this))
   }
 
   disconnectedCallback() {
     super.disconnectedCallback()
-    for(let unsub of this.unsubscribe){
-      unsub()
-    }
+    this.unsubscribe()
   }
 
   getCurrentView() {

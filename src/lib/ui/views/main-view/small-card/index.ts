@@ -35,9 +35,8 @@ export class SmallCard extends LitElement {
     
     const ID = this.type === 'extension' ? INJECTED_ID : WALLETCONNECT_ID
     const connector = getW3.connectors().find(({ id })=> id === ID) as Connector
-
-    connectW3({ connector })
     this.changeView()
+    connectW3({ connector })
   }
 
   render() {

@@ -33,9 +33,10 @@ export class QRCode extends LitElement {
   }
 
   private svgTemplate() {
+    console.log(this.uri)
     return this.uri ? 
       svg`                
-        <svg height=${this.size} width=${this.size}>
+        <svg class="svg" height=${this.size} width=${this.size}>
           ${QrCodeUtil.generate(this.uri, this.size, this.size / 4)}
         </svg>` :
       html`<span class="qr-place-holder" ><div></div></span>`
@@ -66,7 +67,7 @@ export class QRCode extends LitElement {
       </span>
       <div id="qr-code">
         ${this.svgTemplate()}
-        <img src='/logo-on-white.svg' alt='' />
+        <img src='/Ronin_Mark_Blue.svg' alt='' />
       </div>
 
     `;
