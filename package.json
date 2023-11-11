@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@w3vm/core": "^0.0.3",
-    "@w3vm/walletconnect": "^0.0.3",
+    "@w3vm/walletconnect": "^0.0.4",
     "lit": "^2.8.0",
     "qrcode": "^1.5.3",
     "vanilla-cafe": "^0.1.5"
