@@ -1,12 +1,11 @@
-import {LitElement, css, html} from 'lit';
-import {customElement, state} from 'lit/decorators.js';
-import { set } from '../../store';
-import { disconnectW3, getW3, subW3 } from '@w3vm/core';
+import { LitElement, css, html } from "lit"
+import { customElement, state } from "lit/decorators.js"
+import { set } from "../../store"
+import { disconnectW3, getW3, subW3 } from "@w3vm/core"
 
-@customElement('button-modal')
+@customElement("button-modal")
 export class ButtonModal extends LitElement {
-
-  static styles = css`
+	static styles = css`
   :host{
     background-color: #FFFFFF;
     border: 1px solid #222222;
@@ -18,42 +17,42 @@ export class ButtonModal extends LitElement {
   }
   `
 
-  @state() protected _connected: boolean = false;
+	@state() protected _connected: boolean = false
 
-  protected _open(){
-    if(this._connected) return disconnectW3()
-    set.open(true)
-  }
+	protected _open() {
+		if (this._connected) return disconnectW3()
+		set.open(true)
+	}
 
-  private labelTemplate(){
-    const address = getW3.address()
-    if(this._connected && address) return address.slice(0, 6) + '...' + address.slice(-6)
-    else return 'Open Modal'
-  }
-  
-  private _onAddressChange(address?: string){
-    this._connected = Boolean(address)
-  }
+	private labelTemplate() {
+		const address = getW3.address()
+		if (this._connected && address) return address.slice(0, 6) + "..." + address.slice(-6)
+		else return "Open Modal"
+	}
 
-  constructor() {
-    super();
-    this._connected = Boolean(getW3.address());
-    subW3.address(this._onAddressChange.bind(this))
-    this.addEventListener('click', this._open);
-  }
+	private _onAddressChange(address?: string) {
+		this._connected = Boolean(address)
+	}
 
-  disconnectedCallback() {
-    super.disconnectedCallback()
-    this.removeEventListener('click', this._open)
-  }
+	constructor() {
+		super()
+		this._connected = Boolean(getW3.address())
+		subW3.address(this._onAddressChange.bind(this))
+		this.addEventListener("click", this._open)
+	}
 
-  render() {
-    return html`<slot>${this.labelTemplate()}</slot>`;
-  }
+	disconnectedCallback() {
+		super.disconnectedCallback()
+		this.removeEventListener("click", this._open)
+	}
+
+	render() {
+		return html`<slot>${this.labelTemplate()}</slot>`
+	}
 }
 
 declare global {
-  interface HTMLElementTagNameMap {
-    "button-modal": ButtonModal;
-  }
+	interface HTMLElementTagNameMap {
+		"button-modal": ButtonModal
+	}
 }

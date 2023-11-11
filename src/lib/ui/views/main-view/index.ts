@@ -1,21 +1,20 @@
-import {LitElement, html} from 'lit';
-import {customElement} from 'lit/decorators.js';
-import { styles } from './styles';
+import { LitElement, html } from "lit"
+import { customElement } from "lit/decorators.js"
+import { styles } from "./styles"
 
-import './small-card/index'
-import { set } from '../../../store';
+import "./small-card/index"
+import { set } from "../../../store"
 
-@customElement('main-view')
+@customElement("main-view")
 export class MainView extends LitElement {
+	static styles = styles
 
-  static styles = styles;
+	close() {
+		set.open(false)
+	}
 
-  close(){
-    set.open(false)
-  }
-
-  render() {
-    return html`
+	render() {
+		return html`
       <span id="title" >
         <img src='/Ronin_Mark_White.svg' alt='' />
         <p>Connect Wallet</p>
@@ -29,12 +28,12 @@ export class MainView extends LitElement {
         <small-card img="/Ronin_Mark_Blue.svg" text="Browser Extension" type="extension"></small-card>
         <small-card img="/qr1.svg" text="Mobile App" type="mobile" ></small-card>
       </div>
-    `;
-  }
+    `
+	}
 }
 
 declare global {
-  interface HTMLElementTagNameMap {
-    "main-view": MainView;
-  }
+	interface HTMLElementTagNameMap {
+		"main-view": MainView
+	}
 }

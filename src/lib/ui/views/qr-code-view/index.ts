@@ -1,56 +1,55 @@
-import {LitElement, html, svg} from 'lit';
-import {customElement, property, state} from 'lit/decorators.js';
-import { styles } from './styles';
-import { QrCodeUtil } from '../../../utils/qrcode';
-import { subWC } from '@w3vm/walletconnect';
-import { set } from '../../../store';
+import { LitElement, html, svg } from "lit"
+import { customElement, property, state } from "lit/decorators.js"
+import { styles } from "./styles"
+import { QrCodeUtil } from "../../../utils/qrcode"
+import { subWC } from "@w3vm/walletconnect"
+import { set } from "../../../store"
 
-@customElement('qr-code')
+@customElement("qr-code")
 export class QRCode extends LitElement {
+	static styles = styles
 
-  static styles = styles;
+	@property()
+	size: number = 230
 
-  @property()
-  size: number = 230;
-  
-  @state()
-  uri: string = "";
+	@state()
+	uri: string = ""
 
-  protected _handleUri(uri: string){
-    this.uri = uri
-  }
+	protected _handleUri(uri: string) {
+		this.uri = uri
+	}
 
-  protected _unsubscribeUri: ()=>void;
+	protected _unsubscribeUri: () => void
 
-  constructor(){
-    super()
-    this._unsubscribeUri = subWC.uri(this._handleUri.bind(this))
-  }
+	constructor() {
+		super()
+		this._unsubscribeUri = subWC.uri(this._handleUri.bind(this))
+	}
 
-  disconnectedCallback() {
-    super.disconnectedCallback()
-    this._unsubscribeUri()
-  }
+	disconnectedCallback() {
+		super.disconnectedCallback()
+		this._unsubscribeUri()
+	}
 
-  private svgTemplate() {
-    return this.uri ? 
-      svg`                
+	private svgTemplate() {
+		return this.uri
+			? svg`                
         <svg class="svg" height=${this.size} width=${this.size}>
           ${QrCodeUtil.generate(this.uri, this.size, this.size / 4)}
-        </svg>` :
-      html`<span class="qr-place-holder" ><div></div></span>`
-  }
+        </svg>`
+			: html`<span class="qr-place-holder" ><div></div></span>`
+	}
 
-  goBack(){
-    set.view('main')
-  }
+	goBack() {
+		set.view("main")
+	}
 
-  close(){
-    set.open(false)
-  }
+	close() {
+		set.open(false)
+	}
 
-  render() {
-    return html`
+	render() {
+		return html`
       <span id="title" >        
         <button @click="${this.goBack}" id="go-back">
           <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg" data-projection-id="568">
@@ -69,12 +68,12 @@ export class QRCode extends LitElement {
         <img src='/Ronin_Mark_Blue.svg' alt='' />
       </div>
 
-    `;
-  }
+    `
+	}
 }
 
 declare global {
-  interface HTMLElementTagNameMap {
-    "qr-code": QRCode;
-  }
+	interface HTMLElementTagNameMap {
+		"qr-code": QRCode
+	}
 }

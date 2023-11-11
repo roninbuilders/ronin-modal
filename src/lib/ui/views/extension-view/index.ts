@@ -1,79 +1,77 @@
-import {LitElement, html} from 'lit';
-import {customElement, state} from 'lit/decorators.js';
-import { styles } from './styles';
+import { LitElement, html } from "lit"
+import { customElement, state } from "lit/decorators.js"
+import { styles } from "./styles"
 
-import './svg/index'
-import { set } from '../../../store';
-import { Connector, connectW3, getW3, subW3 } from '@w3vm/core';
-import { Status } from '../../../types';
-import { INJECTED_ID } from '../../../w3vm/constants';
+import "./svg/index"
+import { set } from "../../../store"
+import { Connector, connectW3, getW3, subW3 } from "@w3vm/core"
+import { Status } from "../../../types"
+import { INJECTED_ID } from "../../../w3vm/constants"
 
-@customElement('extension-view')
+@customElement("extension-view")
 export class ExtensionView extends LitElement {
+	static styles = styles
 
-  static styles = styles;
+	@state() protected _status: Status
 
-  @state() protected _status: Status;
+	protected unsubscribe: () => void
 
-  protected unsubscribe: (()=>void);
+	protected _handleWait(wait: Status) {
+		this._status = wait
+	}
 
-  protected _handleWait(wait: Status){
-    this._status = wait
-  }
+	goBack() {
+		set.view("main")
+	}
 
-  goBack(){
-    set.view('main')
-  }
+	close() {
+		set.open(false)
+	}
 
-  close(){
-    set.open(false)
-  }
+	connect() {
+		const connector = getW3.connectors().find(({ id }) => id === INJECTED_ID) as Connector
+		connectW3({ connector })
+	}
 
-  connect(){
-    const connector = getW3.connectors().find(({ id })=> id === INJECTED_ID) as Connector
-    connectW3({ connector })
-  }
+	installWallet() {
+		window.open("https://wallet.roninchain.com/", "_blank")
+	}
 
+	constructor() {
+		super()
+		this._status = getW3.wait()
+		this.unsubscribe = subW3.wait(this._handleWait.bind(this))
+	}
 
-  installWallet(){
-    window.open("https://wallet.roninchain.com/", "_blank")
-  }
+	disconnectedCallback() {
+		super.disconnectedCallback()
+		this.unsubscribe()
+	}
 
-  constructor(){
-    super()
-    this._status = getW3.wait()
-    this.unsubscribe = subW3.wait(this._handleWait.bind(this))
-  }
-
-  disconnectedCallback() {
-    super.disconnectedCallback()
-    this.unsubscribe()
-  }
-
-  private statusTemplate(){
-    if(!window.ronin){
-      return html`
+	private statusTemplate() {
+		if (!window.ronin) {
+			return html`
       <p>Ronin Wallet is not installed</p>
       <div class="button" @click="${this.installWallet}" >Install Wallet</div>
       `
-    }
-    switch(this._status){
-      case 'Connecting':
-        return 'Requesting Connection'
-      case undefined:
-        if(getW3.address()){
-          set.open(false)
-          return
-        }
-        return html`
+		}
+		switch (this._status) {
+			case "Connecting":
+				return "Requesting Connection"
+			case undefined:
+				if (getW3.address()) {
+					set.open(false)
+					return
+				}
+				return html`
         <p>Failed to connect</p>
         <div class="button" @click="${this.connect}" >Try Again</div>
         `
-    }
-  }
+		}
+	}
 
-  render() {
-    return html`
+	render() {
+		return html`
       <span id="title" >        
         <button @click="${this.goBack}" id="go-back">
           <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg" data-projection-id="568">
@@ -89,12 +87,12 @@ export class ExtensionView extends LitElement {
       </span>
       <logo-svg></logo-svg>
       ${this.statusTemplate()}
-    `;
-  }
+    `
+	}
 }
 
 declare global {
-  interface HTMLElementTagNameMap {
-    "extension-view": ExtensionView;
-  }
+	interface HTMLElementTagNameMap {
+		"extension-view": ExtensionView
+	}
 }
