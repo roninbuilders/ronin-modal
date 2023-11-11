@@ -1,4 +1,4 @@
-import { ronin, saigon } from './lib/w3vm/chains'
+import { saigon } from './lib/w3vm/chains'
 import {createRoninModal} from './lib/w3vm/main/index'
 
 createRoninModal({
