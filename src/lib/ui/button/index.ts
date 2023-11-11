@@ -1,7 +1,6 @@
 import {LitElement, css, html} from 'lit';
 import {customElement, state} from 'lit/decorators.js';
 import { set } from '../../store';
-import { isMobile } from '../../utils/mobile';
 import { disconnectW3, getW3, subW3 } from '@w3vm/core';
 
 @customElement('button-modal')
@@ -22,7 +21,6 @@ export class ButtonModal extends LitElement {
   @state() protected _connected: boolean = false;
 
   protected _open(){
-    if(isMobile()) return // We open the URI on mobile
     if(this._connected) return disconnectW3()
     set.open(true)
   }

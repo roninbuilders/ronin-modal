@@ -78,7 +78,7 @@ export const styles = css`
 }
 
 #qr-code img{
-  margin-top:4px;
+  margin-top: 4px;
   width: 50px;
   height: auto;
   position: absolute;

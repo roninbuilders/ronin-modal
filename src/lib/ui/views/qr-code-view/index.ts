@@ -33,7 +33,6 @@ export class QRCode extends LitElement {
   }
 
   private svgTemplate() {
-    console.log(this.uri)
     return this.uri ? 
       svg`                
         <svg class="svg" height=${this.size} width=${this.size}>

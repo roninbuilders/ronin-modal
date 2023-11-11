@@ -9,14 +9,14 @@ import '../../ui/ronin-modal/index'
 type RoninOptions = {
   SSR?: boolean
   projectId: string
-  chains: Chain[]
+  chain: Chain
 }
 
-export function createRoninModal({ SSR, projectId, chains }: RoninOptions){
+export function createRoninModal({ SSR, projectId, chain }: RoninOptions){
   const w3props = initW3({
     connectors: [
       roninInjected, 
-      new WalletConnect({ projectId, showQrModal: false, optionalChains: chains.map(({ chainId })=> Number(chainId))})
+      new WalletConnect({ projectId, showQrModal: false, chains: [Number(chain.chainId)]})
     ],
     SSR,
   })

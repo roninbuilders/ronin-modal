@@ -2,9 +2,7 @@ import { css } from 'lit'
 
 export const styles = css`
   #container {
-    margin: 0;
-    padding: 15px;
-
+    display: block;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -12,7 +10,7 @@ export const styles = css`
     right: 0;
 
     width: 100%;
-    height: 100vh;
+    height: 100%;
 
     display: flex;
     justify-content: center;
@@ -34,7 +32,7 @@ export const styles = css`
     font-size: var(--ronin-font-size, 20px);
   }
 
-  #card {
+  .deskCard {
     will-change: transform, opacity;
 
     background: var(--ronin-modal-bg, #2d2c2c);
@@ -59,6 +57,36 @@ export const styles = css`
     }
     100% {
       transform: scale(1);
+    }
+  }
+  
+  .mobileCard {
+    will-change: bottom, opacity;
+
+    background: var(--ronin-modal-bg, #2d2c2c);
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+
+    width: 100%;
+
+    padding: 15px 20px 19px 20px;
+
+    border-top-left-radius: 34px;
+    border-top-right-radius: 34px;
+
+    animation-duration: 1s;
+    animation-name: show-up;
+    animation-fill-mode: backwards;
+  }
+
+  
+  @keyframes show-upn {
+    0% {
+      bottom: -100%;
+    }
+    100% {
+      bottom: 0;
     }
   }
 `

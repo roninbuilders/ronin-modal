@@ -1,5 +1,5 @@
 import {LitElement, html} from 'lit';
-import {customElement, state} from 'lit/decorators.js';
+import {customElement, property, state} from 'lit/decorators.js';
 import { styles } from './styles';
 import { set, sub } from '../../store';
 
@@ -7,11 +7,16 @@ import '../views/main-view/index';
 import '../views/qr-code-view/index';
 import '../views/extension-view/index';
 import './routes';
+import { isMobile } from '../../utils/mobile';
+import { classMap } from 'lit/directives/class-map.js';
 
 @customElement('ronin-modal')
 export class RoninModal extends LitElement {
 
   static styles = styles;
+
+  @property()
+  classes = { deskCard: true, mobileCard: false };
 
   @state() protected _open: boolean = false;
 
@@ -19,6 +24,12 @@ export class RoninModal extends LitElement {
 
   protected _handleOpen(open: boolean){
     this._open = open
+    document.body.style.position = open ? "fixed" : "static";
+    document.body.style.overflowY = open ? "scroll" : "unset";
+    document.body.style.top = open ? "0" : "unset";
+    document.body.style.bottom = open ? "0" : "unset";
+    document.body.style.right = open ? "0" : "unset";
+    document.body.style.left = open ? "0" : "unset";
   }
 
   close(){
@@ -28,6 +39,9 @@ export class RoninModal extends LitElement {
   constructor(){
     super()
     this.unsub_open = sub.open(this._handleOpen.bind(this))
+
+    const mobile = isMobile()
+    this.classes = { deskCard: !mobile, mobileCard: mobile }
 
     // Font Family
     const fontEl = document.createElement('link');
@@ -46,7 +60,7 @@ export class RoninModal extends LitElement {
 
     return html`
       <div id="container" @click="${this.close}" >
-        <div id='card' @click="${(e: Event)=>e.stopPropagation()}" >
+        <div class="${classMap(this.classes)}" @click="${(e: Event)=>e.stopPropagation()}" >
           <routes-modal></routes-modal>
         </div>
       </div>`;
