@@ -24,12 +24,7 @@ export class RoninModal extends LitElement {
 
   protected _handleOpen(open: boolean){
     this._open = open
-    document.body.style.position = open ? "fixed" : "static";
-    document.body.style.overflowY = open ? "scroll" : "unset";
-    document.body.style.top = open ? "0" : "unset";
-    document.body.style.bottom = open ? "0" : "unset";
-    document.body.style.right = open ? "0" : "unset";
-    document.body.style.left = open ? "0" : "unset";
+    document.body.style.position = open && isMobile() ? "fixed" : "static";
   }
 
   close(){
