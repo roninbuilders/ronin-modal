@@ -69,7 +69,7 @@ export class ExtensionView extends LitElement {
 				</div>`
 			case undefined:
 				if (getW3.address()) {
-					set.open(false)
+					this.close()
 					return
 				}
 				return html`

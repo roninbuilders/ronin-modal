@@ -2,7 +2,7 @@ import { LitElement, html } from 'lit'
 import { customElement, state } from 'lit/decorators.js'
 import { styles } from './styles'
 import { View } from '../../types'
-import { set, sub } from '../../store'
+import { sub } from '../../store'
 import { isMobile } from '../../utils/mobile'
 
 import '../views/main-view/index'
@@ -22,10 +22,6 @@ export class RotesModal extends LitElement {
 
 	private async _handleView(newView: View) {
 		this._view = newView
-	}
-
-	close() {
-		set.open(false)
 	}
 
 	constructor() {

@@ -5,6 +5,8 @@ import { QrCodeUtil } from '../../../utils/qrcode'
 import { subWC } from '@w3vm/walletconnect'
 import { set } from '../../../store'
 import { roninBlue } from '../../../assets/roninBlue'
+import { Status } from '../../../types'
+import { getW3, subW3 } from '@w3vm/core'
 
 @customElement('qr-code')
 export class QRCode extends LitElement {
@@ -16,6 +18,15 @@ export class QRCode extends LitElement {
 	@state()
 	uri: string = ''
 
+	protected unsubscribeWait: () => void
+
+	protected _handleWait(wait: Status) {
+		if (getW3.address()) {
+			this.close()
+			return
+		}
+	}
+
 	protected _handleUri(uri: string) {
 		this.uri = uri
 	}
@@ -25,11 +36,13 @@ export class QRCode extends LitElement {
 	constructor() {
 		super()
 		this._unsubscribeUri = subWC.uri(this._handleUri.bind(this))
+		this.unsubscribeWait = subW3.wait(this._handleWait.bind(this))
 	}
 
 	disconnectedCallback() {
 		super.disconnectedCallback()
 		this._unsubscribeUri()
+		this.unsubscribeWait()
 	}
 
 	private svgTemplate() {
