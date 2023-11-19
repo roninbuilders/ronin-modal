@@ -64,8 +64,8 @@ declare global {
 		'ronin-button': RoninButton
 	}
 	namespace JSX {
-    interface IntrinsicElements {
+		interface IntrinsicElements {
 			'ronin-button': Pick<RoninButton, 'label'> | {}
-    }
-  }
+		}
+	}
 }
