@@ -1,0 +1,54 @@
+{
+  "name": "@roninbuilders/modal",
+  "version": "0.0.0",
+  "description": "Framework agnostic Ronin Wallet Modal for Websites",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "watch": "tsup --watch; tsc -w",
+    "build": "tsup",
+    "format": "pnpm dlx @biomejs/biome format src --write",
+    "upload": "pnpm run build && pnpm publish",
+    "clean": "rm -rf .turbo && rm -rf dist"
+  },
+  "type": "module",
+  "author": "Glitch-txs",
+  "license": "MIT",
+  "dependencies": {
+    "@w3vm/core": "0.0.3",
+    "@w3vm/walletconnect": "0.0.4",
+    "lit": "2.8.0",
+    "qrcode": "1.5.3"
+  },
+  "peerDependencies": {
+    "vanilla-cafe": ">=0",
+    "typescript": ">=5"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "keywords": [
+    "wallet",
+    "ronin",
+    "modal",
+    "network",
+    "web3"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/roninbuilders/ronin-modal"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "tsup": "^6.7.0",
+    "@biomejs/biome": "1.3.3",
+    "@types/qrcode": "^1.5.2"
+  }
+}
