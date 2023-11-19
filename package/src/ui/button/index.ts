@@ -1,5 +1,5 @@
 import { LitElement, css, html } from 'lit'
-import { customElement, state } from 'lit/decorators.js'
+import { customElement, property, state } from 'lit/decorators.js'
 import { set } from '../../store'
 import { disconnectW3, getW3, subW3 } from '@w3vm/core'
 
@@ -25,6 +25,7 @@ export class RoninButton extends LitElement {
   `
 
 	@state() protected _connected: boolean = false
+	@property() label: string = 'Open Modal'
 
 	protected _open() {
 		if (this._connected) return disconnectW3()
@@ -34,7 +35,7 @@ export class RoninButton extends LitElement {
 	private labelTemplate() {
 		const address = getW3.address()
 		if (this._connected && address) return address.slice(0, 6) + '...' + address.slice(-6)
-		else return 'Open Modal'
+		else return this.label
 	}
 
 	private _onAddressChange(address?: string) {
@@ -64,7 +65,7 @@ declare global {
 	}
 	namespace JSX {
     interface IntrinsicElements {
-			'ronin-button': RoninButton
+			'ronin-button': Pick<RoninButton, 'label'> | {}
     }
   }
 }

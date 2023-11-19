@@ -7,6 +7,7 @@
     "preinstall": "npx only-allow pnpm",
     "watch": "turbo run watch --filter=./package",
     "dev:html": "turbo run dev --filter=./examples/html",
+    "dev:react": "turbo run dev --filter=./examples/react",
     "build": "turbo run build",
     "format": "turbo run format --filter=./package",
     "build:package": "turbo run build --filter=./package",
