@@ -35,7 +35,7 @@ export const styles = css`
   .deskCard {
     will-change: transform, opacity;
 
-    background: var(--ronin-modal-bg, #2d2c2c);
+    background: var(--ronin-modal-bg, #1a1c23);
     color: #fff;
 
     max-width: 340px;
@@ -44,7 +44,7 @@ export const styles = css`
     margin: 10px;
     padding: 15px 20px 19px 20px;
 
-    border-radius: 24px;
+    border-radius: 20px;
 
     animation-duration: 0.2s;
     animation-name: zoom-in;
@@ -63,7 +63,7 @@ export const styles = css`
   .mobileCard {
     will-change: bottom, opacity;
 
-    background: var(--ronin-modal-bg, #2d2c2c);
+    background: var(--ronin-modal-bg, #1a1c23);
     position: absolute;
     bottom: 0;
     color: #fff;

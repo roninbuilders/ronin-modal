@@ -3,6 +3,7 @@ import { css } from "lit"
 export const styles = css`
   svg{
     width: 140px;
+    padding-bottom: 10px;
   }
 `
 

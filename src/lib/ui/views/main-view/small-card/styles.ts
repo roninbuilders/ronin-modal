@@ -8,7 +8,6 @@ export const styles = css`
 #card{
   border-radius: 14px;
   height: 50px;
-  background-color: rgba(54,54,54);
 
   display: flex;
   justify-content: space-between;
@@ -22,7 +21,7 @@ export const styles = css`
 }
 
 #card:hover{
-  background-color: rgba(64,64,64);
+  background-color: #21232c;
 }
 
 img{

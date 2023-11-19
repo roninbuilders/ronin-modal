@@ -7,14 +7,21 @@ import { disconnectW3, getW3, subW3 } from "@w3vm/core"
 export class ButtonModal extends LitElement {
 	static styles = css`
   :host{
-    background-color: #FFFFFF;
-    border: 1px solid #222222;
-    color: #222222;
-    border-radius: 8px;
+		font-weight: 500;
+		user-select: none;
+    background-color: #2662d9;
+    color: #e2e4e9;
+		font-family: -apple-system,BlinkMacSystemFont,Inter,system-ui,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+    border-radius: 10px;
     cursor: pointer;
-    font-family: inherit;
     padding: 13px;
+
+		transition: cubic-bezier(0.25,0.1,0.25,1) 250ms all;
   }
+
+	:host(:hover){
+		background-color: #0f2757;
+	}
   `
 
 	@state() protected _connected: boolean = false

@@ -2,23 +2,23 @@ import { css } from "lit"
 
 export const styles = css`
   :host{
-    height: 320px;
-    min-width: 250px;
+    height: 290px;
+    min-width: 260px;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 13px;
     align-items: center;
   }
 
   #title{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
-    width: 100%;
-  
-    margin-right: 1px;
+    width: 90%;
+    padding-top: 4px;
   }
   
   #title img{
@@ -45,7 +45,7 @@ export const styles = css`
     transition: all .1s ease;
   }
   
-  # close:hover{
+  #close:hover{
     transform: scale(1.2)
   }
 
@@ -67,10 +67,15 @@ export const styles = css`
     transform: scale(1.2)
   }
 
+  .install-extension{
+    padding-top:14px;
+  }
+
   .button{
-    border-radius: 14px;
-    height: 40px;
-    background-color: rgba(54,54,54);
+    font-size: 18px;
+    border-radius: 10px;
+    height: 34px;
+    background-color: #282a39;
   
     display: flex;
     justify-content: center;
@@ -84,6 +89,26 @@ export const styles = css`
   }
   
   .button:hover{
-    background-color: rgba(64,64,64);
+    background-color: #2d3142;
+  }
+
+  .text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .description{
+    width: 200px;
+    height: 44px;
+    text-align: center;
+    font-size: 16px;
+    opacity: 0.7;
+  }
+
+  .fail-svg{
+    filter: grayscale(1);
   }
 `

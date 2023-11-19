@@ -30,6 +30,7 @@ export class RoninModal extends LitElement {
 
 	close() {
 		set.open(false)
+		set.view("main")
 	}
 
 	constructor() {

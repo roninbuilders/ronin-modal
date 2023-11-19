@@ -11,6 +11,7 @@ export class MainView extends LitElement {
 
 	close() {
 		set.open(false)
+		set.view("main")
 	}
 
 	render() {
