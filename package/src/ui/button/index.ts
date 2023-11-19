@@ -62,4 +62,9 @@ declare global {
 	interface HTMLElementTagNameMap {
 		'ronin-button': RoninButton
 	}
+	namespace JSX {
+    interface IntrinsicElements {
+			'ronin-button': RoninButton
+    }
+  }
 }

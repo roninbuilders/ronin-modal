@@ -60,9 +60,4 @@ declare global {
 	interface HTMLElementTagNameMap {
 		'ronin-modal': RoninModal
 	}
-	namespace JSX {
-    interface IntrinsicElements {
-      'ronin-modal': RoninModal
-    }
-  }
 }
