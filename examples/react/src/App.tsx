@@ -7,7 +7,7 @@ createRoninModal({
 })
 
 function App() {
-  return <ronin-button label='Open Modal'/>
+  return <ronin-button/>
 }
 
 export default App
