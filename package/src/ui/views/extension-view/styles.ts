@@ -10,6 +10,7 @@ export const styles = css`
     justify-content: center;
     gap: 13px;
     align-items: center;
+    padding: 8px;
   }
 
   #title{
@@ -17,12 +18,14 @@ export const styles = css`
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    width: 90%;
+    width: 100%;
     padding-top: 4px;
+    padding-left: 5px;
   }
   
-  #title img{
-    width: 20px;
+  #title .title{
+    margin-left: 13px;
+    font-size: 22px;
   }
   
   #title p{
@@ -35,7 +38,8 @@ export const styles = css`
     background: none;
     border: none;
     color: #fff;
-    padding: 0;
+    padding: 9px;
+    border-radius: 7px;
     margin: 0;
     cursor: pointer;
   
@@ -46,7 +50,7 @@ export const styles = css`
   }
   
   #close:hover{
-    transform: scale(1.2)
+    background-color: #21232c;
   }
 
   #go-back{
@@ -73,9 +77,9 @@ export const styles = css`
   }
 
   .button{
-    font-size: 18px;
+    font-size: 17px;
+    height: 30px;
     border-radius: 10px;
-    height: 34px;
     background-color: #282a39;
   
     display: flex;
@@ -83,6 +87,7 @@ export const styles = css`
     align-items: center;
   
     padding: 5px 15px;
+    margin-top:4px;
     cursor:pointer;
     user-select: none;
   
@@ -111,5 +116,10 @@ export const styles = css`
 
   .fail-svg{
     filter: grayscale(1);
+  }
+  
+  .retry-svg{
+    width:16px;
+    margin-bottom: 2px;
   }
 `

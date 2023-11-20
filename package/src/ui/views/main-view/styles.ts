@@ -31,9 +31,10 @@ export const styles = css`
   width: 100%;
 }
 
-#title .ronin-white{
+#title .ronin-white {
   width: 16px;
   height: auto;
+  margin-bottom: 10px;
 }
 
 #title p{
@@ -46,12 +47,17 @@ export const styles = css`
   background: none;
   border: none;
   color: #fff;
-  padding: 0;
+  padding: 7px;
+  border-radius: 10px;
   margin: 0;
   cursor: pointer;
 
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#close:hover{
+  background-color: #21232c;
 }
 `

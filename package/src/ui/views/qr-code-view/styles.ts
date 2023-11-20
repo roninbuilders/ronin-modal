@@ -7,7 +7,7 @@ export const styles = css`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 
   padding-bottom: 10px;
   padding-top: 6px;
@@ -19,12 +19,14 @@ export const styles = css`
   align-items: center;
   gap: 10px;
   width: 100%;
+  text-align: center;
 
   margin-right: 1px;
 }
 
-#title img{
-  width: 20px;
+#title .title{
+  margin-left: 11px;
+  font-size: 22px;
 }
 
 #title p{
@@ -36,13 +38,18 @@ export const styles = css`
   background: none;
   border: none;
   color: #fff;
-  padding: 0;
+  padding: 9px;
+  border-radius: 7px;
   margin: 0;
   cursor: pointer;
 
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#close:hover{
+  background-color: #21232c;
 }
 
 #go-back{
@@ -117,5 +124,13 @@ export const styles = css`
   transform: translate(-50%, -55%);
   width: 65px;
   height: 65px;
+}
+
+.description{
+  width: 200px;
+  height: 46px;
+  text-align: center;
+  font-size: 16px;
+  opacity: 0.7;
 }
 `

@@ -7,6 +7,7 @@ import { set } from '../../../store'
 import { Connector, connectW3, getW3, subW3 } from '@w3vm/core'
 import { Status } from '../../../types'
 import { INJECTED_ID } from '../../../w3vm/constants'
+import { retry } from '../../../assets/try'
 
 @customElement('extension-view')
 export class ExtensionView extends LitElement {
@@ -76,7 +77,7 @@ export class ExtensionView extends LitElement {
       	<logo-svg class="fail-svg"></logo-svg>
 				<div class="text">
 					<span>Failed to connect</span>
-					<div class="button" @click="${this.connect}" >Try Again</div>
+					<div class="button" @click="${this.connect}">${retry} Try Again</div>
 				</div>
         `
 		}
@@ -90,6 +91,7 @@ export class ExtensionView extends LitElement {
             <path d="M8 1L1 8L8 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
         </button>
+        <span class="title" >Ronin Wallet</span>
         <button @click="${this.close}" id="close">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" data-projection-id="467">
             <path d="M1 13L13 1M1 1L13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
