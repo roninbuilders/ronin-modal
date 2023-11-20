@@ -77,8 +77,8 @@ importers:
         specifier: 0.0.3
         version: 0.0.3(typescript@5.2.2)
       '@w3vm/walletconnect':
-        specifier: 0.0.4
-        version: 0.0.4(@w3vm/core@0.0.3)(react@18.2.0)(typescript@5.2.2)(vanilla-cafe@0.1.5)
+        specifier: 0.0.5
+        version: 0.0.5(@w3vm/core@0.0.3)(react@18.2.0)(typescript@5.2.2)(vanilla-cafe@0.1.5)
       lit:
         specifier: 2.8.0
         version: 2.8.0
@@ -1635,8 +1635,8 @@ packages:
       vanilla-cafe: 0.1.5(typescript@5.2.2)
     dev: false
 
-  /@w3vm/walletconnect@0.0.4(@w3vm/core@0.0.3)(react@18.2.0)(typescript@5.2.2)(vanilla-cafe@0.1.5):
-    resolution: {integrity: sha512-AtPxQ3JVznLSy5Uwng9XqkJFGCzRy9FIO6C+D/Tzbk+v/+Rjpg486Y5Bw0cB2Rl9kJicw5MnlazJWIXqBs3V1g==}
+  /@w3vm/walletconnect@0.0.5(@w3vm/core@0.0.3)(react@18.2.0)(typescript@5.2.2)(vanilla-cafe@0.1.5):
+    resolution: {integrity: sha512-9EM/CXqTMYCDn+2VHpRiOC72EWvbPfx5S9tynEE553PX0J/0f2w1Fl4GqUVSIq461NfUix1492ObKeOrqOffWA==}
     peerDependencies:
       '@w3vm/core': '>=0'
       typescript: '>=5'
