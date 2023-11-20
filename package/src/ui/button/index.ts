@@ -1,7 +1,7 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property, state } from 'lit/decorators.js'
 import { set } from '../../store'
-import { Connector, connectW3, disconnectW3, getW3, setW3, subW3 } from '@w3vm/core'
+import { Connector, connectW3, disconnectW3, getW3, subW3 } from '@w3vm/core'
 import { isMobile } from '../../utils/mobile'
 import { WALLETCONNECT_ID } from '../../w3vm/constants'
 
