@@ -1,7 +1,9 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property, state } from 'lit/decorators.js'
 import { set } from '../../store'
-import { disconnectW3, getW3, subW3 } from '@w3vm/core'
+import { Connector, connectW3, disconnectW3, getW3, subW3 } from '@w3vm/core'
+import { isMobile } from '../../utils/mobile'
+import { WALLETCONNECT_ID } from '../../w3vm/constants'
 
 @customElement('ronin-button')
 export class RoninButton extends LitElement {
@@ -29,6 +31,10 @@ export class RoninButton extends LitElement {
 
 	protected _open() {
 		if (this._connected) return disconnectW3()
+		if(isMobile()){
+			const connector = getW3.connectors().find(({ id }) => id === WALLETCONNECT_ID) as Connector
+			connectW3({ connector })
+		}
 		set.open(true)
 	}
 

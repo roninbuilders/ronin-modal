@@ -20,6 +20,7 @@ if (typeof window !== 'undefined') {
 
 	const modal = document.createElement('ronin-modal')
 	document.body.insertAdjacentElement('beforeend', modal)
+	document.body.style.width = '100%'
 }
 
 export function createRoninModal({ SSR, projectId, chain }: RoninOptions) {

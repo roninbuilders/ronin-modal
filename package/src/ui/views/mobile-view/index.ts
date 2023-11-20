@@ -71,7 +71,7 @@ export class MobileView extends LitElement {
 				}
 				return html`
 					<span class="description" >
-						Accept the connection request in the mobile wallet.
+						Failed to connect
 					</span>
           <div class="button" @click="${this.connect}">${retry} Try Again</div>
         `

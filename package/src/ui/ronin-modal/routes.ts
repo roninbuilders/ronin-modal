@@ -9,8 +9,6 @@ import '../views/main-view/index'
 import '../views/qr-code-view/index'
 import '../views/extension-view/index'
 import '../views/mobile-view/index'
-import { Connector, connectW3, getW3 } from '@w3vm/core'
-import { WALLETCONNECT_ID } from '../../w3vm/constants'
 
 @customElement('routes-modal')
 export class RotesModal extends LitElement {
@@ -36,8 +34,6 @@ export class RotesModal extends LitElement {
 
 	getCurrentView() {
 		if (isMobile()) {
-			const connector = getW3.connectors().find(({ id }) => id === WALLETCONNECT_ID) as Connector
-			connectW3({ connector })
 			return html`<mobile-view></mobile-view>`
 		}
 		switch (this._view) {
