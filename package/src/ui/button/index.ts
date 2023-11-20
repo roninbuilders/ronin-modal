@@ -31,7 +31,7 @@ export class RoninButton extends LitElement {
 
 	protected _open() {
 		if (this._connected) return disconnectW3()
-		if(isMobile()){
+		if (isMobile()) {
 			const connector = getW3.connectors().find(({ id }) => id === WALLETCONNECT_ID) as Connector
 			connectW3({ connector })
 		}
