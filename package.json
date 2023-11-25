@@ -5,14 +5,14 @@
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "watch": "turbo run watch --filter=./package",
+    "watch": "turbo run watch --filter=./packages",
     "dev:html": "turbo run dev --filter=./examples/html",
     "dev:react": "turbo run dev --filter=./examples/react",
     "build": "turbo run build",
-    "format": "turbo run format --filter=./package",
-    "build:package": "turbo run build --filter=./package",
-    "upload:package": "turbo run upload --filter=./package",
-    "clean": "turbo run clean --filter=./package"
+    "format": "turbo run format --filter=./packages",
+    "build:packages": "turbo run build --filter=./packages",
+    "upload:packages": "turbo run upload --filter=./packages",
+    "clean": "turbo run clean --filter=./packages"
   },
   "devDependencies": {
     "turbo": "^1.10.15"

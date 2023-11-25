@@ -1,0 +1,83 @@
+import { LitElement, html, svg } from 'lit'
+import { customElement, property, state } from 'lit/decorators.js'
+import { styles } from './styles'
+import { QrCodeUtil } from '../../../utils/qrcode'
+import { subWC } from '@w3vm/walletconnect'
+import { roninBlue } from '../../../assets/roninBlue'
+import { getW3, subW3 } from '@w3vm/core'
+import { closeModal, goToMain } from '../../../utils/functions'
+
+@customElement('qr-code')
+export class QRCode extends LitElement {
+	static styles = styles
+
+	@property()
+	size: number = 230
+
+	@state()
+	uri: string = ''
+
+	protected _unsubscribeWait: () => void
+
+	protected _handleWait() {
+		if(getW3.address()) closeModal()
+	}
+
+	protected _handleUri(uri: string) {
+		this.uri = uri
+	}
+
+	protected _unsubscribeUri: () => void
+
+	constructor() {
+		super()
+		this._unsubscribeUri = subWC.uri(this._handleUri.bind(this))
+		this._unsubscribeWait = subW3.wait(this._handleWait.bind(this))
+	}
+
+	disconnectedCallback() {
+		super.disconnectedCallback()
+		this._unsubscribeUri()
+		this._unsubscribeWait()
+	}
+
+	private svgTemplate() {
+		return this.uri
+			? svg`                
+        <svg class="svg" height=${this.size} width=${this.size}>
+          ${QrCodeUtil.generate(this.uri, this.size, this.size / 4)}
+        </svg>`
+			: html`<span class="qr-place-holder" ><div></div></span>`
+	}
+
+	render() {
+		return html`
+      <span id="title" >        
+        <button @click="${goToMain}" id="go-back">
+          <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg" data-projection-id="568">
+            <path d="M8 1L1 8L8 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+        <span class="title" >Ronin Wallet</span>
+        <button @click="${closeModal}" id="close">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" data-projection-id="467">
+            <path d="M1 13L13 1M1 1L13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+          </svg>
+        </button>
+      </span>
+      <div id="qr-code">
+        ${this.svgTemplate()}
+        ${roninBlue}
+      </div>
+			<span class="description">
+				Scan this QR Code with your phone
+			</span>
+    `
+	}
+}
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'qr-code': QRCode
+	}
+}
