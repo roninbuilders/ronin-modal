@@ -5,7 +5,7 @@ import { GetAccountReturnType, getAccount, watchAccount } from '@wagmi/core'
 import './svg/index'
 import { retry } from '../../../assets/try'
 import { closeModal, connectModal, goToMain } from '../../../utils/functions'
-import { INJECTED_ID } from '../../../main/constants'
+import { INJECTED_ID } from '../../../utils/constants'
 import { get } from '../../../store'
 
 @customElement('extension-view')

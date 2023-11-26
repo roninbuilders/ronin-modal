@@ -16,7 +16,8 @@ export const config = createRoninModal({
   metadata: { 
     name: 'Example', 
     description: 'Example website', 
-    url: 'https://example.com', 
+    url: 'https://example.com',
+    icons: []
   },
 })
 

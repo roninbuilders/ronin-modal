@@ -5,7 +5,7 @@ import { QrCodeUtil } from '../../../utils/qrcode'
 import { roninBlue } from '../../../assets/roninBlue'
 import { closeModal, goToMain } from '../../../utils/functions'
 import { GetAccountReturnType, getAccount, getConnectors, watchAccount } from '@wagmi/core'
-import { WALLETCONNECT_ID } from '../../../main/constants'
+import { WALLETCONNECT_ID } from '../../../utils/constants'
 import { get } from '../../../store'
 
 @customElement('qr-code')

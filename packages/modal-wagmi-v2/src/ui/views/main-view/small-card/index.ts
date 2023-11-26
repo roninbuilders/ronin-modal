@@ -4,7 +4,7 @@ import { styles } from './styles'
 import { set } from '../../../../store'
 import { connectModal } from '../../../../utils/functions'
 import type { ConnectorID } from '../../../../types'
-import { INJECTED_ID, WALLETCONNECT_ID } from '../../../../main/constants'
+import { INJECTED_ID, WALLETCONNECT_ID } from '../../../../utils/constants'
 
 @customElement('small-card')
 export class SmallCard extends LitElement {
