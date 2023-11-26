@@ -5,7 +5,7 @@ import { roninBlue } from '../../../assets/roninBlue'
 import { retry } from '../../../assets/try'
 import { closeModal, connectModal } from '../../../utils/functions'
 import { GetAccountReturnType, getAccount, getConnectors, watchAccount } from '@wagmi/core'
-import { WALLETCONNECT_ID } from '../../../main/constants'
+import { WALLETCONNECT_ID } from '../../../utils/constants'
 import { get } from '../../../store'
 
 @customElement('mobile-view')
@@ -35,8 +35,6 @@ export class MobileView extends LitElement {
 		this._unwatchAccount = watchAccount(config, {
 			onChange: this._handleStatus.bind(this)
 		})
-		const wc = getConnectors(config).find(({id})=> id === WALLETCONNECT_ID)
-		wc?.emitter.on('message',this._handleUri.bind(this))
 	}
 
 	disconnectedCallback() {

@@ -7,6 +7,7 @@ type ModalStore = {
 	view: View
 	config?: Config 
 	projectId: string
+  uri: string
 	metadata?: Record<string, string>
 }
 
@@ -15,6 +16,7 @@ export const { set, get, sub } = createStore<ModalStore>({
 	view: 'main',
 	config: undefined,
 	projectId: '',
-	metadata: undefined
+	metadata: undefined,
+  uri: ''
 })
 
