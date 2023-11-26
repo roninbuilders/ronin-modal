@@ -6,8 +6,8 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "watch": "turbo run watch --filter=./packages",
-    "dev:html": "turbo run dev --filter=./examples/html",
-    "dev:react": "turbo run dev --filter=./examples/react",
+    "dev:wagmi": "turbo run dev --filter=./examples/wagmi/react",
+    "dev:w3vm": "turbo run dev --filter=./examples/w3vm/react",
     "build": "turbo run build",
     "format": "turbo run format --filter=./packages",
     "build:packages": "turbo run build --filter=./packages",

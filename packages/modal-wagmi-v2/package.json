@@ -23,9 +23,9 @@
     "vanilla-cafe": "0.1.5"
   },
   "peerDependencies": {
-    "@wagmi/core": "2.0.0-beta.5",
-    "@wagmi/connectors": "4.0.0-beta.5",
-    "viem": "2.0.0-beta.6",
+    "@wagmi/core": ">=2.0.0-beta",
+    "@wagmi/connectors": ">=4.0.0-beta",
+    "viem": ">=2.0.0-beta",
     "typescript": ">=5"
   },
   "peerDependenciesMeta": {

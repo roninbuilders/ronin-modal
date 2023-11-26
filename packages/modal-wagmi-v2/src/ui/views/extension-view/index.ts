@@ -30,7 +30,7 @@ export class ExtensionView extends LitElement {
 		if(!config) throw Error("Config not found")
 		this._status = getAccount(config).status
 		this._unwatchAccount = watchAccount(config, {
-			onChange: this._handleStatus
+			onChange: this._handleStatus.bind(this)
 		})
 	}
 

@@ -38,10 +38,10 @@ export class QRCode extends LitElement {
 		if(!config) throw Error("Config not found")
 		this._status = getAccount(config).status
 		this._unwatchAccount = watchAccount(config, {
-			onChange: this._handleStatus
+			onChange: this._handleStatus.bind(this)
 		})
 		const wc = getConnectors(config).find(({id})=> id === WALLETCONNECT_ID)
-		wc?.emitter.on('message',this._handleUri)
+		wc?.emitter.on('message',this._handleUri.bind(this))
 	}
 
 	disconnectedCallback() {
@@ -50,7 +50,7 @@ export class QRCode extends LitElement {
 		const config = get.config()
 		if(!config) throw Error("Config not found")
 		const wc = getConnectors(config).find(({id})=> id === WALLETCONNECT_ID)
-		wc?.emitter.off('message',this._handleUri)
+		wc?.emitter.off('message',this._handleUri.bind(this))
 	}
 
 	private svgTemplate() {

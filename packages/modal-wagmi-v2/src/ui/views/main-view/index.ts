@@ -24,8 +24,8 @@ export class MainView extends LitElement {
         </button>
       </span>
       <div id="card-container" >
-        <small-card text="Browser Extension" type="extension">${roninBlue}</small-card>
-        <small-card text="Mobile App" type="mobile" >${qrImg}</small-card>
+        <small-card text="Browser Extension" type="injected">${roninBlue}</small-card>
+        <small-card text="Mobile App" type="walletConnect" >${qrImg}</small-card>
       </div>
     `
 	}
