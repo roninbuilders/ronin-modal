@@ -34,7 +34,6 @@ export const styles = css`
 #title .ronin-white {
   width: 16px;
   height: auto;
-  margin-bottom: 10px;
 }
 
 #title p{
