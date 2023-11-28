@@ -1,3 +1,39 @@
+# Run the monorepo
+
+```sh
+pnpm install
+```
+
+```sh
+pnpm run build
+```
+
+1. open two terminals
+
+in the first one type:
+
+```sh
+cd packages/modal-w3vm
+pnpm run watch
+```
+or
+```sh
+cd packages/modal-wagmi
+pnpm run watch
+```
+
+in the second terminal run
+
+```sh
+pnpm run dev:w3vm
+```
+or
+```sh
+pnpm run dev:wagmi
+```
+
+Now you can open localhost and see the changes in the package reflected on these examples.
+
 # Ronin Modal
 
 Ronin Modal is a framework agnostic UI library that simplifies the integration of the Ronin Wallet connection with websites.
