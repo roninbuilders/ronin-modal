@@ -2,6 +2,8 @@ import { css } from 'lit'
 
 export const styles = css`
 :host{
+  display: block;
+  width: 120px;
   font-weight: 500;
   user-select: none;
   background-color: #2662d9;
@@ -10,6 +12,11 @@ export const styles = css`
   border-radius: 10px;
   cursor: pointer;
   padding: 13px;
+  
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 100%;
 
   transition: cubic-bezier(0.25,0.1,0.25,1) 250ms all;
 }

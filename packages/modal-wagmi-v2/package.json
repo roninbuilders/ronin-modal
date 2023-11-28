@@ -1,6 +1,6 @@
 {
   "name": "@roninbuilders/modal-wagmi",
-  "version": "0.0.0",
+  "version": "0.0.10",
   "description": "Ronin Wallet Modal with Wagmi v2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -20,7 +20,8 @@
   "dependencies": {
     "lit": "2.8.0",
     "qrcode": "1.5.3",
-    "vanilla-cafe": "0.1.5"
+    "vanilla-cafe": "0.1.5",
+    "@wehmoen/rnsts": "1.0.1"
   },
   "peerDependencies": {
     "@wagmi/core": ">=2.0.0-beta",

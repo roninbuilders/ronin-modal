@@ -16,7 +16,7 @@ export class SmallCard extends LitElement {
 	type?: ConnectorID
 
 	changeView() {
-		if(this.type) connectModal(this.type)
+		if (this.type) connectModal(this.type)
 		switch (this.type) {
 			case INJECTED_ID:
 				set.view('extension')

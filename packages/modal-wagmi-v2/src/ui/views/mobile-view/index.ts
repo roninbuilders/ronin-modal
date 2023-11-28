@@ -15,14 +15,14 @@ export class MobileView extends LitElement {
 	@state() protected _status: GetAccountReturnType['status']
 	@state() uri: string = ''
 
-	protected _handleStatus({status}:{status: GetAccountReturnType['status']}) {
+	protected _handleStatus({ status }: { status: GetAccountReturnType['status'] }) {
 		this._status = status
 	}
 
-	protected _unwatchAccount: ()=>void
+	protected _unwatchAccount: () => void
 
-	protected _handleUri({ type, data }: { type: string, data?: unknown }) {
-		if(type === 'display_uri'){
+	protected _handleUri({ type, data }: { type: string; data?: unknown }) {
+		if (type === 'display_uri') {
 			this.uri = data as string
 		}
 	}
@@ -30,10 +30,10 @@ export class MobileView extends LitElement {
 	constructor() {
 		super()
 		const config = get.config()
-		if(!config) throw Error("Config not found")
+		if (!config) throw Error('Config not found')
 		this._status = getAccount(config).status
 		this._unwatchAccount = watchAccount(config, {
-			onChange: this._handleStatus.bind(this)
+			onChange: this._handleStatus.bind(this),
 		})
 	}
 
@@ -41,9 +41,9 @@ export class MobileView extends LitElement {
 		super.disconnectedCallback()
 		this._unwatchAccount()
 		const config = get.config()
-		if(!config) throw Error("Config not found")
-		const wc = getConnectors(config).find(({id})=> id === WALLETCONNECT_ID)
-		wc?.emitter.off('message',this._handleUri.bind(this))
+		if (!config) throw Error('Config not found')
+		const wc = getConnectors(config).find(({ id }) => id === WALLETCONNECT_ID)
+		wc?.emitter.off('message', this._handleUri.bind(this))
 	}
 
 	private statusTemplate() {
@@ -64,7 +64,7 @@ export class MobileView extends LitElement {
 					<span class="description" >
 						Failed to connect
 					</span>
-          <div class="button" @click="${()=>connectModal(WALLETCONNECT_ID)}">${retry} Try Again</div>
+          <div class="button" @click="${() => connectModal(WALLETCONNECT_ID)}">${retry} Try Again</div>
         `
 		}
 	}

@@ -18,6 +18,13 @@ if (typeof window !== 'undefined') {
 
 	document.head.appendChild(fontEl)
 
+	const fontPreload = document.createElement('link')
+	fontPreload.rel = 'preload'
+	fontPreload.as = 'style'
+	fontPreload.href = 'https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap'
+
+	document.head.appendChild(fontPreload)
+
 	const modal = document.createElement('ronin-modal')
 	document.body.insertAdjacentElement('beforeend', modal)
 	document.body.style.width = '100%'

@@ -63,7 +63,7 @@ export class ExtensionView extends LitElement {
       	<logo-svg class="fail-svg"></logo-svg>
 				<div class="text">
 					<span>Failed to connect</span>
-					<div class="button" @click="${()=>connectModal(INJECTED_ID)}">${retry} Try Again</div>
+					<div class="button" @click="${() => connectModal(INJECTED_ID)}">${retry} Try Again</div>
 				</div>
         `
 		}

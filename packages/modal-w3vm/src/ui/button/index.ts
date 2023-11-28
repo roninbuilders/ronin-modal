@@ -1,30 +1,44 @@
 import { LitElement, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { getAddress, openModal } from '../../utils/functions'
+import { loadENS, openModal } from '../../utils/functions'
 import { subW3 } from '@w3vm/core'
 import { styles } from './styles'
+import { sub } from '../../store'
 
 @customElement('ronin-button')
 export class RoninButton extends LitElement {
 	static styles = styles
 
 	@property() label: string = 'Open Modal'
+	@property() user: string | undefined
 
 	protected labelTemplate() {
-		const address = getAddress()
-		if (address) return address
+		if (this.user) return this.user
 		else return this.label
 	}
 
-	protected _onAddressChange() {
-		this.requestUpdate()
+	protected onAddress(address: string | undefined) {
+		if (!address) {
+			this.user = undefined
+			return
+		}
+		this.user = address.slice(0, 6) + '...' + address.slice(-6)
+		loadENS()
 	}
 
-	protected _unsubscribeAddress: ()=>void
+	protected onENS(ens: string | undefined) {
+		if (ens) {
+			this.user = ens
+		}
+	}
+
+	protected _unsubscribeAddress: () => void
+	protected _unsubscribeENS: () => void
 
 	constructor() {
 		super()
-		this._unsubscribeAddress = subW3.address(this._onAddressChange.bind(this))
+		this._unsubscribeAddress = subW3.address(this.onAddress.bind(this))
+		this._unsubscribeENS = sub.ens(this.onENS.bind(this))
 		this.addEventListener('click', openModal)
 	}
 
@@ -32,6 +46,7 @@ export class RoninButton extends LitElement {
 		super.disconnectedCallback()
 		this.removeEventListener('click', openModal)
 		this._unsubscribeAddress()
+		this._unsubscribeENS()
 	}
 
 	render() {

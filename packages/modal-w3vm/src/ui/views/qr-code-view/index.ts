@@ -20,7 +20,7 @@ export class QRCode extends LitElement {
 	protected _unsubscribeWait: () => void
 
 	protected _handleWait() {
-		if(getW3.address()) closeModal()
+		if (getW3.address()) closeModal()
 	}
 
 	protected _handleUri(uri: string) {

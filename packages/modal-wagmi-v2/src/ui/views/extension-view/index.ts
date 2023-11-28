@@ -14,7 +14,7 @@ export class ExtensionView extends LitElement {
 
 	@state() protected _status: GetAccountReturnType['status']
 
-	protected _handleStatus({status}:{status: GetAccountReturnType['status']}) {
+	protected _handleStatus({ status }: { status: GetAccountReturnType['status'] }) {
 		this._status = status
 	}
 
@@ -22,15 +22,15 @@ export class ExtensionView extends LitElement {
 		window.open('https://wallet.roninchain.com/', '_blank')
 	}
 
-	protected _unwatchAccount: ()=>void
+	protected _unwatchAccount: () => void
 
 	constructor() {
 		super()
 		const config = get.config()
-		if(!config) throw Error("Config not found")
+		if (!config) throw Error('Config not found')
 		this._status = getAccount(config).status
 		this._unwatchAccount = watchAccount(config, {
-			onChange: this._handleStatus.bind(this)
+			onChange: this._handleStatus.bind(this),
 		})
 	}
 
@@ -66,7 +66,7 @@ export class ExtensionView extends LitElement {
       	<logo-svg class="fail-svg"></logo-svg>
 				<div class="text">
 					<span>Failed to connect</span>
-					<div class="button" @click="${()=>connectModal(INJECTED_ID)}">${retry} Try Again</div>
+					<div class="button" @click="${() => connectModal(INJECTED_ID)}">${retry} Try Again</div>
 				</div>
         `
 		}

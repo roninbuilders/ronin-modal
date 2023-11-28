@@ -20,14 +20,14 @@ export class QRCode extends LitElement {
 	@state()
 	uri: string = ''
 
-	protected _handleStatus({status}:{status: GetAccountReturnType['status']}) {
-		if(status === 'connected') closeModal()
+	protected _handleStatus({ status }: { status: GetAccountReturnType['status'] }) {
+		if (status === 'connected') closeModal()
 	}
 
-	protected _unwatchAccount: ()=>void
+	protected _unwatchAccount: () => void
 
-	protected _handleUri({ type, data }: { type: string, data?: unknown }) {
-		if(type === 'display_uri'){
+	protected _handleUri({ type, data }: { type: string; data?: unknown }) {
+		if (type === 'display_uri') {
 			this.uri = data as string
 		}
 	}
@@ -35,22 +35,22 @@ export class QRCode extends LitElement {
 	constructor() {
 		super()
 		const config = get.config()
-		if(!config) throw Error("Config not found")
+		if (!config) throw Error('Config not found')
 		this._status = getAccount(config).status
 		this._unwatchAccount = watchAccount(config, {
-			onChange: this._handleStatus.bind(this)
+			onChange: this._handleStatus.bind(this),
 		})
-		const wc = getConnectors(config).find(({id})=> id === WALLETCONNECT_ID)
-		wc?.emitter.on('message',this._handleUri.bind(this))
+		const wc = getConnectors(config).find(({ id }) => id === WALLETCONNECT_ID)
+		wc?.emitter.on('message', this._handleUri.bind(this))
 	}
 
 	disconnectedCallback() {
 		super.disconnectedCallback()
 		this._unwatchAccount()
 		const config = get.config()
-		if(!config) throw Error("Config not found")
-		const wc = getConnectors(config).find(({id})=> id === WALLETCONNECT_ID)
-		wc?.emitter.off('message',this._handleUri.bind(this))
+		if (!config) throw Error('Config not found')
+		const wc = getConnectors(config).find(({ id }) => id === WALLETCONNECT_ID)
+		wc?.emitter.off('message', this._handleUri.bind(this))
 	}
 
 	private svgTemplate() {

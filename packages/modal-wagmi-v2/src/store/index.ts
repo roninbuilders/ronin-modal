@@ -5,10 +5,11 @@ import { Config } from '@wagmi/core'
 type ModalStore = {
 	open: boolean
 	view: View
-	config?: Config 
+	config?: Config
 	projectId: string
-  uri: string
+	uri: string
 	metadata?: Record<string, string>
+	ens?: string
 }
 
 export const { set, get, sub } = createStore<ModalStore>({
@@ -17,6 +18,6 @@ export const { set, get, sub } = createStore<ModalStore>({
 	config: undefined,
 	projectId: '',
 	metadata: undefined,
-  uri: ''
+	uri: '',
+	ens: undefined,
 })
-

@@ -50,7 +50,7 @@ export class MobileView extends LitElement {
 					<span class="description" >
 						Failed to connect
 					</span>
-          <div class="button" @click="${()=>connectModal(WALLETCONNECT_ID)}">${retry} Try Again</div>
+          <div class="button" @click="${() => connectModal(WALLETCONNECT_ID)}">${retry} Try Again</div>
         `
 		}
 	}
