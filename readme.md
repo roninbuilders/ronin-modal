@@ -8,9 +8,9 @@ pnpm install
 pnpm run build
 ```
 
-1. open two terminals
+## open two terminals
 
-in the first one type:
+- in the first one type:
 
 ```sh
 cd packages/modal-w3vm
@@ -22,7 +22,7 @@ cd packages/modal-wagmi
 pnpm run watch
 ```
 
-in the second terminal run
+- in the second terminal run
 
 ```sh
 pnpm run dev:w3vm
