@@ -5,8 +5,6 @@ import { set } from '../store'
 import { ConnectorID } from '../types'
 import RNS from '@wehmoen/rnsts'
 
-const rns = new RNS()
-
 export function openModal() {
 	if (getW3.address()) return disconnectW3()
 	if (isMobile()) {
@@ -26,6 +24,7 @@ export function goToMain() {
 
 export async function loadENS() {
 	try {
+    const rns = new RNS()
 		const address = getW3.address()
 		if (!address) throw Error('User is not connected - unable to fetch ENS')
 		const result = await rns.getName(address)

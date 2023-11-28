@@ -5,8 +5,6 @@ import { Connector, connect, disconnect, getAccount, getConnectors } from '@wagm
 import { INJECTED_ID, RONIN_RDNS, WALLETCONNECT_ID } from './constants'
 import RNS from '@wehmoen/rnsts'
 
-const rns = new RNS()
-
 export function openModal() {
 	const config = get.config()
 	if (!config) throw Error('Config not found')
@@ -31,6 +29,7 @@ export function goToMain() {
 
 export async function loadENS() {
 	try {
+    const rns = new RNS()
 		const config = get.config()
 		if (!config) throw Error('Config not found')
 		const { address } = getAccount(config)
