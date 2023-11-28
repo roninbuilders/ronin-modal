@@ -18,7 +18,7 @@ pnpm run watch
 ```
 or
 ```sh
-cd packages/modal-wagmi
+cd packages/modal-wagmi-v2
 pnpm run watch
 ```
 
