@@ -11,6 +11,7 @@ export const styles = css`
   font-family: -apple-system,BlinkMacSystemFont,Inter,system-ui,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
   border-radius: 10px;
   cursor: pointer;
+  text-align: center;
   padding: 13px;
 
   text-overflow: ellipsis;

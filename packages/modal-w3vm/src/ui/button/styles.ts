@@ -12,7 +12,7 @@ export const styles = css`
   border-radius: 10px;
   cursor: pointer;
   padding: 13px;
-  
+  text-align: center;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
