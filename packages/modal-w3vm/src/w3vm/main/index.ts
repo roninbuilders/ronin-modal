@@ -20,8 +20,10 @@ if (typeof window !== 'undefined') {
 
 	const fontPreload = document.createElement('link')
 	fontPreload.rel = 'preload'
-	fontPreload.as = 'style'
-	fontPreload.href = 'https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap'
+	fontPreload.as = 'font'
+  fontPreload.crossOrigin = "true"
+  fontPreload.type = "font/woff2"
+	fontPreload.href = 'https://fonts.gstatic.com/s/worksans/v19/QGYsz_wNahGAdqQ43Rh_fKDp.woff2'
 
 	document.head.appendChild(fontPreload)
 
