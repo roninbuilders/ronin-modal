@@ -3,7 +3,6 @@ import { isMobile } from './mobile'
 import { WALLETCONNECT_ID } from '../w3vm/constants'
 import { set } from '../store'
 import { ConnectorID } from '../types'
-import RNS from '@wehmoen/rnsts'
 
 export function openModal() {
 	if (getW3.address()) return disconnectW3()
@@ -24,7 +23,16 @@ export function goToMain() {
 
 export async function loadENS() {
 	try {
+    let RNS = (await import('@wehmoen/rnsts')).default
+    if (
+      typeof RNS !== 'function' &&
+      // @ts-expect-error This import error is not visible to TypeScript
+      typeof RNS.default === 'function'
+    ){
+      RNS = (RNS as unknown as { default: typeof RNS }).default
+    }    
     const rns = new RNS()
+
 		const address = getW3.address()
 		if (!address) throw Error('User is not connected - unable to fetch ENS')
 		const result = await rns.getName(address)

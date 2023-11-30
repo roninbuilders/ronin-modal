@@ -3,7 +3,6 @@ import { get, set } from '../store'
 import { ConnectorID } from '../types'
 import { Connector, connect, disconnect, getAccount, getConnectors } from '@wagmi/core'
 import { INJECTED_ID, RONIN_RDNS, WALLETCONNECT_ID } from './constants'
-import RNS from '@wehmoen/rnsts'
 
 export function openModal() {
 	const config = get.config()
@@ -29,6 +28,14 @@ export function goToMain() {
 
 export async function loadENS() {
 	try {
+    let RNS = (await import('@wehmoen/rnsts')).default
+    if (
+      typeof RNS !== 'function' &&
+      // @ts-expect-error This import error is not visible to TypeScript
+      typeof RNS.default === 'function'
+    ){
+      RNS = (RNS as unknown as { default: typeof RNS }).default
+    }    
     const rns = new RNS()
 		const config = get.config()
 		if (!config) throw Error('Config not found')

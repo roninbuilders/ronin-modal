@@ -1,6 +1,6 @@
 {
   "name": "@roninbuilders/modal-wagmi",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Ronin Wallet Modal with Wagmi v2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
