@@ -1,7 +1,7 @@
 import { Chain, initW3 } from '@w3vm/core'
 import { roninInjected } from '../connectors/injected'
 import { WalletConnect, subWC } from '@w3vm/walletconnect'
-import { isAndroid, isMobile } from '../../utils/mobile'
+import { isMobile } from '../../utils/mobile'
 
 import '../../ui/ronin-modal'
 
@@ -50,13 +50,11 @@ export function createRoninModal({ SSR, projectId, chain }: RoninOptions) {
 
 /* Subscribe to WalletConnect URI for Mobile */
 const mobile = isMobile()
-const android = isAndroid()
-
 subWC.uri((uri: string) => {
 	if (mobile && Boolean(uri))
 		window.open(
 			`https://wallet.roninchain.com/auth-connect?uri=${encodeURIComponent(uri)}`,
-			android ? '_blanck' : '_self',
+			'_blanck',
 			'noreferrer noopener',
 		)
 })
