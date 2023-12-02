@@ -14,6 +14,7 @@ export const styles = css`
   padding: 13px;
   text-align: center;
   max-width: 100%;
+  font-size: 15px;
   border: 0;
   
   transition: cubic-bezier(0.25,0.1,0.25,1) 250ms all;
