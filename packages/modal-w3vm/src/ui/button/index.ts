@@ -11,7 +11,7 @@ subW3.status(console.log)
 export class RoninButton extends LitElement {
 	static styles = styles
 
-	@property() label: string = 'Open Modal'
+	@property() label: string = 'Connect Wallet'
 	@property() user: string | undefined
 	@property()
 	classes = { truncate: false, button: true }

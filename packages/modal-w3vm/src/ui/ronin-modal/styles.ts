@@ -17,7 +17,7 @@ export const styles = css`
     align-items: center;
     user-select: none;
 
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.3);
 
     font-family: var(
       --ronin-font-family,
