@@ -4,7 +4,6 @@ import { styles } from './styles'
 
 import './svg/index'
 import { getW3, subW3 } from '@w3vm/core'
-import { Status } from '../../../types'
 import { retry } from '../../../assets/try'
 import { closeModal, connectModal, goToMain } from '../../../utils/functions'
 import { INJECTED_ID } from '../../../w3vm/constants'
@@ -13,12 +12,12 @@ import { INJECTED_ID } from '../../../w3vm/constants'
 export class ExtensionView extends LitElement {
 	static styles = styles
 
-	@state() protected _status: Status
+	@state() protected _status: ReturnType<typeof getW3.status>
 
-	protected _unsubscribeWait: () => void
+	protected _unsubscribeStatus: () => void
 
-	protected _handleWait(wait: Status) {
-		this._status = wait
+	protected _handleStatus(status: ReturnType<typeof getW3.status>) {
+		this._status = status
 	}
 
 	installWallet() {
@@ -27,13 +26,13 @@ export class ExtensionView extends LitElement {
 
 	constructor() {
 		super()
-		this._status = getW3.wait()
-		this._unsubscribeWait = subW3.wait(this._handleWait.bind(this))
+		this._status = getW3.status()
+		this._unsubscribeStatus = subW3.status(this._handleStatus.bind(this))
 	}
 
 	disconnectedCallback() {
 		super.disconnectedCallback()
-		this._unsubscribeWait()
+		this._unsubscribeStatus()
 	}
 
 	private statusTemplate() {

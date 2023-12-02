@@ -1,7 +1,7 @@
 import { css } from 'lit'
 
 export const styles = css`
-:host{
+.button {
   display: block;
   width: 120px;
   font-weight: 500;
@@ -13,15 +13,19 @@ export const styles = css`
   cursor: pointer;
   padding: 13px;
   text-align: center;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
   max-width: 100%;
-
+  border: 0;
+  
   transition: cubic-bezier(0.25,0.1,0.25,1) 250ms all;
 }
 
-:host(:hover){
+.button:hover {
   background-color: #0f2757;
+}
+
+.truncate{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 `

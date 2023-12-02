@@ -1,29 +1,35 @@
 import { LitElement, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
+import { classMap } from 'lit/directives/class-map.js'
 import { loadENS, openModal } from '../../utils/functions'
 import { subW3 } from '@w3vm/core'
 import { styles } from './styles'
 import { sub } from '../../store'
 
+subW3.status(console.log)
 @customElement('ronin-button')
 export class RoninButton extends LitElement {
 	static styles = styles
 
 	@property() label: string = 'Open Modal'
 	@property() user: string | undefined
+	@property()
+	classes = { truncate: false, button: true }
 
 	protected labelTemplate() {
 		if (this.user) return this.user
 		else return this.label
 	}
 
-	protected onAddress(address: string | undefined) {
+	protected async onAddress(address: string | undefined) {
+    this.classes = { ...this.classes, truncate: false }
 		if (!address) {
 			this.user = undefined
 			return
 		}
 		this.user = address.slice(0, 6) + '...' + address.slice(-6)
-		loadENS()
+		const ens = await loadENS()
+    this.classes = { ...this.classes, truncate: Boolean(ens) }
 	}
 
 	protected onENS(ens: string | undefined) {
@@ -50,7 +56,7 @@ export class RoninButton extends LitElement {
 	}
 
 	render() {
-		return html`<slot>${this.labelTemplate()}</slot>`
+		return html`<button class="${classMap(this.classes)}">${this.labelTemplate()}</button>`
 	}
 }
 

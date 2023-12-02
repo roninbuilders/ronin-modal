@@ -17,9 +17,9 @@ export class QRCode extends LitElement {
 	@state()
 	uri: string = ''
 
-	protected _unsubscribeWait: () => void
+	protected _unsubscribeStatus: () => void
 
-	protected _handleWait() {
+	protected _handleStatus() {
 		if (getW3.address()) closeModal()
 	}
 
@@ -32,13 +32,13 @@ export class QRCode extends LitElement {
 	constructor() {
 		super()
 		this._unsubscribeUri = subWC.uri(this._handleUri.bind(this))
-		this._unsubscribeWait = subW3.wait(this._handleWait.bind(this))
+		this._unsubscribeStatus = subW3.status(this._handleStatus.bind(this))
 	}
 
 	disconnectedCallback() {
 		super.disconnectedCallback()
 		this._unsubscribeUri()
-		this._unsubscribeWait()
+		this._unsubscribeStatus()
 	}
 
 	private svgTemplate() {

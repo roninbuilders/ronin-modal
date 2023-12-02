@@ -3,38 +3,79 @@ import { customElement, state } from 'lit/decorators.js'
 import { styles } from './styles'
 
 import { getW3, subW3 } from '@w3vm/core'
-import { Status } from '../../../types'
 import { roninBlue } from '../../../assets/roninBlue'
 import { retry } from '../../../assets/try'
 import { closeModal, connectModal } from '../../../utils/functions'
 import { WALLETCONNECT_ID } from '../../../w3vm/constants'
+import { getWC } from '@w3vm/walletconnect'
+import { isAndroid } from '../../../utils/mobile'
 
 @customElement('mobile-view')
 export class MobileView extends LitElement {
 	static styles = styles
 
-	@state() protected _status: Status
+	@state() protected _status: ReturnType<typeof getW3.status> | 'ReadyToConnect'
 
-	protected _unsubscribeWait: () => void
+	protected _unsubscribeStatus: () => void
 
-	protected _handleWait(wait: Status) {
-		this._status = wait
+	protected _handleStatus(status: ReturnType<typeof getW3.status>){
+    if(status === 'Connecting'){
+      this._status = 'ReadyToConnect'
+      return
+    }
+		this._status = status
 	}
+
+  private handleConnectIOS(){
+    this._status = 'Connecting'
+    const uri = getWC.uri()
+    if(uri) window.open(
+			`https://wallet.roninchain.com/auth-connect?uri=${encodeURIComponent(uri)}`,
+			'_self',
+			'noreferrer noopener',
+		)
+    else throw Error('Uri was undefined while trying to connect on mobile')
+  }
+  
+  private handleConnectAndroid(){
+    this._status = 'Connecting'
+    const uri = getWC.uri()
+    if(uri) window.open(
+			`https://wallet.roninchain.com/auth-connect?uri=${encodeURIComponent(uri)}`,
+			'_self',
+			'noreferrer noopener',
+		)
+    else throw Error('Uri was undefined while trying to connect on mobile')
+  }
 
 	constructor() {
 		super()
-		this._status = getW3.wait()
-		this._unsubscribeWait = subW3.wait(this._handleWait.bind(this))
+    const status = getW3.status()
+		this._status = status === 'Connecting' ? 'ReadyToConnect' : status 
+		this._unsubscribeStatus = subW3.status(this._handleStatus.bind(this))
 	}
 
 	disconnectedCallback() {
 		super.disconnectedCallback()
-		this._unsubscribeWait()
+		this._unsubscribeStatus()
 	}
 
 	private statusTemplate() {
 		switch (this._status) {
-			case 'Connecting':
+      case 'GeneratingURI':
+      case 'ReadyToConnect':
+        if(isAndroid()){
+          return html`
+          <button class="button" ?disabled="${Boolean(this._status === 'GeneratingURI')}" @click="${this.handleConnectAndroid}" >
+            <span>${this._status === 'GeneratingURI' ? 'Loading' : 'Connect'}</span>
+          </button>`
+        }
+				return html`
+        <button class="button" ?disabled="${Boolean(this._status === 'GeneratingURI')}" @click="${this.handleConnectIOS}" >
+          <span>${this._status === 'GeneratingURI' ? 'Loading' : 'Connect'}</span>
+        </button>
+			`
+      case 'Connecting':
 				return html`
 				<span>Connecting...</span>
 				<span class="description" >

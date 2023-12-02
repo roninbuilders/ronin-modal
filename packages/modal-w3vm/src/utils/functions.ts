@@ -36,7 +36,10 @@ export async function loadENS() {
 		const address = getW3.address()
 		if (!address) throw Error('User is not connected - unable to fetch ENS')
 		const result = await rns.getName(address)
-		if (result) set.ens(result)
+		if (result){
+      set.ens(result)
+      return true
+    }
 	} catch (e) {
 		console.error(e)
 	}

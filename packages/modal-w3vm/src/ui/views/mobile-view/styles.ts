@@ -34,8 +34,7 @@ export const styles = css`
   #close{
     position: absolute;
     right: 50px;
-    top: 31px;
-
+    
     background: none;
     border: none;
     color: #fff;
@@ -73,25 +72,35 @@ export const styles = css`
   }
 
   .button{
+    cursor: pointer;
+    border: 0;
     font-size: 17px;
-    height: 30px;
     border-radius: 10px;
-    background-color: #282a39;
+    background-color: #1273ea;
+    color: #fff;
   
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 2px;
 
-    padding: 5px 15px;
+    padding: 9px 15px;
     cursor:pointer;
     user-select: none;
   
     transition: all .2s ease;
   }
+
+  .button:disabled{
+    opacity: .5;
+  }
   
   .button:hover{
     background-color: #2d3142;
+  }
+
+  .button span{
+    width: 64px;
   }
 
   .ronin-blue {
@@ -109,7 +118,7 @@ export const styles = css`
   }
 
   .description{
-    width: 200px;
+    width: 230px;
     height: 46px;
     text-align: center;
     font-size: 16px;
