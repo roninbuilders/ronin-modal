@@ -27,7 +27,7 @@ export class RoninButton extends LitElement {
 			this.user = undefined
 			return
 		}
-		this.user = address.slice(0, 4) + '...' + address.slice(-6)
+		this.user = address.slice(0, 4) + '...' + address.slice(-4)
 		const ens = await loadENS()
     this.classes = { ...this.classes, truncate: Boolean(ens) }
 	}
