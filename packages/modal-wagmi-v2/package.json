@@ -21,6 +21,7 @@
     "lit": "2.8.0",
     "qrcode": "1.5.3",
     "vanilla-cafe": "0.1.5",
+    "@roninbuilders/modal-ui": "workspace: *",
     "@wehmoen/rnsts": "1.0.1"
   },
   "peerDependencies": {

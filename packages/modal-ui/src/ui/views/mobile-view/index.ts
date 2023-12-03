@@ -17,40 +17,42 @@ export class MobileView extends LitElement {
 
 	protected _unsubscribeStatus: () => void
 
-	protected _handleStatus(status: Core_status){
-    if(status === 'Connecting'){
-      this._status = 'ReadyToConnect'
-      return
-    }
+	protected _handleStatus(status: Core_status) {
+		if (status === 'Connecting') {
+			this._status = 'ReadyToConnect'
+			return
+		}
 		this._status = status
 	}
 
-  private handleConnectIOS(){
-    this._status = 'Connecting'
-    const uri = getCore.URI()
-    if(uri) window.open(
-			`https://wallet.roninchain.com/auth-connect?uri=${encodeURIComponent(uri)}`,
-			'_self',
-			'noreferrer noopener',
-		)
-    else throw Error('Uri was undefined while trying to connect on mobile')
-  }
-  
-  private handleConnectAndroid(){
-    this._status = 'Connecting'
-    const uri = getCore.URI()
-    if(uri) window.open(
-			`https://wallet.roninchain.com/auth-connect?uri=${encodeURIComponent(uri)}`,
-			'_self',
-			'noreferrer noopener',
-		)
-    else throw Error('Uri was undefined while trying to connect on mobile')
-  }
+	private handleConnectIOS() {
+		this._status = 'Connecting'
+		const uri = getCore.URI()
+		if (uri)
+			window.open(
+				`https://wallet.roninchain.com/auth-connect?uri=${encodeURIComponent(uri)}`,
+				'_self',
+				'noreferrer noopener',
+			)
+		else throw Error('Uri was undefined while trying to connect on mobile')
+	}
+
+	private handleConnectAndroid() {
+		this._status = 'Connecting'
+		const uri = getCore.URI()
+		if (uri)
+			window.open(
+				`https://wallet.roninchain.com/auth-connect?uri=${encodeURIComponent(uri)}`,
+				'_self',
+				'noreferrer noopener',
+			)
+		else throw Error('Uri was undefined while trying to connect on mobile')
+	}
 
 	constructor() {
 		super()
-    const status = getCore.status()
-		this._status = status === 'Connecting' ? 'ReadyToConnect' : status 
+		const status = getCore.status()
+		this._status = status === 'Connecting' ? 'ReadyToConnect' : status
 		this._unsubscribeStatus = subCore.status(this._handleStatus.bind(this))
 	}
 
@@ -61,20 +63,22 @@ export class MobileView extends LitElement {
 
 	private statusTemplate() {
 		switch (this._status) {
-      case 'GeneratingURI':
-      case 'ReadyToConnect':
-        if(isAndroid()){
-          return html`
-          <button class="button" ?disabled="${Boolean(this._status === 'GeneratingURI')}" @click="${this.handleConnectAndroid}" >
+			case 'GeneratingURI':
+			case 'ReadyToConnect':
+				if (isAndroid()) {
+					return html`
+          <button class="button" ?disabled="${Boolean(this._status === 'GeneratingURI')}" @click="${
+						this.handleConnectAndroid
+					}" >
             <span>${this._status === 'GeneratingURI' ? 'Loading' : 'Connect'}</span>
           </button>`
-        }
+				}
 				return html`
         <button class="button" ?disabled="${Boolean(this._status === 'GeneratingURI')}" @click="${this.handleConnectIOS}" >
           <span>${this._status === 'GeneratingURI' ? 'Loading' : 'Connect'}</span>
         </button>
 			`
-      case 'Connecting':
+			case 'Connecting':
 				return html`
 				<span>Connecting...</span>
 				<span class="description" >
