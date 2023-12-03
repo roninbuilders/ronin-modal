@@ -2,7 +2,7 @@ import { LitElement, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import { classMap } from 'lit/directives/class-map.js'
 import { loadENS, openModal } from '../../utils/functions'
-import { subW3 } from '@w3vm/core'
+import { getW3, subW3 } from '@w3vm/core'
 import { styles } from './styles'
 import { sub } from '../../store'
 
@@ -19,6 +19,12 @@ export class RoninButton extends LitElement {
 	protected labelTemplate() {
 		if (this.user) return this.user
 		else return this.label
+	}
+
+	protected onStatus(status: ReturnType<typeof getW3.status>){
+		if(status === 'Disconnecting'){
+			this.user = status
+		}
 	}
 
 	protected async onAddress(address: string | undefined) {
@@ -39,11 +45,13 @@ export class RoninButton extends LitElement {
 	}
 
 	protected _unsubscribeAddress: () => void
+	protected _unsubscribeStatus: () => void
 	protected _unsubscribeENS: () => void
 
 	constructor() {
 		super()
 		this._unsubscribeAddress = subW3.address(this.onAddress.bind(this))
+		this._unsubscribeStatus = subW3.status(this.onStatus.bind(this))
 		this._unsubscribeENS = sub.ens(this.onENS.bind(this))
 		this.addEventListener('click', openModal)
 	}
