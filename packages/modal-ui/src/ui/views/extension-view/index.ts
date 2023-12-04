@@ -16,7 +16,7 @@ export class ExtensionView extends LitElement {
 
 	protected _unsubscribeStatus: () => void
 
-	protected _handleStatus(status: Core_status) {
+	protected _onStatus(status: Core_status) {
 		this._status = status
 	}
 
@@ -27,7 +27,7 @@ export class ExtensionView extends LitElement {
 	constructor() {
 		super()
 		this._status = getCore.status()
-		this._unsubscribeStatus = subCore.status(this._handleStatus.bind(this))
+		this._unsubscribeStatus = subCore.status(this._onStatus.bind(this))
 	}
 
 	disconnectedCallback() {

@@ -1,22 +1,13 @@
-import { Core_status, INJECTED_ID, WALLETCONNECT_ID, createCore, initModal } from '@roninbuilders/modal-ui'
-import { getW3, connectW3, initW3, type Chain, disconnectW3, subW3 } from '@w3vm/core'
+import { Core_status, RONIN_RDNS, WALLETCONNECT_ID, createCore, initModal } from '@roninbuilders/modal-ui'
+import { getW3, connectW3, initW3, disconnectW3, subW3 } from '@w3vm/core'
 import { WalletConnect, subWC } from '@w3vm/walletconnect'
-import { roninInjected } from './connectors/injected'
-
-type RoninOptions = {
-	SSR?: boolean
-	projectId: string
-	chain: Chain
-}
-
-type Callback<T> = (status: T) => void
+import { Callback, RoninOptions } from './types'
 
 export function createRoninModal({ SSR, projectId, chain }: RoninOptions) {
 	initModal()
 
 	const w3props = initW3({
 		connectors: [
-			roninInjected,
 			new WalletConnect({
 				projectId,
 				showQrModal: false,
@@ -64,7 +55,7 @@ async function connectWalletConnect() {
 }
 
 async function connectExtension() {
-	const connector = getW3.connectors().find(({ id }) => id === INJECTED_ID)
+	const connector = getW3.connectors().find(({ id }) => id === RONIN_RDNS)
 	if (connector) connectW3({ connector })
 }
 

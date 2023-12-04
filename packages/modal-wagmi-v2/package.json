@@ -18,15 +18,15 @@
   "author": "Glitch-txs",
   "license": "MIT",
   "dependencies": {
+    "@roninbuilders/modal-ui": "workspace: *",
     "lit": "2.8.0",
     "qrcode": "1.5.3",
-    "vanilla-cafe": "0.1.5",
-    "@roninbuilders/modal-ui": "workspace: *",
     "@wehmoen/rnsts": "1.0.1"
   },
   "peerDependencies": {
     "@wagmi/core": ">=2.0.0-beta",
     "@wagmi/connectors": ">=4.0.0-beta",
+    "vanilla-cafe": ">=0",
     "viem": ">=2.0.0-beta",
     "typescript": ">=5"
   },
