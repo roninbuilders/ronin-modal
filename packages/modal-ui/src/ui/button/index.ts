@@ -43,8 +43,8 @@ export class RoninButton extends LitElement {
 
 	constructor() {
 		super()
-    this._onAddress(getCore.address())
-    this._onStatus(getCore.status())
+		this._onAddress(getCore.address())
+		this._onStatus(getCore.status())
 		this._unsubscribeAddress = subCore.address(this._onAddress.bind(this))
 		this._unsubscribeStatus = subCore.status(this._onStatus.bind(this))
 		this.addEventListener('click', openModal)

@@ -52,6 +52,7 @@ export class MobileView extends LitElement {
 	constructor() {
 		super()
 		const status = getCore.status()
+		console.group('cons ', status)
 		this._status = status === 'Connecting' ? 'ReadyToConnect' : status
 		this._unsubscribeStatus = subCore.status(this._handleStatus.bind(this))
 	}

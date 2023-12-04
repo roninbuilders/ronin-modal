@@ -41,6 +41,8 @@ export const {
 })
 
 export function createCore(config: CreateCore) {
+	if (typeof window === 'undefined') return
+
 	setCore.address(config.address)
 	setCore.status(config.status)
 
