@@ -3,6 +3,7 @@ import { INJECTED_ID, WALLETCONNECT_ID } from './constants'
 import { getCore } from './wallet'
 
 import '../ui/ronin-modal'
+import { isMobile } from './utils/mobile'
 
 export type View = 'main' | 'qr-code' | 'extension' | 'install' | 'account'
 
@@ -47,6 +48,7 @@ export function initModal() {
 
 export function openModal() {
 	if (getCore.address()) return getCore.disconnect()?.()
+	if (isMobile()) getCore.connectWalletConnect()?.()
 	setModal.open(true)
 }
 
@@ -59,6 +61,7 @@ export function goToMain() {
 }
 
 export async function connectModal(CONNECTOR_ID: ConnectorID) {
+	console.log(CONNECTOR_ID)
 	if (CONNECTOR_ID === WALLETCONNECT_ID) getCore.connectWalletConnect()?.()
 	if (CONNECTOR_ID === INJECTED_ID) getCore.connectExtension()?.()
 }
