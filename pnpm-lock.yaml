@@ -123,14 +123,42 @@ importers:
         specifier: ^5.0.0
         version: 5.0.2
 
+  packages/modal-ui:
+    dependencies:
+      lit:
+        specifier: 2.8.0
+        version: 2.8.0
+      qrcode:
+        specifier: 1.5.3
+        version: 1.5.3
+      typescript:
+        specifier: '>=5'
+        version: 5.3.2
+      vanilla-cafe:
+        specifier: '>=0'
+        version: 0.1.5(typescript@5.3.2)
+    devDependencies:
+      '@biomejs/biome':
+        specifier: 1.3.3
+        version: 1.3.3
+      '@types/qrcode':
+        specifier: ^1.5.2
+        version: 1.5.5
+      tsup:
+        specifier: ^6.7.0
+        version: 6.7.0(typescript@5.3.2)
+
   packages/modal-w3vm:
     dependencies:
+      '@roninbuilders/modal-ui':
+        specifier: 'workspace: *'
+        version: link:../modal-ui
       '@w3vm/core':
         specifier: 0.0.4
-        version: 0.0.4
+        version: 0.0.4(typescript@5.3.2)
       '@w3vm/walletconnect':
         specifier: 0.0.7
-        version: 0.0.7(@w3vm/core@0.0.4)(react@18.2.0)(vanilla-cafe@0.1.5)
+        version: 0.0.7(@w3vm/core@0.0.4)(react@18.2.0)(typescript@5.3.2)(vanilla-cafe@0.1.5)
       '@wehmoen/rnsts':
         specifier: 1.0.1
         version: 1.0.1
@@ -159,6 +187,9 @@ importers:
 
   packages/modal-wagmi-v2:
     dependencies:
+      '@roninbuilders/modal-ui':
+        specifier: 'workspace: *'
+        version: link:../modal-ui
       '@wagmi/connectors':
         specifier: '>=4.0.0-beta'
         version: 4.0.0-beta.5(@wagmi/core@2.0.0-beta.5)(react-native@0.72.7)(react@18.2.0)(typescript@5.3.2)(viem@2.0.0-beta.6)
@@ -178,7 +209,7 @@ importers:
         specifier: '>=5'
         version: 5.3.2
       vanilla-cafe:
-        specifier: 0.1.5
+        specifier: '>=0'
         version: 0.1.5(typescript@5.3.2)
       viem:
         specifier: '>=2.0.0-beta'
@@ -4041,7 +4072,7 @@ packages:
       - '@swc/helpers'
     dev: true
 
-  /@w3vm/core@0.0.4:
+  /@w3vm/core@0.0.4(typescript@5.3.2):
     resolution: {integrity: sha512-XevpwF23iULFxq4D66tV1l4Y77NcPTnYXwcZKJWZS2vSLrKqOK72vGfyeElUjnKx5x8VkCUs6ew19UxRmZhheg==}
     peerDependencies:
       typescript: '>=5'
@@ -4049,10 +4080,11 @@ packages:
       typescript:
         optional: true
     dependencies:
+      typescript: 5.3.2
       vanilla-cafe: 0.1.5(typescript@5.3.2)
     dev: false
 
-  /@w3vm/walletconnect@0.0.7(@w3vm/core@0.0.4)(react@18.2.0)(vanilla-cafe@0.1.5):
+  /@w3vm/walletconnect@0.0.7(@w3vm/core@0.0.4)(react@18.2.0)(typescript@5.3.2)(vanilla-cafe@0.1.5):
     resolution: {integrity: sha512-urHHZk2vdxY2mrinSJGN3u/+QuUkKRvoAprwx3JuK/nw/z4ioPdUVxQaRa0Gsc6CgmIrBbEdeZhN0UaaYn/OTA==}
     peerDependencies:
       '@w3vm/core': '>=0'
@@ -4062,9 +4094,10 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@w3vm/core': 0.0.4
+      '@w3vm/core': 0.0.4(typescript@5.3.2)
       '@walletconnect/ethereum-provider': 2.10.6(@types/react@18.2.38)(react@18.2.0)
       '@walletconnect/modal': 2.6.2(@types/react@18.2.38)(react@18.2.0)
+      typescript: 5.3.2
       vanilla-cafe: 0.1.5(typescript@5.3.2)
     transitivePeerDependencies:
       - '@azure/app-configuration'

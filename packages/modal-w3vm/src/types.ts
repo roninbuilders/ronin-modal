@@ -1,3 +1,18 @@
-export type View = 'main' | 'qr-code' | 'extension' | 'install' | 'account'
+import { Chain, Provider } from '@w3vm/core'
 
-export type ConnectorID = 'injected' | 'walletConnect'
+export type RoninOptions = {
+	SSR?: boolean
+	projectId: string
+	chain: Chain
+}
+
+export type Callback<T> = (status: T) => void
+
+declare global {
+	interface Window {
+		ronin?: {
+			provider: Provider
+			roninEvent: EventTarget
+		}
+	}
+}

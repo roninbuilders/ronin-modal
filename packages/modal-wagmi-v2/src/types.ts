@@ -1,10 +1,11 @@
+import { Config } from '@wagmi/core'
 import { Chain, Transport } from 'viem'
 
-export type View = 'main' | 'qr-code' | 'extension' | 'install' | 'account'
+export type Callback<T> = (status: T) => void
 
-export type Status = 'Initializing' | 'Connecting' | 'Disconnecting' | 'Loading' | undefined
-
-export type ConnectorID = 'injected' | 'walletConnect'
+export type WagmiStore = {
+	config?: Config
+}
 
 export type CreateRoninModalOptions = {
 	projectId: string
