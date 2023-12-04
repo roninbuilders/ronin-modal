@@ -1,4 +1,4 @@
-import { Core_status, WALLETCONNECT_ID, createCore, initModal } from '@roninbuilders/modal-ui'
+import { Core_status, WALLETCONNECT_ID, createCore, initModal, setCore } from '@roninbuilders/modal-ui'
 import type { Callback, CreateRoninModalOptions, WagmiStore } from './types'
 import { createStore } from 'vanilla-cafe'
 import {
@@ -73,6 +73,7 @@ async function connectWalletConnect() {
 	const connector = getConnectors(config).find(({ id }) => id === WALLETCONNECT_ID)
 
 	if (!connector) throw Error('Connector not found')
+  setCore.status('GeneratingURI')
 	await connect(config, { connector })
 }
 
@@ -141,7 +142,8 @@ function subscribe_URI(callback: Callback<string>) {
 
 	function sub({ type, data }: { type: string; data?: unknown }) {
 		if (type === 'display_uri') {
-			callback(data as string)
+      callback(data as string)
+      setCore.status('Connecting')
 		}
 	}
 

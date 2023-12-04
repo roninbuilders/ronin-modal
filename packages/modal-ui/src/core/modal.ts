@@ -61,7 +61,6 @@ export function goToMain() {
 }
 
 export async function connectModal(CONNECTOR_ID: ConnectorID) {
-	console.log(CONNECTOR_ID)
 	if (CONNECTOR_ID === WALLETCONNECT_ID) getCore.connectWalletConnect()?.()
 	if (CONNECTOR_ID === INJECTED_ID) getCore.connectExtension()?.()
 }
