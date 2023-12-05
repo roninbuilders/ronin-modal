@@ -94,10 +94,6 @@ export const styles = css`
   .button:disabled{
     opacity: .5;
   }
-  
-  .button:hover{
-    background-color: #2d3142;
-  }
 
   .button span{
     width: 64px;

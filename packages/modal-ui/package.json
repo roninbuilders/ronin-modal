@@ -18,6 +18,7 @@
   "author": "Glitch-txs",
   "license": "MIT",
   "dependencies": {
+    "blo": "1.1.1",
     "lit": "2.8.0",
     "qrcode": "1.5.3"
   },

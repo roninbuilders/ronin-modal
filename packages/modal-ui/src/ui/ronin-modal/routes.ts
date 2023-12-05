@@ -2,12 +2,13 @@ import { LitElement, html } from 'lit'
 import { customElement, state } from 'lit/decorators.js'
 import { styles } from './styles'
 import { isMobile } from '../../core/utils/mobile'
-import { View, subModal } from '../../core/modal'
+import { View, getModal, subModal } from '../../core/modal'
 
 import '../views/main-view/index'
 import '../views/qr-code-view/index'
 import '../views/extension-view/index'
 import '../views/mobile-view/index'
+import '../views/account-view/index'
 
 @customElement('routes-modal')
 export class RotesModal extends LitElement {
@@ -23,6 +24,7 @@ export class RotesModal extends LitElement {
 
 	constructor() {
 		super()
+    this._view = getModal.view()
 		this.unsubscribe = subModal.view(this._handleView.bind(this))
 	}
 
@@ -37,7 +39,7 @@ export class RotesModal extends LitElement {
 		}
 		switch (this._view) {
 			case 'account':
-				return html`Account View`
+				return html`<account-view></account-view>`
 			case 'main':
 				return html`<main-view></main-view>`
 			case 'qr-code':

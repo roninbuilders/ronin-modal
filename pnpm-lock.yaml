@@ -125,6 +125,9 @@ importers:
 
   packages/modal-ui:
     dependencies:
+      blo:
+        specifier: ^1.1.1
+        version: 1.1.1
       lit:
         specifier: 2.8.0
         version: 2.8.0
@@ -5107,6 +5110,11 @@ packages:
       buffer: 5.7.1
       inherits: 2.0.4
       readable-stream: 3.6.2
+    dev: false
+
+  /blo@1.1.1:
+    resolution: {integrity: sha512-1uGZInlRD4X1WQP2G1QjDGwGZ8HdGgFKqnzyRdA2TYYc0MOQCmCi37RTQ8oJuI0UF6DYFKXHwV/t1kZkO/fTaA==}
+    engines: {node: '>=16'}
     dev: false
 
   /bn.js@4.12.0:
