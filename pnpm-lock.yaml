@@ -126,7 +126,7 @@ importers:
   packages/modal-ui:
     dependencies:
       blo:
-        specifier: ^1.1.1
+        specifier: 1.1.1
         version: 1.1.1
       lit:
         specifier: 2.8.0
