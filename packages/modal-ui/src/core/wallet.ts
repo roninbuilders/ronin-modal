@@ -13,15 +13,16 @@ export interface Core_subscribers {
 export interface Core_states {
 	status: Core_status
 	address: string | undefined
+	RNS: string | undefined
 	URI: string
 	extensionInstalled: () => boolean
 	connectWalletConnect?: () => void
 	connectExtension?: () => void
 	disconnect?: () => void
-	fetchENS?: () => Promise<string | undefined>
+	fetchRNS?: () => Promise<string | undefined>
 }
 
-export type CreateCore = Omit<Core_states, 'URI'> & Core_subscribers
+export type CreateCore = Omit<Core_states, 'URI' | 'RNS'> & Core_subscribers
 
 export const {
 	set: setCore,
@@ -31,13 +32,14 @@ export const {
 	status: undefined,
 	address: undefined,
 	URI: '',
+	RNS: undefined,
 
 	/* functions */
 	extensionInstalled: () => false,
 	connectWalletConnect: undefined,
 	connectExtension: undefined,
 	disconnect: undefined,
-	fetchENS: undefined,
+	fetchRNS: undefined,
 })
 
 export function createCore(config: CreateCore) {
@@ -50,9 +52,18 @@ export function createCore(config: CreateCore) {
 	setCore.connectExtension(() => config.connectExtension)
 	setCore.connectWalletConnect(() => config.connectWalletConnect)
 	setCore.disconnect(() => config.disconnect)
-	setCore.fetchENS(() => config.fetchENS)
 
 	config.subscribe_URI(setCore.URI)
 	config.subscribe_address(setCore.address)
 	config.subscribe_status(setCore.status)
+
+	async function onAddress(address: string | undefined) {
+		if (address) {
+			const RNS = await config.fetchRNS?.()
+			setCore.RNS(RNS)
+		} else {
+			setCore.RNS(undefined)
+		}
+	}
+	subCore.address(onAddress)
 }

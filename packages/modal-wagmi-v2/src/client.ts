@@ -23,7 +23,7 @@ export function createRoninModal({ projectId, chain, metadata, transport }: Crea
 
 	if (!projectId) throw Error('Project ID is undefined')
 
-  const connectors = [walletConnect({ projectId, showQrModal: false, metadata })]
+	const connectors = [walletConnect({ projectId, showQrModal: false, metadata })]
 
 	const defaultRPC = chain.rpcUrls.default.http[0]
 	const config = createConfig({
@@ -42,12 +42,12 @@ export function createRoninModal({ projectId, chain, metadata, transport }: Crea
 		connectWalletConnect,
 		connectExtension,
 		disconnect,
-		fetchENS,
+		fetchRNS,
 		subscribe_status,
 		subscribe_address,
 		subscribe_URI,
 	})
-  
+
 	return config
 }
 
@@ -73,7 +73,7 @@ async function connectWalletConnect() {
 	const connector = getConnectors(config).find(({ id }) => id === WALLETCONNECT_ID)
 
 	if (!connector) throw Error('Connector not found')
-  setCore.status('GeneratingURI')
+	setCore.status('GeneratingURI')
 	await connect(config, { connector })
 }
 
@@ -90,7 +90,7 @@ function disconnect() {
 	_disconnect(config)
 }
 
-async function fetchENS() {
+async function fetchRNS() {
 	try {
 		let RNS = (await import('@wehmoen/rnsts')).default
 		if (
@@ -142,8 +142,8 @@ function subscribe_URI(callback: Callback<string>) {
 
 	function sub({ type, data }: { type: string; data?: unknown }) {
 		if (type === 'display_uri') {
-      callback(data as string)
-      setCore.status('Connecting')
+			callback(data as string)
+			setCore.status('Connecting')
 		}
 	}
 

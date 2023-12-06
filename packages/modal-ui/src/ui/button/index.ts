@@ -25,40 +25,42 @@ export class RoninButton extends LitElement {
 		}
 	}
 
-	protected async _onAddress(address: string | undefined) {
+	protected _onAddress(address: string | undefined) {
 		this.classes = { ...this.classes, truncate: false }
 		if (!address) {
 			this.user = undefined
 			return
 		}
 		this.user = address.slice(0, 4) + '...' + address.slice(-4)
+	}
 
-		const ens = await getCore.fetchENS()?.()
-		if (address && ens) this.user = ens
-		this.classes = { ...this.classes, truncate: Boolean(ens) }
+	protected _onRNS(RNS: string | undefined) {
+		if (RNS) this.user = RNS
+		this.classes = { ...this.classes, truncate: Boolean(RNS) }
 	}
 
 	protected _unsubscribeAddress: () => void
 	protected _unsubscribeStatus: () => void
+	protected _unsubscribeRNS: () => void
 
 	constructor() {
 		super()
 		this._onAddress(getCore.address())
 		this._onStatus(getCore.status())
+		this._unsubscribeRNS = subCore.RNS(this._onRNS.bind(this))
 		this._unsubscribeAddress = subCore.address(this._onAddress.bind(this))
 		this._unsubscribeStatus = subCore.status(this._onStatus.bind(this))
-		this.addEventListener('click', openModal)
 	}
 
 	disconnectedCallback() {
 		super.disconnectedCallback()
-		this.removeEventListener('click', openModal)
 		this._unsubscribeAddress()
 		this._unsubscribeStatus()
+		this._unsubscribeRNS()
 	}
 
 	render() {
-		return html`<button class="${classMap(this.classes)}">${this.labelTemplate()}</button>`
+		return html`<button @click="${openModal}" class="${classMap(this.classes)}">${this.labelTemplate()}</button>`
 	}
 }
 

@@ -24,7 +24,7 @@ export function createRoninModal({ SSR, projectId, chain }: RoninOptions) {
 		connectWalletConnect,
 		connectExtension,
 		disconnect,
-		fetchENS,
+		fetchRNS,
 		subscribe_status,
 		subscribe_address,
 		subscribe_URI,
@@ -63,7 +63,7 @@ function disconnect() {
 	disconnectW3()
 }
 
-async function fetchENS() {
+async function fetchRNS() {
 	try {
 		let RNS = (await import('@wehmoen/rnsts')).default
 		if (

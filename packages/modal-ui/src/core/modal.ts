@@ -47,12 +47,13 @@ export function initModal() {
 }
 
 export function openModal() {
-	if (getCore.address()){
-    setModal.view('account')
-    setModal.open(true)
-    return
-  }
-	if (isMobile()) getCore.connectWalletConnect()?.()
+	const address = getCore.address()
+	if (address) {
+		setModal.view('account')
+		setModal.open(true)
+		return
+	}
+	if (isMobile() && !address) getCore.connectWalletConnect()?.()
 	setModal.open(true)
 }
 

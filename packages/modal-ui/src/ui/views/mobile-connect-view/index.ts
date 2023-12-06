@@ -9,8 +9,8 @@ import { isAndroid } from '../../../core/utils/mobile'
 import { Core_status, getCore, subCore } from '../../../core/wallet'
 import { closeModal, connectModal } from '../../../core/modal'
 
-@customElement('mobile-view')
-export class MobileView extends LitElement {
+@customElement('mobile-connect-view')
+export class MobileConnectView extends LitElement {
 	static styles = styles
 
 	@state() protected _status: Core_status | 'ReadyToConnect'
@@ -120,6 +120,6 @@ export class MobileView extends LitElement {
 
 declare global {
 	interface HTMLElementTagNameMap {
-		'mobile-view': MobileView
+		'mobile-connect-view': MobileConnectView
 	}
 }

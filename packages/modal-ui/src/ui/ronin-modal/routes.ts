@@ -7,7 +7,7 @@ import { View, getModal, subModal } from '../../core/modal'
 import '../views/main-view/index'
 import '../views/qr-code-view/index'
 import '../views/extension-view/index'
-import '../views/mobile-view/index'
+import '../views/mobile-connect-view/index'
 import '../views/account-view/index'
 
 @customElement('routes-modal')
@@ -24,7 +24,7 @@ export class RotesModal extends LitElement {
 
 	constructor() {
 		super()
-    this._view = getModal.view()
+		this._view = getModal.view()
 		this.unsubscribe = subModal.view(this._handleView.bind(this))
 	}
 
@@ -34,8 +34,8 @@ export class RotesModal extends LitElement {
 	}
 
 	getCurrentView() {
-		if (isMobile()) {
-			return html`<mobile-view></mobile-view>`
+		if (isMobile() && this._view !== 'account') {
+			return html`<mobile-connect-view></mobile-connect-view>`
 		}
 		switch (this._view) {
 			case 'account':

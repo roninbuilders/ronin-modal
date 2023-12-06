@@ -44,7 +44,7 @@ export const styles = css`
     margin: 10px;
     padding: 15px 20px 19px 20px;
 
-    border-radius: 20px;
+    border-radius: 5px;
 
     animation-duration: 0.2s;
     animation-name: zoom-in;
