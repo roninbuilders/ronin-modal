@@ -25,20 +25,18 @@ export const {
 
 export function initModal() {
 	if (typeof window !== 'undefined') {
-		const fontEl = document.createElement('link')
-		fontEl.rel = 'stylesheet'
-		fontEl.href = 'https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap'
 
-		document.head.appendChild(fontEl)
-
-		const fontPreload = document.createElement('link')
-		fontPreload.rel = 'preload'
-		fontPreload.as = 'font'
-		fontPreload.crossOrigin = 'true'
-		fontPreload.type = 'font/woff2'
-		fontPreload.href = 'https://fonts.gstatic.com/s/worksans/v19/QGYsz_wNahGAdqQ43Rh_fKDp.woff2'
-
-		document.head.appendChild(fontPreload)
+    const style = document.createElement('style')
+    const css =`
+    @font-face {
+      font-family: 'SF Pro Rounded';
+      src: url(../fonts/SF-Pro-Rounded-Regular.ttf) format('ttf');
+      font-weight: 500;
+      font-style: normal;
+    }
+    `
+    style.textContent = css
+    document.head.appendChild(style)
 
 		const modal = document.createElement('ronin-modal')
 		document.body.insertAdjacentElement('beforeend', modal)

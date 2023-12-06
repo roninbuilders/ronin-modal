@@ -21,12 +21,7 @@ export const styles = css`
 
     font-family: var(
       --ronin-font-family,
-      Work Sans,
-      sans-serif,
-      Nunito Sans,
-      Helvetica Neue,
-      Helvetica,
-      Arial
+      'SF Pro Rounded'
     );
     font-weight: var(--ronin-font-weight, 500);
     font-size: var(--ronin-font-size, 20px);

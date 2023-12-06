@@ -8,13 +8,13 @@ export const styles = css`
   user-select: none;
   background-color: rgb(13 110 253);
   color: #e2e4e9;
-  font-family: -apple-system,BlinkMacSystemFont,Inter,system-ui,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  font-family: 'SF Pro Rounded';
   border-radius: 0.4rem;
   cursor: pointer;
   padding: 11px 13px;
   text-align: center;
   max-width: 100%;
-  font-size: 0.93rem;
+  font-size: 0.95rem;
   border: 0;
 
   color: hsl(210 40% 98%);

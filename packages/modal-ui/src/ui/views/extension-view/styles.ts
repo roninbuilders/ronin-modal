@@ -85,7 +85,8 @@ export const styles = css`
     display: flex;
     justify-content: center;
     align-items: center;
-  
+    gap: 2px;
+    
     padding: 5px 15px;
     margin-top:4px;
     cursor:pointer;
@@ -119,7 +120,6 @@ export const styles = css`
   }
   
   .retry-svg{
-    width:16px;
-    margin-bottom: 2px;
+    width:15px;
   }
 `
