@@ -58,8 +58,10 @@ export function createCore(config: CreateCore) {
 
 	async function onAddress(address: string | undefined) {
 		if (address) {
-			const RNS = await getName(address)
-			setCore.RNS(RNS)
+      try{
+        const RNS = await getName(address)
+        setCore.RNS(RNS)
+      }catch(e){console.error("Error while getting name: ", e)}
 		} else {
 			setCore.RNS(undefined)
 		}
