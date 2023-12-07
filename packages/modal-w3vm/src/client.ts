@@ -24,7 +24,6 @@ export function createRoninModal({ SSR, projectId, chain }: RoninOptions) {
 		connectWalletConnect,
 		connectExtension,
 		disconnect,
-		fetchRNS,
 		subscribe_status,
 		subscribe_address,
 		subscribe_URI,
@@ -61,27 +60,6 @@ async function connectExtension() {
 
 function disconnect() {
 	disconnectW3()
-}
-
-async function fetchRNS() {
-	try {
-		let RNS = (await import('@wehmoen/rnsts')).default
-		if (
-			typeof RNS !== 'function' &&
-			// @ts-expect-error This import error is not visible to TypeScript
-			typeof RNS.default === 'function'
-		) {
-			RNS = (RNS as unknown as { default: typeof RNS }).default
-		}
-		const rns = new RNS()
-
-		const address = getW3.address()
-		if (!address) throw Error('User is not connected - unable to fetch ENS')
-		const result = await rns.getName(address)
-		return result
-	} catch (e) {
-		console.error(e)
-	}
 }
 
 function subscribe_status(callback: Callback<Core_status>) {

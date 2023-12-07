@@ -1,3 +1,4 @@
+import { getName } from '@roninbuilders/rns'
 import { createStore } from 'vanilla-cafe'
 
 export type Subscriber<T> = (callback: (status: T) => void) => () => void
@@ -19,7 +20,6 @@ export interface Core_states {
 	connectWalletConnect?: () => void
 	connectExtension?: () => void
 	disconnect?: () => void
-	fetchRNS?: () => Promise<string | undefined>
 }
 
 export type CreateCore = Omit<Core_states, 'URI' | 'RNS'> & Core_subscribers
@@ -39,7 +39,6 @@ export const {
 	connectWalletConnect: undefined,
 	connectExtension: undefined,
 	disconnect: undefined,
-	fetchRNS: undefined,
 })
 
 export function createCore(config: CreateCore) {
@@ -59,7 +58,7 @@ export function createCore(config: CreateCore) {
 
 	async function onAddress(address: string | undefined) {
 		if (address) {
-			const RNS = await config.fetchRNS?.()
+			const RNS = await getName(address)
 			setCore.RNS(RNS)
 		} else {
 			setCore.RNS(undefined)
