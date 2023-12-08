@@ -126,8 +126,8 @@ importers:
   packages/modal-ui:
     dependencies:
       '@roninbuilders/rns':
-        specifier: ^0.0.2
-        version: 0.0.2(typescript@5.3.2)
+        specifier: ^0.0.11
+        version: 0.0.11
       blo:
         specifier: 1.1.1
         version: 1.1.1
@@ -3444,8 +3444,8 @@ packages:
     dev: true
     optional: true
 
-  /@roninbuilders/rns@0.0.2(typescript@5.3.2):
-    resolution: {integrity: sha512-929hMyHjYIknTquq5VDyJPmrvZ3L3AymbyKcrFFQ1LJMCB/gfEQzT2jNmW36lQDoD4kGOowiMo0BRyRZkpTMTA==}
+  /@roninbuilders/rns@0.0.11:
+    resolution: {integrity: sha512-is+UXgNx/GrnlbeOiyvztR3/omy2MeMMkzBJUyQOFRX0jrbbTK7ZzJ4dRPV01DMpPFOkF8yXHcWXm6Co1VAdrg==}
     peerDependencies:
       typescript: '>=5'
     peerDependenciesMeta:
@@ -3453,7 +3453,6 @@ packages:
         optional: true
     dependencies:
       '@zoltu/ethereum-abi-encoder': 5.0.4
-      typescript: 5.3.2
     dev: false
 
   /@safe-global/safe-apps-provider@0.18.0(typescript@5.3.2):

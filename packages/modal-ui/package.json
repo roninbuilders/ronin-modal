@@ -18,7 +18,7 @@
   "author": "Glitch-txs",
   "license": "MIT",
   "dependencies": {
-    "@roninbuilders/rns": "^0.0.2",
+    "@roninbuilders/rns": "^0.0.11",
     "blo": "1.1.1",
     "lit": "2.8.0",
     "qrcode": "1.5.3"
