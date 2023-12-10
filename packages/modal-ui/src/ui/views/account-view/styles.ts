@@ -1,4 +1,5 @@
 import { css } from 'lit'
+import { modal } from '../../css'
 
 export const styles = css`
 :host{
@@ -46,21 +47,23 @@ export const styles = css`
 }
 
 #close{
-  background: none;
+  background-color: ${modal.backgroundColor};
   border: none;
-  color: #fff;
+  color: ${modal.color};
   padding: 7px;
-  border-radius: 10px;
+  border-radius: ${modal.borderRadius};
   margin: 0;
   cursor: pointer;
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  transition: all 0.2 ease
 }
 
 #close:hover{
-  background-color: #21232c;
+  filter: brightness(1.8);
 }
 
 .pfp-border{

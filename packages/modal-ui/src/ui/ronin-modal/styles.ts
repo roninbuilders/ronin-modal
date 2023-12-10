@@ -1,4 +1,5 @@
 import { css } from 'lit'
+import { modal } from '../css'
 
 export const styles = css`
   #container {
@@ -18,20 +19,18 @@ export const styles = css`
     user-select: none;
 
     background-color: rgba(0, 0, 0, 0.3);
-
-    font-family: var(
-      --ronin-font-family,
-      'SF Pro Rounded'
-    );
-    font-weight: var(--ronin-font-weight, 500);
-    font-size: var(--ronin-font-size, 20px);
   }
 
   .deskCard {
     will-change: transform, opacity;
 
-    background: var(--ronin-modal-bg, #1a1c23);
-    color: #fff;
+    background-color: ${modal.backgroundColor};
+    color: ${modal.color};
+
+    font-family: ${modal.fontFamily};
+    font-weight: ${modal.fontWeight};
+    font-size: ${modal.fontSize};
+    border-radius: ${modal.borderRadius};
 
     max-width: 340px;
     min-width: fit-content;
@@ -39,7 +38,6 @@ export const styles = css`
     margin: 10px;
     padding: 15px 20px 19px 20px;
 
-    border-radius: 14px;
 
     animation-duration: 0.2s;
     animation-name: zoom-in;
@@ -58,11 +56,14 @@ export const styles = css`
   .mobileCard {
     will-change: bottom, opacity;
 
-    background: var(--ronin-modal-bg, #1a1c23);
     position: absolute;
     bottom: 0;
-    color: #fff;
+    background-color: ${modal.backgroundColor};
+    color: ${modal.color};
 
+    font-family: ${modal.fontFamily};
+    font-weight: ${modal.fontWeight};
+    font-size: ${modal.fontSize};
     width: 100%;
 
     padding: 15px 20px 19px 20px;
