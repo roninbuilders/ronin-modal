@@ -21,7 +21,7 @@ export const styles = css`
 
     font-family: var(
       --ronin-font-family,
-      'SF Pro Rounded'
+      inherit
     );
     font-weight: var(--ronin-font-weight, 500);
     font-size: var(--ronin-font-size, 20px);

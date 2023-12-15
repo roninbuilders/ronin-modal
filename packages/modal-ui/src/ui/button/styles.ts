@@ -8,7 +8,7 @@ export const styles = css`
   user-select: none;
   background-color: rgb(13 110 253);
   color: #e2e4e9;
-  font-family: 'SF Pro Rounded';
+  font-family: inherit;
   border-radius: 0.4rem;
   cursor: pointer;
   padding: 11px 13px;
