@@ -26,17 +26,18 @@ export const {
 export function initModal() {
 	if (typeof window !== 'undefined') {
 
-    const style = document.createElement('style')
-    const css =`
-    @font-face {
-      font-family: 'SF Pro Rounded';
-      src: url(../fonts/SF-Pro-Rounded-Regular.ttf) format('ttf');
-      font-weight: 500;
-      font-style: normal;
-    }
-    `
-    style.textContent = css
-    document.head.appendChild(style)
+    // const style = document.createElement('style')
+    // const css =`
+    // @font-face {
+    //   font-family: 'SF Pro Rounded';
+    //   src: url('../fonts/SF-Pro-Rounded-Regular.ttf') format('truetype');
+    //   font-weight: 500;
+    //   font-style: normal;
+    // }
+    // `
+		
+    // style.textContent = css
+    // document.head.insertAdjacentElement('afterbegin',style)
 
 		const modal = document.createElement('ronin-modal')
 		document.body.insertAdjacentElement('beforeend', modal)
