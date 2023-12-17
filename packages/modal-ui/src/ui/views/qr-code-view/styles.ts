@@ -1,4 +1,5 @@
 import { css } from 'lit'
+import { title } from '../../css'
 
 export const styles = css`
 :host{
@@ -27,11 +28,9 @@ export const styles = css`
 #title .title{
   margin-left: 11px;
   font-size: 22px;
-}
+  font-size: ${title.fontSize};
+  font-weight: ${title.fontWeight};
 
-#title p{
-  margin: 0;
-  padding: 0;
 }
 
 #close{

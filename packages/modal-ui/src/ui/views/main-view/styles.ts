@@ -1,4 +1,5 @@
 import { css } from 'lit'
+import { title } from '../../css'
 
 export const styles = css`
 :host{
@@ -37,7 +38,9 @@ export const styles = css`
 }
 
 #title p{
-  font-size: var(--ronin-title-font-size, 22px);
+  font-size: ${title.fontSize};
+  font-weight: ${title.fontWeight};
+  color: ${title.color};
   margin: 0;
   padding: 0;
 }

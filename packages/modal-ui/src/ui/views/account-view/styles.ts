@@ -1,5 +1,5 @@
 import { css } from 'lit'
-import { modal } from '../../css'
+import { modal, title } from '../../css'
 
 export const styles = css`
 :host{
@@ -40,7 +40,8 @@ export const styles = css`
 }
 
 #title p{
-  font-size: var(--ronin-title-font-size, 22px);
+  font-size: ${title.fontSize};
+  font-weight: ${title.fontWeight};
   margin: 0;
   margin-left: 20px;
   padding: 0;

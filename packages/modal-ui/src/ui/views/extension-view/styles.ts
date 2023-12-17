@@ -1,4 +1,5 @@
 import { css } from 'lit'
+import { extension_button, title } from '../../css'
 
 export const styles = css`
   :host{
@@ -26,12 +27,8 @@ export const styles = css`
   #title .title{
     margin-left: 13px;
     font-size: 22px;
-  }
-  
-  #title p{
-    margin: 0;
-    padding: 0;
-    font-size: var(--ronin-font-size, 24px);
+    font-size: ${title.fontSize};
+    font-weight: ${title.fontWeight};
   }
   
   #close{
@@ -77,10 +74,12 @@ export const styles = css`
   }
 
   .button{
-    font-size: 17px;
-    height: 30px;
-    border-radius: 10px;
-    background-color: #282a39;
+    font-size: ${extension_button.fontSize};
+    font-weight: ${extension_button.fontWeight};
+    height: ${extension_button.height};
+    border-radius: ${extension_button.borderRadius};
+    background-color: ${extension_button.backgroundColor};
+    color: ${extension_button.color};
   
     display: flex;
     justify-content: center;
@@ -96,7 +95,7 @@ export const styles = css`
   }
   
   .button:hover{
-    background-color: #2d3142;
+    background-color: ${extension_button.backgroundColor_hover};
   }
 
   .text{
