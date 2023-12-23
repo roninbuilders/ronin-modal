@@ -1,5 +1,5 @@
 import { css } from 'lit'
-import { modal } from '../css'
+import { modal } from '../css/global'
 
 export const styles = css`
   #container {

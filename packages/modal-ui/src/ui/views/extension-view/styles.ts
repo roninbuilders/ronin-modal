@@ -1,5 +1,5 @@
 import { css } from 'lit'
-import { extension_button, title } from '../../css'
+import { extension_button, modal, title } from '../../css/global'
 
 export const styles = css`
   :host{
@@ -34,7 +34,7 @@ export const styles = css`
   #close{
     background: none;
     border: none;
-    color: #fff;
+    color: ${modal.color};
     padding: 9px;
     border-radius: 7px;
     margin: 0;
@@ -44,16 +44,18 @@ export const styles = css`
     justify-content: center;
     align-items: center;
     transition: all .1s ease;
+    
+    transition: transform .2s ease;
   }
   
   #close:hover{
-    background-color: #21232c;
+    transform: scale(1.1);
   }
 
   #go-back{
     background: none;
     border: none;
-    color: #fff;
+    color: ${modal.color};
     padding: 0;
     margin: 0;
     cursor: pointer;
@@ -61,11 +63,11 @@ export const styles = css`
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all .4s ease;
+    transition: all .2s ease;
   }
 
   #go-back:hover{
-    transform: scale(1.2)
+    transform: scale(1.1)
   }
 
   .install-extension{
@@ -103,7 +105,6 @@ export const styles = css`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
   }
 
   .description{
@@ -111,7 +112,7 @@ export const styles = css`
     height: 44px;
     text-align: center;
     font-size: 16px;
-    opacity: 0.7;
+    opacity: 0.8;
   }
 
   .fail-svg{

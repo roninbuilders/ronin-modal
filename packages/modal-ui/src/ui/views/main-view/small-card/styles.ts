@@ -1,5 +1,5 @@
 import { css } from 'lit'
-import { main_button } from '../../../css'
+import { main_button } from '../../../css/global'
 
 export const styles = css`
 .host{

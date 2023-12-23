@@ -69,7 +69,7 @@ export class QRCode extends LitElement {
         ${roninBlue}
       </div>
 			<span class="description">
-				Scan this QR Code with your phone
+				Scan with Ronin Wallet App
 			</span>
     `
 	}

@@ -1,5 +1,5 @@
 import { css } from 'lit'
-import { title } from '../../css'
+import { modal, title } from '../../css/global'
 
 export const styles = css`
 :host{
@@ -8,7 +8,6 @@ export const styles = css`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
 
   padding-bottom: 10px;
   padding-top: 6px;
@@ -23,6 +22,7 @@ export const styles = css`
   text-align: center;
 
   margin-right: 1px;
+  margin-bottom: 2px;
 }
 
 #title .title{
@@ -36,7 +36,7 @@ export const styles = css`
 #close{
   background: none;
   border: none;
-  color: #fff;
+  color: ${modal.color};
   padding: 9px;
   border-radius: 7px;
   margin: 0;
@@ -48,13 +48,13 @@ export const styles = css`
 }
 
 #close:hover{
-  background-color: #21232c;
+  transform: scale(1.1);
 }
 
 #go-back{
   background: none;
   border: none;
-  color: #fff;
+  color: ${modal.color};
   padding: 0;
   margin: 0;
   cursor: pointer;
@@ -72,7 +72,6 @@ export const styles = css`
   align-items: center;
   
   border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.3);
 
   margin: 10px 16px 10px 16px;
 }
@@ -81,6 +80,7 @@ export const styles = css`
   background-color: #fff;
   border: 10px solid #fff;
   border-radius: 14px;
+  box-shadow: 0px 0px 4px 0px rgba(26, 102, 255, 0.50);
 }
 
 #qr-code .ronin-blue{
@@ -101,10 +101,9 @@ export const styles = css`
 .qr-place-holder{
   width: 249px;
   height: 249px;
-  background-color: rgba(64,64,64);
   border-radius: 14px;
 
-  background: linear-gradient(110deg, rgba(64,64,64) 30%, rgba(125,125,125) 50%, rgba(64,64,64) 70%);
+  background: linear-gradient(110deg, ${modal.backgroundColor} 30%, rgba(135,135,135, 0.6) 50%, ${modal.backgroundColor} 70%);
   background-size: 200% 100%;
   animation: 1s shine linear infinite;
 }
@@ -127,7 +126,6 @@ export const styles = css`
 
 .description{
   width: 200px;
-  height: 46px;
   text-align: center;
   font-size: 16px;
   opacity: 0.7;

@@ -1,5 +1,5 @@
 import { css } from 'lit'
-import { connect_button } from '../css'
+import { connect_button } from '../css/button'
 
 export const styles = css`
 .button {

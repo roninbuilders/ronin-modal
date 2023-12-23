@@ -1,5 +1,5 @@
 import { css } from 'lit'
-import { title } from '../../css'
+import { title } from '../../css/global'
 
 export const styles = css`
   :host{

@@ -1,5 +1,5 @@
 import { css } from 'lit'
-import { modal, title } from '../../css'
+import { extension_button, modal, title } from '../../css/global'
 
 export const styles = css`
 :host{
@@ -18,6 +18,7 @@ export const styles = css`
 
 #card-container{
   display: flex;
+  font-size: 1.1rem;
   flex-direction:column;
   justify-content: space-between;
   align-items: center;
@@ -108,10 +109,12 @@ export const styles = css`
 
   cursor: pointer;
   border: 0;
-  font-size: 17px;
-  border-radius: 8px;
-  background-color: #2d3142;
-  color: #fff;
+
+  font-size: ${extension_button.fontSize};
+  font-weight: ${extension_button.fontWeight};
+  border-radius: ${extension_button.borderRadius};
+  background-color: ${extension_button.backgroundColor};
+  color: ${extension_button.color};
 
   display: flex;
   justify-content: center;
@@ -129,16 +132,18 @@ export const styles = css`
 }
 
 .button:hover{
-  background-color: rgb(45 49 66 / 80%);
+  background-color: ${extension_button.backgroundColor_hover};
 }
 
 .disconnect-svg{
   width:16px;
   margin-bottom: 2px;
+  stroke: ${modal.color};
 }
 
 .copy-svg{
   width:16px;
   margin-bottom: 2px;
+  stroke: ${modal.color};
 }
 `
