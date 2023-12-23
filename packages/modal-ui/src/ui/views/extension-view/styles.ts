@@ -1,4 +1,5 @@
 import { css } from 'lit'
+import { extension_button, modal, title } from '../../css/global'
 
 export const styles = css`
   :host{
@@ -26,18 +27,14 @@ export const styles = css`
   #title .title{
     margin-left: 13px;
     font-size: 22px;
-  }
-  
-  #title p{
-    margin: 0;
-    padding: 0;
-    font-size: var(--ronin-font-size, 24px);
+    font-size: ${title.fontSize};
+    font-weight: ${title.fontWeight};
   }
   
   #close{
     background: none;
     border: none;
-    color: #fff;
+    color: ${modal.color};
     padding: 9px;
     border-radius: 7px;
     margin: 0;
@@ -47,16 +44,18 @@ export const styles = css`
     justify-content: center;
     align-items: center;
     transition: all .1s ease;
+    
+    transition: transform .2s ease;
   }
   
   #close:hover{
-    background-color: #21232c;
+    transform: scale(1.1);
   }
 
   #go-back{
     background: none;
     border: none;
-    color: #fff;
+    color: ${modal.color};
     padding: 0;
     margin: 0;
     cursor: pointer;
@@ -64,11 +63,11 @@ export const styles = css`
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all .4s ease;
+    transition: all .2s ease;
   }
 
   #go-back:hover{
-    transform: scale(1.2)
+    transform: scale(1.1)
   }
 
   .install-extension{
@@ -77,10 +76,12 @@ export const styles = css`
   }
 
   .button{
-    font-size: 17px;
-    height: 30px;
-    border-radius: 10px;
-    background-color: #282a39;
+    font-size: ${extension_button.fontSize};
+    font-weight: ${extension_button.fontWeight};
+    height: ${extension_button.height};
+    border-radius: ${extension_button.borderRadius};
+    background-color: ${extension_button.backgroundColor};
+    color: ${extension_button.color};
   
     display: flex;
     justify-content: center;
@@ -96,7 +97,7 @@ export const styles = css`
   }
   
   .button:hover{
-    background-color: #2d3142;
+    background-color: ${extension_button.backgroundColor_hover};
   }
 
   .text{
@@ -104,7 +105,6 @@ export const styles = css`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
   }
 
   .description{
@@ -112,7 +112,7 @@ export const styles = css`
     height: 44px;
     text-align: center;
     font-size: 16px;
-    opacity: 0.7;
+    opacity: 0.8;
   }
 
   .fail-svg{

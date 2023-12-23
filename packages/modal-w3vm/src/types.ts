@@ -4,6 +4,7 @@ export type RoninOptions = {
 	SSR?: boolean
 	projectId: string
 	chain: Chain
+	darkMode?: boolean
 }
 
 export type Callback<T> = (status: T) => void

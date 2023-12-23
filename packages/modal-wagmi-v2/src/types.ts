@@ -17,6 +17,7 @@ export type CreateRoninModalOptions = {
 		icons: string[]
 	}
 	transport?: Transport
+	darkMode?: boolean
 }
 
 declare global {

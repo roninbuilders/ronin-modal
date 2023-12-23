@@ -1,4 +1,4 @@
-import { Core_status, WALLETCONNECT_ID, createCore, initModal, setCore } from '@roninbuilders/modal-ui'
+import { Core_status, WALLETCONNECT_ID, createCore, initModal, setCore, setModal } from '@roninbuilders/modal-ui'
 import type { Callback, CreateRoninModalOptions, WagmiStore } from './types'
 import { createStore } from 'vanilla-cafe'
 import {
@@ -18,7 +18,9 @@ const { set: setWagmi, get: getWagmi } = createStore<WagmiStore>({
 	config: undefined,
 })
 
-export function createRoninModal({ projectId, chain, metadata, transport }: CreateRoninModalOptions) {
+export function createRoninModal({ projectId, chain, metadata, transport, darkMode }: CreateRoninModalOptions) {
+	if (darkMode) setModal.darkMode(darkMode)
+
 	initModal()
 
 	if (!projectId) throw Error('Project ID is undefined')

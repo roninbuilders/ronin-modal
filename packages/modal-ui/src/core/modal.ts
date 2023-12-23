@@ -1,8 +1,6 @@
 import { createStore } from 'vanilla-cafe'
 import { INJECTED_ID, WALLETCONNECT_ID } from './constants'
 import { getCore } from './wallet'
-
-import '../ui/ronin-modal'
 import { isMobile } from './utils/mobile'
 
 export type View = 'main' | 'qr-code' | 'extension' | 'install' | 'account'
@@ -12,6 +10,7 @@ export type ConnectorID = 'injected' | 'walletConnect'
 interface Modal {
 	open: boolean
 	view: View
+	darkMode: boolean
 }
 
 export const {
@@ -21,10 +20,12 @@ export const {
 } = createStore<Modal>({
 	open: false,
 	view: 'main',
+	darkMode: false,
 })
 
-export function initModal() {
+export async function initModal() {
 	if (typeof window !== 'undefined') {
+		await import('../ui/ronin-modal')
 		const modal = document.createElement('ronin-modal')
 		document.body.insertAdjacentElement('beforeend', modal)
 		document.body.style.width = '100%'

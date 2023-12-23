@@ -1,4 +1,5 @@
 import { css } from 'lit'
+import { main_button } from '../../../css/global'
 
 export const styles = css`
 .host{
@@ -6,7 +7,11 @@ export const styles = css`
 }
 
 #card{
-  border-radius: 14px;
+  border-radius: ${main_button.borderRadius};
+  font-size: ${main_button.fontSize};
+  font-weight: ${main_button.fontWeight};
+  background-color: ${main_button.backgroundColor};
+  color: ${main_button.color};
   height: 50px;
 
   display: flex;
@@ -21,7 +26,7 @@ export const styles = css`
 }
 
 #card:hover{
-  background-color: #21232c;
+  background-color: ${main_button.backgroundColor_hover};
 }
 
 #card ::slotted(*){

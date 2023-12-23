@@ -1,4 +1,5 @@
 import { css } from 'lit'
+import { extension_button, modal, title } from '../../css/global'
 
 export const styles = css`
 :host{
@@ -17,6 +18,7 @@ export const styles = css`
 
 #card-container{
   display: flex;
+  font-size: 1.1rem;
   flex-direction:column;
   justify-content: space-between;
   align-items: center;
@@ -39,28 +41,31 @@ export const styles = css`
 }
 
 #title p{
-  font-size: var(--ronin-title-font-size, 22px);
+  font-size: ${title.fontSize};
+  font-weight: ${title.fontWeight};
   margin: 0;
   margin-left: 20px;
   padding: 0;
 }
 
 #close{
-  background: none;
+  background-color: ${modal.backgroundColor};
   border: none;
-  color: #fff;
+  color: ${modal.color};
   padding: 7px;
-  border-radius: 10px;
+  border-radius: ${modal.borderRadius};
   margin: 0;
   cursor: pointer;
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  transition: all 0.2 ease
 }
 
 #close:hover{
-  background-color: #21232c;
+  filter: brightness(1.8);
 }
 
 .pfp-border{
@@ -104,10 +109,12 @@ export const styles = css`
 
   cursor: pointer;
   border: 0;
-  font-size: 17px;
-  border-radius: 8px;
-  background-color: #2d3142;
-  color: #fff;
+
+  font-size: ${extension_button.fontSize};
+  font-weight: ${extension_button.fontWeight};
+  border-radius: ${extension_button.borderRadius};
+  background-color: ${extension_button.backgroundColor};
+  color: ${extension_button.color};
 
   display: flex;
   justify-content: center;
@@ -125,16 +132,18 @@ export const styles = css`
 }
 
 .button:hover{
-  background-color: rgb(45 49 66 / 80%);
+  background-color: ${extension_button.backgroundColor_hover};
 }
 
 .disconnect-svg{
   width:16px;
   margin-bottom: 2px;
+  stroke: ${modal.color};
 }
 
 .copy-svg{
   width:16px;
   margin-bottom: 2px;
+  stroke: ${modal.color};
 }
 `

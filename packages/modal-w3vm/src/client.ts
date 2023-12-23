@@ -1,9 +1,11 @@
-import { Core_status, RONIN_RDNS, WALLETCONNECT_ID, createCore, initModal } from '@roninbuilders/modal-ui'
+import { Core_status, RONIN_RDNS, WALLETCONNECT_ID, createCore, initModal, setModal } from '@roninbuilders/modal-ui'
 import { getW3, connectW3, initW3, disconnectW3, subW3 } from '@w3vm/core'
 import { WalletConnect, subWC } from '@w3vm/walletconnect'
 import { Callback, RoninOptions } from './types'
 
-export function createRoninModal({ SSR, projectId, chain }: RoninOptions) {
+export function createRoninModal({ SSR, projectId, chain, darkMode }: RoninOptions) {
+	if (darkMode) setModal.darkMode(darkMode)
+
 	initModal()
 
 	const w3props = initW3({
