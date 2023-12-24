@@ -1,14 +1,7 @@
-import { LitElement, html } from 'lit'
-import { customElement } from 'lit/decorators.js'
-import { styles } from './styles'
+import { html } from 'lit'
 
-@customElement('logo-svg')
-export class LogoSVG extends LitElement {
-	static styles = styles
-
-	render() {
-		return html`
-      <svg width="180" height="140" viewBox="0 0 180 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const roninShiny = html`
+      <svg class="ronin-shiny" width="180" height="140" viewBox="0 0 180 210" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g opacity="0.9" filter="url(#filter0_f_2497_20124)">
           <path class="path" fill-rule="evenodd" clip-rule="evenodd" d="M30 41.9235V145.57C30.0012 147.506 30.439 149.417 31.281 151.162C32.1231 152.907 33.3478 154.441 34.8649 155.651L83.9189 194.874C85.6446 196.25 87.7894 197 90 197C92.2106 197 94.3554 196.25 96.0811 194.874L145.135 155.651C146.652 154.441 147.877 152.907 148.719 151.162C149.561 149.417 149.999 147.506 150 145.57V41.9235C150 38.496 148.633 35.2089 146.2 32.7852C143.767 30.3616 140.468 29 137.027 29H42.973C39.5323 29 36.2326 30.3616 33.7997 32.7852C31.3668 35.2089 30 38.496 30 41.9235V41.9235Z" stroke="#1A66FF" stroke-width="6"/>
           </g>
@@ -60,12 +53,4 @@ export class LogoSVG extends LitElement {
           </linearGradient>
         </defs>
       </svg>
-    `
-	}
-}
-
-declare global {
-	interface HTMLElementTagNameMap {
-		'logo-svg': LogoSVG
-	}
-}
+`

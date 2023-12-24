@@ -117,9 +117,16 @@ export const styles = css`
 
   .fail-svg{
     filter: grayscale(1);
+    padding: 0;
+    margin: 0;
+    line-height: 0;
   }
   
   .retry-svg{
     width:15px;
+  }
+
+  .ronin-shiny{
+    width: 140px;
   }
 `

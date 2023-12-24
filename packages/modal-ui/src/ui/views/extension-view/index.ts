@@ -2,11 +2,11 @@ import { LitElement, html } from 'lit'
 import { customElement, state } from 'lit/decorators.js'
 import { styles } from './styles'
 
-import './svg/index'
 import { retry } from '../../../assets/try'
 import { INJECTED_ID } from '../../../core/constants'
 import { Core_status, getCore, subCore } from '../../../core/wallet'
 import { closeModal, connectModal, goToMain } from '../../../core/modal'
+import { roninShiny } from '../../../assets/roninShiny'
 
 @customElement('extension-view')
 export class ExtensionView extends LitElement {
@@ -46,7 +46,7 @@ export class ExtensionView extends LitElement {
 		switch (this._status) {
 			case 'Connecting':
 				return html`
-				<logo-svg></logo-svg>
+				${roninShiny}
 				<div class="text">
 					<span class="status" >Requesting Connection</span>
 					<span class="description" >
@@ -59,7 +59,8 @@ export class ExtensionView extends LitElement {
 					return
 				}
 				return html`
-      	<logo-svg class="fail-svg"></logo-svg>
+      	<span class="fail-svg">
+				${roninShiny}</span>
 				<div class="text">
 					<span>Failed to connect</span>
 					<div class="button" @click="${() => connectModal(INJECTED_ID)}">${retry} Try Again</div>
