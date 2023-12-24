@@ -1,5 +1,5 @@
 import { css } from 'lit'
-import { extension_button, modal, title } from '../../css/global'
+import { secondary_button, modal, title } from '../../css/global'
 
 export const styles = css`
   :host{
@@ -76,12 +76,12 @@ export const styles = css`
   }
 
   .button{
-    font-size: ${extension_button.fontSize};
-    font-weight: ${extension_button.fontWeight};
-    height: ${extension_button.height};
-    border-radius: ${extension_button.borderRadius};
-    background-color: ${extension_button.backgroundColor};
-    color: ${extension_button.color};
+    font-size: ${secondary_button.fontSize};
+    font-weight: ${secondary_button.fontWeight};
+    height: ${secondary_button.height};
+    border-radius: ${secondary_button.borderRadius};
+    background-color: ${secondary_button.backgroundColor};
+    color: ${secondary_button.color};
   
     display: flex;
     justify-content: center;
@@ -97,7 +97,7 @@ export const styles = css`
   }
   
   .button:hover{
-    background-color: ${extension_button.backgroundColor_hover};
+    background-color: ${secondary_button.backgroundColor_hover};
   }
 
   .text{
