@@ -1,5 +1,5 @@
 import { css } from 'lit'
-import { title } from '../../css/global'
+import { modal, title } from '../../css/global'
 
 export const styles = css`
   :host{
@@ -39,7 +39,7 @@ export const styles = css`
     
     background: none;
     border: none;
-    color: #fff;
+    color: ${modal.color};
     padding: 7px;
     border-radius: 10px;
     margin: 0;

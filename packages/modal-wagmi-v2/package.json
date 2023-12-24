@@ -1,6 +1,6 @@
 {
   "name": "@roninbuilders/modal-wagmi",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "description": "Ronin Wallet Modal with Wagmi v2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -18,8 +18,7 @@
   "author": "Glitch-txs",
   "license": "MIT",
   "dependencies": {
-    "@roninbuilders/modal-ui": "workspace: *",
-    "@wehmoen/rnsts": "1.0.1"
+    "@roninbuilders/modal-ui": "workspace: *"
   },
   "peerDependencies": {
     "@wagmi/core": ">=2.0.0-beta",

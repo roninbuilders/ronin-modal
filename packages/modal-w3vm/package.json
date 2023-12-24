@@ -1,6 +1,6 @@
 {
   "name": "@roninbuilders/modal",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "description": "Framework agnostic Ronin Wallet Modal for Websites",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -20,8 +20,7 @@
   "dependencies": {
     "@w3vm/core": "0.0.4",
     "@w3vm/walletconnect": "0.0.7",
-    "@roninbuilders/modal-ui": "workspace: *",
-    "@wehmoen/rnsts": "1.0.1"
+    "@roninbuilders/modal-ui": "workspace: *"
   },
   "peerDependencies": {
     "typescript": ">=5",
