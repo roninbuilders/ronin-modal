@@ -25,6 +25,22 @@ export class MobileConnectView extends LitElement {
 		this._status = status
 	}
 
+	private handleInstallIOS() {
+		window.open(
+			'https://apps.apple.com/us/app/ronin-wallet/id1592675001',
+			'_blank',
+			'noreferrer noopener'
+		)
+	}
+
+	private handleInstallAndroid() {
+		window.open(
+			'https://play.google.com/store/apps/details?id=com.skymavis.genesis&pli=1',
+			'_blank',
+			'noreferrer noopener',
+		)
+	}
+
 	private handleConnectIOS() {
 		this._status = 'Connecting'
 		const uri = getCore.URI()
@@ -61,23 +77,47 @@ export class MobileConnectView extends LitElement {
 		this._unsubscribeStatus()
 	}
 
+	private installTemplate() {
+		if (isAndroid()) {
+			return html`
+			<div class="install-container" >
+				<span>Don't have Ronin Wallet?</span>
+				<button class="install-btn" @click="${this.handleInstallAndroid}" >Install</button>
+			</div>`
+		}
+		return html`
+		<div class="install-container" >
+			<span>Don't have Ronin Wallet?</span>
+			<button class="install-btn" @click="${this.handleInstallIOS}" >Install</button>
+		</div>
+		`
+	}
+
 	private statusTemplate() {
 		switch (this._status) {
 			case 'GeneratingURI':
 			case 'ReadyToConnect':
 				if (isAndroid()) {
 					return html`
+					<span class="description" >
+						Press "Connect" and accept the request in your mobile wallet.
+					</span>
           <button class="button" ?disabled="${Boolean(this._status === 'GeneratingURI')}" @click="${
 						this.handleConnectAndroid
 					}" >
             <span>${this._status === 'GeneratingURI' ? 'Loading' : 'Connect'}</span>
-          </button>`
+          </button>
+					${this.installTemplate()}
+					`
 				}
 				return html`
+				<span class="description" >
+					Press "Connect" and accept the request in your mobile wallet.
+				</span>
         <button class="button" ?disabled="${Boolean(this._status === 'GeneratingURI')}" @click="${this.handleConnectIOS}" >
           <span>${this._status === 'GeneratingURI' ? 'Loading' : 'Connect'}</span>
         </button>
-			`
+				${this.installTemplate()}`
 			case 'Connecting':
 				return html`
 				<span>Connecting...</span>
@@ -110,6 +150,7 @@ export class MobileConnectView extends LitElement {
         </button>
         </button>
       </span>
+			<hr/>
 			${roninBlue}
 			<div class="text">
 				${this.statusTemplate()}

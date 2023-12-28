@@ -1,15 +1,27 @@
 import { css } from 'lit'
-import { modal, title } from '../../css/global'
+import { modal, secondary_button, title } from '../../css/global'
+import { connect_button } from '../../css/button'
 
 export const styles = css`
   :host{
-    height: 300px;
     min-width: 250px;
 
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    gap: 20px;
+    padding: 10px;
     align-items: center;
+  }
+
+  hr{
+    height: 1px;
+    border-width: 0px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    opacity: 0.1;
+    background-color: black;
   }
 
   #title{
@@ -29,6 +41,7 @@ export const styles = css`
   #title p{
     font-size: ${title.fontSize};
     font-weight: ${title.fontWeight};
+    color: ${title.color};
     margin: 0;
     padding: 0;
   }
@@ -77,9 +90,9 @@ export const styles = css`
     cursor: pointer;
     border: 0;
     font-size: 17px;
-    border-radius: 10px;
-    background-color: #1273ea;
-    color: #fff;
+    border-radius: ${connect_button.borderRadius};
+    background-color: ${connect_button.backgroundColor};
+    color: ${connect_button.color};
   
     display: flex;
     justify-content: space-between;
@@ -89,6 +102,7 @@ export const styles = css`
     padding: 9px 15px;
     cursor:pointer;
     user-select: none;
+    margin-top: 5px;
   
     transition: all .2s ease;
   }
@@ -108,6 +122,7 @@ export const styles = css`
   }
 
   .text{
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -126,5 +141,33 @@ export const styles = css`
   .retry-svg{
     width:16px;
     margin-bottom: 2px;
+  }
+
+  .install-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    border: 1px solid ${secondary_button.backgroundColor};
+    border-radius: ${secondary_button.borderRadius};
+    padding: 10px 0;
+  }
+
+  .install-btn{
+    cursor: pointer;
+    border: 0;
+    font-size: 17px;
+    border-radius: ${secondary_button.borderRadius};
+    background-color: ${secondary_button.backgroundColor};
+    color: ${secondary_button.color};
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2px;
+
+    padding: 9px 15px;
+    cursor:pointer;
+    user-select: none;
   }
 `

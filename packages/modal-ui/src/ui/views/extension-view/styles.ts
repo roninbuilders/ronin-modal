@@ -105,6 +105,7 @@ export const styles = css`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 5px;
   }
 
   .description{

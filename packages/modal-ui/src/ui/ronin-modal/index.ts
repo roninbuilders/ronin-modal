@@ -20,7 +20,6 @@ export class RoninModal extends LitElement {
 
 	protected _handleOpen(open: boolean) {
 		this._open = open
-		document.body.style.position = open && isMobile() ? 'fixed' : 'static'
 	}
 
 	constructor() {
