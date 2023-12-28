@@ -9,8 +9,8 @@ export const styles = css`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    gap: 20px;
-    padding: 10px;
+    gap: 24px;
+    padding: 12px;
     align-items: center;
   }
 
@@ -21,7 +21,7 @@ export const styles = css`
     padding: 0;
     width: 100%;
     opacity: 0.1;
-    background-color: black;
+    background-color: ${modal.color};
   }
 
   #title{
@@ -145,13 +145,14 @@ export const styles = css`
 
   .install-container{
     display: flex;
-    width: 100%;
-    justify-content: space-around;
+    width: 90%;
+    justify-content: space-between;
     align-items: center;
     margin-top: 20px;
+    font-size: 18px;
     border: 1px solid ${secondary_button.backgroundColor};
     border-radius: ${secondary_button.borderRadius};
-    padding: 10px 0;
+    padding: 10px 14px;
   }
 
   .install-btn{

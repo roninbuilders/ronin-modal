@@ -3,7 +3,6 @@ import { secondary_button, modal, title } from '../../css/global'
 
 export const styles = css`
   :host{
-    height: 290px;
     min-width: 260px;
 
     display: flex;
