@@ -59,7 +59,7 @@ export class MobileConnectView extends LitElement {
 		if (uri)
 			window.open(
 				`https://wallet.roninchain.com/auth-connect?uri=${encodeURIComponent(uri)}`,
-				'_self',
+				'_blank',
 				'noreferrer noopener',
 			)
 		else throw Error('Uri was undefined while trying to connect on mobile')
@@ -82,13 +82,13 @@ export class MobileConnectView extends LitElement {
 			return html`
 			<div class="install-container" >
 				<span>Don't have Ronin Wallet?</span>
-				<button class="install-btn" @click="${this.handleInstallAndroid}" >Install</button>
+				<button class="install-btn" @click="${this.handleInstallAndroid}" >Download</button>
 			</div>`
 		}
 		return html`
 		<div class="install-container" >
 			<span>Don't have Ronin Wallet?</span>
-			<button class="install-btn" @click="${this.handleInstallIOS}" >Install</button>
+			<button class="install-btn" @click="${this.handleInstallIOS}" >Download</button>
 		</div>
 		`
 	}
@@ -122,8 +122,10 @@ export class MobileConnectView extends LitElement {
 				return html`
 				<span>Connecting...</span>
 				<span class="description" >
-					Accept the connection request in the mobile wallet.
+					Accept the connection request in your mobile wallet.
 				</span>
+        <div class="button secondary" @click="${() => connectModal(WALLETCONNECT_ID)}">${retry} Try Again</div>
+				${this.installTemplate()}
 			`
 			case undefined:
 				if (getCore.address()) {
@@ -134,7 +136,7 @@ export class MobileConnectView extends LitElement {
 					<span class="description" >
 						Failed to connect
 					</span>
-          <div class="button" @click="${() => connectModal(WALLETCONNECT_ID)}">${retry} Try Again</div>
+          <div class="button secondary" @click="${() => connectModal(WALLETCONNECT_ID)}">${retry} Try Again</div>
         `
 		}
 	}

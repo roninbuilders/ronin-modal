@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit'
-import { customElement, property } from 'lit/decorators.js'
+import { customElement, property, state } from 'lit/decorators.js'
 import { styles } from './styles'
 
 import { roninWhite } from '../../../assets/roninWhite'
@@ -15,10 +15,14 @@ export class AccountView extends LitElement {
 	static styles = styles
 
 	@property() user: string | undefined
+	@state() _copy: string = 'Copy'
 
 	protected copyAddress() {
 		const address = getCore.address()
-		if (address) navigator?.clipboard.writeText(address)
+		if (!address) return
+		navigator?.clipboard.writeText(address)
+		this._copy = 'Copied!'
+		setTimeout(()=>{this._copy = 'Copy'}, 1400)
 	}
 
 	protected profileTemplate() {
@@ -87,7 +91,7 @@ export class AccountView extends LitElement {
         </div>
         ${this.user}
         <div class="btn-group" >
-          <button class="button" @click="${this.copyAddress}" >${copyImg} Copy</button>
+          <button class="button" @click="${this.copyAddress}" >${copyImg} ${this._copy}</button>
           <button class="button" @click="${this.handleDisconnect}" >${disconnectImg} Disconnect</button>
         </div>
       </div>

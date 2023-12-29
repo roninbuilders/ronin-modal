@@ -107,6 +107,12 @@ export const styles = css`
     transition: all .2s ease;
   }
 
+  .secondary{
+    border-radius: ${secondary_button.borderRadius};
+    background-color: ${secondary_button.backgroundColor};
+    color: ${secondary_button.color};
+  }
+
   .button:disabled{
     opacity: .5;
   }
@@ -149,7 +155,7 @@ export const styles = css`
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 17px;
     border: 1px solid ${secondary_button.backgroundColor};
     border-radius: ${secondary_button.borderRadius};
     padding: 10px 14px;
