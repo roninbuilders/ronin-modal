@@ -46,7 +46,7 @@ export class MobileConnectView extends LitElement {
 		const uri = getCore.URI()
 		if (uri)
 			window.open(
-				`https://wallet.roninchain.com/auth-connect?uri=${encodeURIComponent(uri)}`,
+				`roninwallet://wc?uri=${encodeURIComponent(uri)}`,
 				'_self',
 				'noreferrer noopener',
 			)
@@ -58,7 +58,7 @@ export class MobileConnectView extends LitElement {
 		const uri = getCore.URI()
 		if (uri)
 			window.open(
-				`https://wallet.roninchain.com/auth-connect?uri=${encodeURIComponent(uri)}`,
+				`roninwallet://wc?uri=${encodeURIComponent(uri)}`,
 				'_blank',
 				'noreferrer noopener',
 			)
