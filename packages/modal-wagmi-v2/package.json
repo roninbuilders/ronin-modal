@@ -21,10 +21,10 @@
     "@roninbuilders/modal-ui": "workspace: *"
   },
   "peerDependencies": {
-    "@wagmi/core": ">=2.0.0-beta",
-    "@wagmi/connectors": ">=4.0.0-beta",
+    "@wagmi/core": ">=2.0.0",
+    "@wagmi/connectors": ">=4.0.0",
     "vanilla-cafe": ">=0",
-    "viem": ">=2.0.0-beta",
+    "viem": ">=2.0.0",
     "typescript": ">=5"
   },
   "peerDependenciesMeta": {
