@@ -14,6 +14,7 @@
     "upload": "pnpm run build && pnpm publish",
     "clean": "rm -rf .turbo && rm -rf dist"
   },
+  "sideEffects": false,
   "type": "module",
   "author": "Glitch-txs",
   "license": "MIT",
