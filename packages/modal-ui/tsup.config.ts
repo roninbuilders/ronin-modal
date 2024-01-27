@@ -5,6 +5,5 @@ export default defineConfig({
   format: ['esm'],
   target: 'es2021',
   clean: true,
-  dts: true,
-  minify: true
+  dts: true
 })

@@ -6,5 +6,4 @@ export default defineConfig({
   target: 'es2021',
   clean: true,
   dts: true,
-  minify: true
 })
