@@ -3,9 +3,9 @@ import { customElement, state } from 'lit/decorators.js'
 import { styles } from './styles'
 
 import { retry } from '../../../assets/try'
-import { INJECTED_ID } from '../../../core/constants'
+import { INJECTED_ID } from '../../../core/utils/constants'
 import { Core_status, getCore, subCore } from '../../../core/wallet'
-import { closeModal, connectModal, goToMain } from '../../../core/modal'
+import { closeModal, connectModal } from '../../../core/modal'
 import { roninShiny } from '../../../assets/roninShiny'
 
 @customElement('extension-view')
@@ -71,18 +71,12 @@ export class ExtensionView extends LitElement {
 
 	render() {
 		return html`
-      <span id="title" >        
-        <button @click="${goToMain}" id="go-back">
-          <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg" data-projection-id="568">
-            <path d="M8 1L1 8L8 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg>
-        </button>
-        <span class="title" >Browser Extension</span>
-        <button @click="${closeModal}" id="close">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" data-projection-id="467">
-            <path d="M1 13L13 1M1 1L13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-          </svg>
-        </button>
+      <span id="title" >
+        <back-rmc/>
+        <title-rmc>
+          Browser Extension
+        </title-rmc>
+        <cross-rmc/>
       </span>
       ${this.statusTemplate()}
     `

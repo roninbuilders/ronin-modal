@@ -29,41 +29,6 @@ export const styles = css`
     font-size: ${title.fontSize};
     font-weight: ${title.fontWeight};
   }
-  
-  #close{
-    background: none;
-    border: none;
-    color: ${modal.color};
-    padding: 9px;
-    border-radius: 7px;
-    margin: 0;
-    cursor: pointer;
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all .1s ease;
-    
-    transition: transform .2s ease;
-  }
-  
-  #close:hover{
-    transform: scale(1.1);
-  }
-
-  #go-back{
-    background: none;
-    border: none;
-    color: ${modal.color};
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all .2s ease;
-  }
 
   .images-container{
     width: 80%;
@@ -72,10 +37,6 @@ export const styles = css`
     align-items: center;
 
     margin: 11px 0;
-  }
-
-  #go-back:hover{
-    transform: scale(1.1);
   }
 
   .pfp-border{

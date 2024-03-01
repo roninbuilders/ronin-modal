@@ -19,4 +19,4 @@ export {
 	type Core_status,
 	type Subscriber,
 } from './core/wallet'
-export { WALLETCONNECT_ID, INJECTED_ID, RONIN_RDNS } from './core/constants'
+export { WALLETCONNECT_ID, INJECTED_ID, RONIN_RDNS } from './core/utils/constants'

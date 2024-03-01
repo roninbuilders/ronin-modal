@@ -1,5 +1,5 @@
 import { css } from 'lit'
-import { secondary_button, modal, title } from '../../css/global'
+import { secondary_button } from '../../css/global'
 
 export const styles = css`
   :host{
@@ -21,52 +21,6 @@ export const styles = css`
     width: 100%;
     padding-top: 4px;
     padding-left: 5px;
-  }
-  
-  #title .title{
-    margin-left: 13px;
-    font-size: 22px;
-    font-size: ${title.fontSize};
-    font-weight: ${title.fontWeight};
-  }
-  
-  #close{
-    background: none;
-    border: none;
-    color: ${modal.color};
-    padding: 9px;
-    border-radius: 7px;
-    margin: 0;
-    cursor: pointer;
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all .1s ease;
-    
-    transition: transform .2s ease;
-  }
-  
-  #close:hover{
-    transform: scale(1.1);
-  }
-
-  #go-back{
-    background: none;
-    border: none;
-    color: ${modal.color};
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all .2s ease;
-  }
-
-  #go-back:hover{
-    transform: scale(1.1);
   }
 
   .install-extension{

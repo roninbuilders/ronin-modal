@@ -1,5 +1,5 @@
 import { css } from 'lit'
-import { secondary_button, modal, title } from '../../css/global'
+import { secondary_button, modal } from '../../css/global'
 
 export const styles = css`
 :host{
@@ -38,34 +38,6 @@ export const styles = css`
 #title .ronin-white {
   width: 16px;
   height: auto;
-}
-
-#title p{
-  font-size: ${title.fontSize};
-  font-weight: ${title.fontWeight};
-  margin: 0;
-  margin-left: 20px;
-  padding: 0;
-}
-
-#close{
-  background-color: ${modal.backgroundColor};
-  border: none;
-  color: ${modal.color};
-  padding: 7px;
-  border-radius: ${modal.borderRadius};
-  margin: 0;
-  cursor: pointer;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  transition: all 0.2 ease
-}
-
-#close:hover{
-  transform: scale(1.1);
 }
 
 .pfp-border{

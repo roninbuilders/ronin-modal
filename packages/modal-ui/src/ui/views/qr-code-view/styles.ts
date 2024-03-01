@@ -1,5 +1,5 @@
 import { css } from 'lit'
-import { modal, title } from '../../css/global'
+import { modal } from '../../css/global'
 
 export const styles = css`
 :host{
@@ -23,45 +23,6 @@ export const styles = css`
 
   margin-right: 1px;
   margin-bottom: 2px;
-}
-
-#title .title{
-  margin-left: 11px;
-  font-size: 22px;
-  font-size: ${title.fontSize};
-  font-weight: ${title.fontWeight};
-
-}
-
-#close{
-  background: none;
-  border: none;
-  color: ${modal.color};
-  padding: 9px;
-  border-radius: 7px;
-  margin: 0;
-  cursor: pointer;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#close:hover{
-  transform: scale(1.1);
-}
-
-#go-back{
-  background: none;
-  border: none;
-  color: ${modal.color};
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #qr-code{
@@ -92,10 +53,6 @@ export const styles = css`
   top: 50%;
   transform: translate(-50%, -55%);
   transition: all .4s ease;
-}
-
-#go-back:hover{
-  transform: scale(1.2)
 }
 
 .qr-place-holder{

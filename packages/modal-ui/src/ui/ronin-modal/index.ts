@@ -2,7 +2,7 @@ import { LitElement, html } from 'lit'
 import { customElement, property, state } from 'lit/decorators.js'
 import { styles } from './styles'
 
-import './routes'
+import './imports'
 import { isMobile } from '../../core/utils/mobile'
 import { classMap } from 'lit/directives/class-map.js'
 import { closeModal, subModal } from '../../core/modal'

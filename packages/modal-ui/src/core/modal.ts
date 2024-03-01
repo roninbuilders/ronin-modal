@@ -1,5 +1,5 @@
 import { createStore } from 'vanilla-cafe'
-import { INJECTED_ID, WALLETCONNECT_ID } from './constants'
+import { INJECTED_ID, WALLETCONNECT_ID } from './utils/constants'
 import { getCore } from './wallet'
 import { isMobile } from './utils/mobile'
 

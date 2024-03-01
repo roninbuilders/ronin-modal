@@ -1,5 +1,5 @@
 import { css } from 'lit'
-import { modal, secondary_button, title } from '../../css/global'
+import { modal, secondary_button } from '../../css/global'
 import { connect_button } from '../../css/button'
 
 export const styles = css`
@@ -36,36 +36,6 @@ export const styles = css`
   
   #title img{
     width: 20px;
-  }
-  
-  #title p{
-    font-size: ${title.fontSize};
-    font-weight: ${title.fontWeight};
-    color: ${title.color};
-    margin: 0;
-    padding: 0;
-  }
-  
-  #close{
-    position: absolute;
-    right: 50px;
-    
-    background: none;
-    border: none;
-    color: ${modal.color};
-    padding: 7px;
-    border-radius: 10px;
-    margin: 0;
-    cursor: pointer;
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all .1s ease;
-  }
-
-  #close:hover{
-    transform: scale(1.1);
   }
 
   .button{

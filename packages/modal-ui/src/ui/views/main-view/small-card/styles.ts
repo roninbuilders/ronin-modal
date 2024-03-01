@@ -2,10 +2,6 @@ import { css } from 'lit'
 import { main_button } from '../../../css/global'
 
 export const styles = css`
-.host{
-
-}
-
 #card{
   border-radius: ${main_button.borderRadius};
   font-size: ${main_button.fontSize};

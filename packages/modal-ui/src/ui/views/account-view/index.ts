@@ -3,7 +3,7 @@ import { customElement, property, state } from 'lit/decorators.js'
 import { styles } from './styles'
 
 import { roninWhite } from '../../../assets/roninWhite'
-import { closeModal, setModal } from '../../../core/modal'
+import { setModal } from '../../../core/modal'
 
 import { blo } from 'blo'
 import { disconnectImg } from '../../../assets/disconnect'
@@ -22,7 +22,9 @@ export class AccountView extends LitElement {
 		if (!address) return
 		navigator?.clipboard.writeText(address)
 		this._copy = 'Copied!'
-		setTimeout(()=>{this._copy = 'Copy'}, 1400)
+		setTimeout(() => {
+			this._copy = 'Copy'
+		}, 1400)
 	}
 
 	protected profileTemplate() {
@@ -76,12 +78,10 @@ export class AccountView extends LitElement {
 		return html`
       <span id="title" >
         ${roninWhite}
-        <p>Connected</p>
-        <button @click="${closeModal}" id="close">
-          <svg class="LoginDialog_closeIcon__mmEo2" viewBox="0 0 24 24" width="24" height="24" style="fill: currentcolor;">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.293 6.293a1 1 0 0 1 1.414 0L12 10.586l4.293-4.293a1 1 0 1 1 1.414 1.414L13.414 12l4.293 4.293a1 1 0 0 1-1.414 1.414L12 13.414l-4.293 4.293a1 1 0 0 1-1.414-1.414L10.586 12 6.293 7.707a1 1 0 0 1 0-1.414Z" fill="currentColor"></path>
-          </svg>
-        </button>
+        <title-rmc>
+          Connected
+        </title-rmc>
+        <cross-rmc/>
       </span>
       <div id="card-container" >
         <div class="pfp-border" >

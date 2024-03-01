@@ -4,13 +4,6 @@ import { styles } from './styles'
 import { isMobile } from '../../core/utils/mobile'
 import { type View, getModal, subModal } from '../../core/modal'
 
-import '../views/main-view/index'
-import '../views/qr-code-view/index'
-import '../views/extension-view/index'
-import '../views/mobile-connect-view/index'
-import '../views/siwe-view/index'
-import '../views/account-view/index'
-
 @customElement('routes-modal')
 export class RotesModal extends LitElement {
 	static styles = styles
@@ -47,8 +40,8 @@ export class RotesModal extends LitElement {
 				return html`<qr-code></qr-code>`
 			case 'extension':
 				return html`<extension-view></extension-view>`
-      case 'SIWE':
-        return html`<siwe-view></siwe-view>`
+			case 'SIWE':
+				return html`<siwe-view></siwe-view>`
 			default:
 				throw new Error('View is not defined - ronin-modal')
 		}

@@ -1,5 +1,5 @@
 import { css } from 'lit'
-import { modal, title } from '../../css/global'
+import { modal } from '../../css/global'
 
 export const styles = css`
 :host{
@@ -32,38 +32,10 @@ export const styles = css`
   width: 100%;
 }
 
-#title .ronin-white {
+.ronin-white {
   width: 16px;
   height: auto;
   fill: ${modal.color};
   opacity: 0.7;
-}
-
-#title p{
-  font-size: ${title.fontSize};
-  font-weight: ${title.fontWeight};
-  color: ${title.color};
-  margin: 0;
-  padding: 0;
-}
-
-#close{
-  background: none;
-  border: none;
-  color: ${modal.color};
-  padding: 7px;
-  border-radius: 10px;
-  margin: 0;
-  cursor: pointer;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  transition: transform .2s ease;
-}
-
-#close:hover{
-  transform: scale(1.1);
 }
 `

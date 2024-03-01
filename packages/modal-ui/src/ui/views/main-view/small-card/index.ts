@@ -1,7 +1,7 @@
 import { LitElement, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import { styles } from './styles'
-import { INJECTED_ID, WALLETCONNECT_ID } from '../../../../core/constants'
+import { INJECTED_ID, WALLETCONNECT_ID } from '../../../../core/utils/constants'
 import { ConnectorID, connectModal, setModal } from '../../../../core/modal'
 
 @customElement('small-card')
