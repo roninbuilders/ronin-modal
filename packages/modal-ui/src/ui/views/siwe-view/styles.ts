@@ -1,6 +1,5 @@
 import { css } from 'lit'
 import { secondary_button } from '../../css/global'
-import { connect_button } from '../../css/button'
 
 export const styles = css`
   :host{
@@ -71,35 +70,29 @@ export const styles = css`
   }
 
   .button{
-    cursor: pointer;
     border: 0;
-    font-size: 17px;
-    border-radius: ${connect_button.borderRadius};
-    background-color: ${connect_button.backgroundColor};
-    color: ${connect_button.color};
+    width: 100%;
+    font-size: ${secondary_button.fontSize};
+    font-weight: ${secondary_button.fontWeight};
+    border-radius: ${secondary_button.borderRadius};
+    background-color: ${secondary_button.backgroundColor};
+    color: ${secondary_button.color};
   
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 2px;
-
-    padding: 9px 15px;
+    
+    padding: 11px 15px;
+    margin-top:4px;
     cursor:pointer;
     user-select: none;
-    margin-top: 5px;
   
     transition: all .2s ease;
   }
-
-  .secondary{
-    width: 100%;
-    border-radius: ${secondary_button.borderRadius};
-    background-color: ${secondary_button.backgroundColor};
-    color: ${secondary_button.color};
-  }
-
-  .secondary: hover{
-    background-color: rgba(${secondary_button.backgroundColor}, 0.5);
+  
+  .button:hover{
+    background-color: ${secondary_button.backgroundColor_hover};
   }
 
   .button span{

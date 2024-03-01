@@ -35,7 +35,7 @@ export async function initModal() {
 export function openModal() {
 	const address = getCore.address()
 	if (address) {
-		setModal.view('SIWE')
+		setModal.view('account')
 		setModal.open(true)
 		return
 	}

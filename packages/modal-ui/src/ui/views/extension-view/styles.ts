@@ -23,9 +23,14 @@ export const styles = css`
     padding-left: 5px;
   }
 
-  .install-extension{
+  .install-svg{
     height: 150px;
     margin-bottom: 1px;
+  }
+
+  .install-description{
+    opacity:0.7;
+    font-size: 18px;
   }
 
   .button{
