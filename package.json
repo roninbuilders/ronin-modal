@@ -5,14 +5,14 @@
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "watch": "turbo run watch --filter=./packages",
-    "dev:wagmi": "turbo run dev --filter=./examples/wagmi/react",
-    "dev:w3vm": "turbo run dev --filter=./examples/w3vm/react",
+    "watch": "turbo run --filter './packages/*' --parallel watch",
+    "dev:wagmi": "turbo run --filter './examples/wagmi/react' dev",
+    "dev:w3vm": "turbo run --filter './examples/w3vm/react' dev",
     "build": "turbo run build",
-    "format": "turbo run format --filter=./packages",
-    "build:packages": "turbo run build --filter=./packages",
-    "upload:packages": "turbo run upload --filter=./packages",
-    "clean": "turbo run clean --filter=./packages"
+    "format": "turbo run format --filter './packages/*'",
+    "build:packages": "turbo run --filter './packages/*' build",
+    "upload:packages": "turbo run --filter './packages/*' upload",
+    "clean": "turbo run --filter './packages/*' upload"
   },
   "devDependencies": {
     "turbo": "^1.10.15"

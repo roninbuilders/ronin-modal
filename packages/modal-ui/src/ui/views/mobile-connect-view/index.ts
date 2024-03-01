@@ -150,7 +150,6 @@ export class MobileConnectView extends LitElement {
             <path d="M1 13L13 1M1 1L13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
           </svg>
         </button>
-        </button>
       </span>
 			<hr/>
 			${roninBlue}

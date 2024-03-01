@@ -65,7 +65,7 @@ export const styles = css`
 }
 
 #close:hover{
-  filter: brightness(1.8);
+  transform: scale(1.1);
 }
 
 .pfp-border{

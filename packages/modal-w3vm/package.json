@@ -8,7 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "watch": "tsup --watch; tsc -w",
+    "watch": "tsup --watch",
     "build": "tsup",
     "format": "pnpm dlx @biomejs/biome format src --write",
     "upload": "pnpm run build && pnpm publish",

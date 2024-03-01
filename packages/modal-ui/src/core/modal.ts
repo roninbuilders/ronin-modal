@@ -3,7 +3,7 @@ import { INJECTED_ID, WALLETCONNECT_ID } from './constants'
 import { getCore } from './wallet'
 import { isMobile } from './utils/mobile'
 
-export type View = 'main' | 'qr-code' | 'extension' | 'install' | 'account'
+export type View = 'main' | 'qr-code' | 'extension' | 'install' | 'account' | 'SIWE'
 
 export type ConnectorID = 'injected' | 'walletConnect'
 
@@ -35,7 +35,7 @@ export async function initModal() {
 export function openModal() {
 	const address = getCore.address()
 	if (address) {
-		setModal.view('account')
+		setModal.view('SIWE')
 		setModal.open(true)
 		return
 	}

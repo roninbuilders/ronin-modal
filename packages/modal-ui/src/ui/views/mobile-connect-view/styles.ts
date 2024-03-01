@@ -65,25 +65,7 @@ export const styles = css`
   }
 
   #close:hover{
-    background-color: #21232c;
-  }
-  
-  #go-back{
-    background: none;
-    border: none;
-    color: #fff;
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all .4s ease;
-  }
-
-  #go-back:hover{
-    transform: scale(1.2)
+    transform: scale(1.1);
   }
 
   .button{

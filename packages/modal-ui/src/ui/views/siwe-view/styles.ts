@@ -1,5 +1,6 @@
 import { css } from 'lit'
 import { secondary_button, modal, title } from '../../css/global'
+import { connect_button } from '../../css/button'
 
 export const styles = css`
   :host{
@@ -25,7 +26,6 @@ export const styles = css`
   
   #title .title{
     margin-left: 13px;
-    font-size: 22px;
     font-size: ${title.fontSize};
     font-weight: ${title.fontWeight};
   }
@@ -65,38 +65,83 @@ export const styles = css`
     transition: all .2s ease;
   }
 
+  .images-container{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    margin: 11px 0;
+  }
+
   #go-back:hover{
     transform: scale(1.1);
   }
 
-  .install-extension{
-    height: 150px;
-    margin-bottom: 1px;
+  .pfp-border{
+    padding: 1px;
+    border-radius: 50%;
+    border: solid 1px #ECECEC;
+    background-color: transparent;
+    width: 54px;
+    height: 54px;
+  }
+  
+  .pfp{
+    overflow: hidden;
+    background-color: transparent;
+    border-radius: 50%;
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
+    width: 54px;
+    height: auto;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .pfp img{
+    width: 54px;
+    height: auto;
   }
 
   .button{
-    font-size: ${secondary_button.fontSize};
-    font-weight: ${secondary_button.fontWeight};
-    height: ${secondary_button.height};
-    border-radius: ${secondary_button.borderRadius};
-    background-color: ${secondary_button.backgroundColor};
-    color: ${secondary_button.color};
+    cursor: pointer;
+    border: 0;
+    font-size: 17px;
+    border-radius: ${connect_button.borderRadius};
+    background-color: ${connect_button.backgroundColor};
+    color: ${connect_button.color};
   
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 2px;
-    
-    padding: 5px 15px;
-    margin-top:4px;
+
+    padding: 9px 15px;
     cursor:pointer;
     user-select: none;
+    margin-top: 5px;
   
     transition: all .2s ease;
   }
-  
-  .button:hover{
-    background-color: ${secondary_button.backgroundColor_hover};
+
+  .secondary{
+    width: 100%;
+    border-radius: ${secondary_button.borderRadius};
+    background-color: ${secondary_button.backgroundColor};
+    color: ${secondary_button.color};
+  }
+
+  .secondary: hover{
+    background-color: rgba(${secondary_button.backgroundColor}, 0.5);
+  }
+
+  .button span{
+    width: 64px;
   }
 
   .text{
@@ -105,6 +150,20 @@ export const styles = css`
     justify-content: center;
     align-items: center;
     gap: 5px;
+
+    text-align: center;
+    max-width: 300px;
+    font-size: 17px;
+  }
+
+  hr{
+    height: 1px;
+    border-width: 0px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    opacity: 0.1;
+    background-color: ${modal.color};
   }
 
   .description{
@@ -122,11 +181,8 @@ export const styles = css`
     line-height: 0;
   }
   
-  .retry-svg{
-    width:15px;
-  }
-
-  .ronin-shiny{
-    width: 140px;
+  .ronin-blue {
+    width: 40px;
+    height: auto;
   }
 `
