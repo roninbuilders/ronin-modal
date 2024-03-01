@@ -18,7 +18,7 @@ export class MainView extends LitElement {
         <title-rmc>
           Connect Wallet
         </title-rmc>
-        <cross-rmc/>
+        <cross-rmc></cross-rmc>
       </span>
       <div id="card-container" >
         <small-card text="Browser Extension" type="injected">${roninBlue}</small-card>

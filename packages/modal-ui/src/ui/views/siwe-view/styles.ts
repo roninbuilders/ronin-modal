@@ -1,5 +1,5 @@
 import { css } from 'lit'
-import { secondary_button, modal, title } from '../../css/global'
+import { secondary_button } from '../../css/global'
 import { connect_button } from '../../css/button'
 
 export const styles = css`
@@ -23,12 +23,6 @@ export const styles = css`
     padding-top: 4px;
     padding-left: 5px;
   }
-  
-  #title .title{
-    margin-left: 13px;
-    font-size: ${title.fontSize};
-    font-weight: ${title.fontWeight};
-  }
 
   .images-container{
     width: 80%;
@@ -37,6 +31,13 @@ export const styles = css`
     align-items: center;
 
     margin: 11px 0;
+  }
+
+  .ronin-img-container{
+    width: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .pfp-border{
@@ -106,25 +107,11 @@ export const styles = css`
   }
 
   .text{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
+    opacity: 0.7;
 
     text-align: center;
     max-width: 300px;
     font-size: 17px;
-  }
-
-  hr{
-    height: 1px;
-    border-width: 0px;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    opacity: 0.1;
-    background-color: ${modal.color};
   }
 
   .description{

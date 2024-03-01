@@ -133,7 +133,7 @@ export class MobileConnectView extends LitElement {
         <title-rmc>
           Ronin Wallet
         </title-rmc>
-        <cross-rmc/>
+        <cross-rmc></cross-rmc>
       </span>
 			<hr/>
 			${roninBlue}

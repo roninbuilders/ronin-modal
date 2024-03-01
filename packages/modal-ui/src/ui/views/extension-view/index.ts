@@ -72,11 +72,11 @@ export class ExtensionView extends LitElement {
 	render() {
 		return html`
       <span id="title" >
-        <back-rmc/>
+        <back-rmc></back-rmc>
         <title-rmc>
           Browser Extension
         </title-rmc>
-        <cross-rmc/>
+        <cross-rmc></cross-rmc>
       </span>
       ${this.statusTemplate()}
     `

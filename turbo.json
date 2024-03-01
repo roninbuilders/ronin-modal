@@ -1,12 +1,41 @@
 {
   "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
+    "@roninbuilders/modal#build":{
+      "outputs": ["dist/**"],
+      "dependsOn": ["^@roninbuilders/modal-ui#build"],
+      "cache": false
+    },
+    "@roninbuilders/modal-wagmi#build":{
+      "outputs": ["dist/**"],
+      "dependsOn": ["^@roninbuilders/modal-ui#build"],
+      "cache": false
+    },
+    "react-wagmi":{
+      "outputs": ["dist/**"],
+      "dependsOn": ["^@roninbuilders/modal-wagmi#build"],
+      "cache": false
+    },
+    "react-w3vm":{
+      "outputs": ["dist/**"],
+      "dependsOn": ["^@roninbuilders/modal#build"],
+      "cache": false
+    },
+    "html-w3vm":{
+      "outputs": ["dist/**"],
+      "dependsOn": ["^@roninbuilders/modal#build"],
+      "cache": false
+    },
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": [
+        "^build"
+      ],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"]
     },
     "start": {
-      "dependsOn": ["^build"],
+      "dependsOn": [
+        "^build"
+      ],
       "cache": false
     },
     "dev": {

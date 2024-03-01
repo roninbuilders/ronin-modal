@@ -52,11 +52,11 @@ export class QRCode extends LitElement {
 	render() {
 		return html`
       <span id="title" >
-        <back-rmc/>
+        <back-rmc></back-rmc>
         <title-rmc>
           Ronin Wallet
         </title-rmc>
-        <cross-rmc/>
+        <cross-rmc></cross-rmc>
       </span>
       <div id="qr-code">
         ${this.svgTemplate()}

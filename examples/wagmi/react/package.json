@@ -10,12 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.8.7",
+    "@roninbuilders/modal-wagmi": "workspace:*",
+    "@tanstack/react-query": "^5.24.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "viem": "2.0.0-beta.6",
-    "wagmi": "2.0.0-beta.5",
-    "@roninbuilders/modal-wagmi": "workspace:*"
+    "viem": "2.7.16",
+    "wagmi": "2.5.7"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",

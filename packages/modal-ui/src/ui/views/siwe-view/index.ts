@@ -5,6 +5,7 @@ import { styles } from './styles'
 import { blo } from 'blo'
 import { getCore } from '../../../core/wallet'
 import { roninBlue } from '../../../assets/roninBlue'
+import { arrowImg } from '../../../assets/arrow'
 
 @customElement('siwe-view')
 export class SIWEView extends LitElement {
@@ -31,7 +32,10 @@ export class SIWEView extends LitElement {
           ${this.profileTemplate()}
         </div>
       </div>
-			${roninBlue}
+      ${arrowImg}
+      <div class="ronin-img-container" >
+        ${roninBlue}
+      </div>
     </div>
     `
 	}
@@ -39,13 +43,12 @@ export class SIWEView extends LitElement {
 	render() {
 		return html`
       <span id="title" >
-        <cross-rmc/>
+        <back-rmc></back-rmc>
         <title-rmc>
           Sign In With Ronin
         </title-rmc>
-        <cross-rmc/>
+        <cross-rmc></cross-rmc>
       </span>
-			<hr/>
       ${this.svgTemplate()}
 			<div class="text">
         Sign this message to prove you own this wallet and proceed.

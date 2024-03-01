@@ -18,7 +18,13 @@ const { set: setWagmi, get: getWagmi } = createStore<WagmiStore>({
 	config: undefined,
 })
 
-export function createRoninModal({ projectId, chain, metadata, transport, darkMode }: CreateRoninModalOptions) {
+export function createRoninModal({
+	projectId,
+	chain,
+	metadata,
+	transport,
+	darkMode,
+}: CreateRoninModalOptions): ReturnType<typeof createConfig> {
 	if (darkMode) setModal.darkMode(darkMode)
 
 	initModal()

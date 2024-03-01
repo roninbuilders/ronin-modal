@@ -81,7 +81,7 @@ export class AccountView extends LitElement {
         <title-rmc>
           Connected
         </title-rmc>
-        <cross-rmc/>
+        <cross-rmc></cross-rmc>
       </span>
       <div id="card-container" >
         <div class="pfp-border" >
