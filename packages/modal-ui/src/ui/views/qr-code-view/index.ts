@@ -3,8 +3,8 @@ import { customElement, property, state } from 'lit/decorators.js'
 import { styles } from './styles'
 import { QrCodeUtil } from '../../../core/utils/qrcode'
 import { roninBlue } from '../../../assets/roninBlue'
-import { getCore, subCore } from '../../../core/wallet'
 import { closeModal } from '../../../core/modal'
+import { getCore, subCore } from '../../../core/wallet/store'
 
 @customElement('qr-code')
 export class QRCode extends LitElement {

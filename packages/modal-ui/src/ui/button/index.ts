@@ -2,8 +2,9 @@ import { LitElement, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import { classMap } from 'lit/directives/class-map.js'
 import { styles } from './styles'
-import { type Core_status, getCore, subCore } from '../../core/wallet'
 import { openModal } from '../../core/modal'
+import type { CoreStatus } from '../../core/wallet/types'
+import { getCore, subCore } from '../../core/wallet/store'
 
 @customElement('ronin-button')
 export class RoninButton extends LitElement {
@@ -19,7 +20,7 @@ export class RoninButton extends LitElement {
 		else return this.label
 	}
 
-	protected _onStatus(status: Core_status) {
+	protected _onStatus(status: CoreStatus) {
 		if (status === 'Disconnecting') {
 			this.user = status
 		}

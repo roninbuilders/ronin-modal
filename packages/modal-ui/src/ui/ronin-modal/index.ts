@@ -5,7 +5,8 @@ import { styles } from './styles'
 import './imports'
 import { isMobile } from '../../core/utils/mobile'
 import { classMap } from 'lit/directives/class-map.js'
-import { closeModal, subModal } from '../../core/modal'
+import { closeModal } from '../../core/modal'
+import { subModal } from '../../core/modal/store'
 
 @customElement('ronin-modal')
 export class RoninModal extends LitElement {

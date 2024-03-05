@@ -3,12 +3,12 @@ import { customElement, property, state } from 'lit/decorators.js'
 import { styles } from './styles'
 
 import { roninWhite } from '../../../assets/roninWhite'
-import { setModal } from '../../../core/modal'
 
 import { blo } from 'blo'
 import { disconnectImg } from '../../../assets/disconnect'
 import { copyImg } from '../../../assets/copy'
-import { getCore, subCore } from '../../../core/wallet'
+import { getCore, subCore } from '../../../core/wallet/store'
+import { setModal } from '../../../core/modal/store'
 
 @customElement('account-view')
 export class AccountView extends LitElement {

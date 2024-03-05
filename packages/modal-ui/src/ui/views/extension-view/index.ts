@@ -4,20 +4,21 @@ import { styles } from './styles'
 
 import { retry } from '../../../assets/try'
 import { INJECTED_ID } from '../../../core/utils/constants'
-import { Core_status, getCore, subCore } from '../../../core/wallet'
 import { closeModal, connectModal } from '../../../core/modal'
 import { roninShiny } from '../../../assets/roninShiny'
 import { installImg } from '../../../assets/install'
+import type { CoreStatus } from '../../../core/wallet/types'
+import { getCore, subCore } from '../../../core/wallet/store'
 
 @customElement('extension-view')
 export class ExtensionView extends LitElement {
 	static styles = styles
 
-	@state() protected _status: Core_status
+	@state() protected _status: CoreStatus
 
 	protected _unsubscribeStatus: () => void
 
-	protected _onStatus(status: Core_status) {
+	protected _onStatus(status: CoreStatus) {
 		this._status = status
 	}
 

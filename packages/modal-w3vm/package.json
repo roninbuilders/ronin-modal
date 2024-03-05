@@ -25,10 +25,14 @@
   },
   "peerDependencies": {
     "typescript": ">=5",
-    "vanilla-cafe": ">=0"
+    "vanilla-cafe": ">=0",
+    "@roninbuilders/siwe": ">=0"
   },
   "peerDependenciesMeta": {
     "typescript": {
+      "optional": true
+    },
+    "@roninbuilders/siwe": {
       "optional": true
     }
   },

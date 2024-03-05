@@ -1,4 +1,4 @@
-import { Core_status, WALLETCONNECT_ID, createCore, initModal, setCore, setModal } from '@roninbuilders/modal-ui'
+import { CoreStatus, WALLETCONNECT_ID, createCore, initModal, setCore, setModal } from '@roninbuilders/modal-ui'
 import type { Callback, CreateRoninModalOptions, WagmiStore } from './types'
 import { createStore } from 'vanilla-cafe'
 import {
@@ -97,7 +97,7 @@ function disconnect() {
 	_disconnect(config)
 }
 
-function subscribe_status(callback: Callback<Core_status>) {
+function subscribe_status(callback: Callback<CoreStatus>) {
 	const config = getConfig()
 
 	function sub(account: GetAccountReturnType) {

@@ -1,22 +1,33 @@
 import './ui/button'
 
 export {
-	setModal,
-	getModal,
-	subModal,
 	openModal,
 	closeModal,
 	initModal,
-	type View,
-	type ConnectorID,
 } from './core/modal'
+export {
+	setModal,
+	getModal,
+	subModal,
+} from './core/modal/store'
+export type {
+	View,
+	ConnectorID,
+} from './core/modal/types'
+
+export {
+	createCore
+} from './core/wallet'
+
 export {
 	setCore,
 	getCore,
 	subCore,
-	createCore,
-	type CreateCore,
-	type Core_status,
-	type Subscriber,
-} from './core/wallet'
+} from './core/wallet/store'
+
+export type {
+	CreateCore,
+	CoreStatus,
+	Subscriber
+} from './core/wallet/types'
 export { WALLETCONNECT_ID, INJECTED_ID, RONIN_RDNS } from './core/utils/constants'

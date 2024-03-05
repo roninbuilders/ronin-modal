@@ -2,7 +2,9 @@ import { LitElement, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import { styles } from './styles'
 import { INJECTED_ID, WALLETCONNECT_ID } from '../../../../core/utils/constants'
-import { ConnectorID, connectModal, setModal } from '../../../../core/modal'
+import { connectModal } from '../../../../core/modal'
+import type { ConnectorID } from '../../../../core/modal/types'
+import { setModal } from '../../../../core/modal/store'
 
 @customElement('small-card')
 export class SmallCard extends LitElement {

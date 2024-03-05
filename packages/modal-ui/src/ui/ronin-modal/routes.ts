@@ -2,7 +2,8 @@ import { LitElement, html } from 'lit'
 import { customElement, state } from 'lit/decorators.js'
 import { styles } from './styles'
 import { isMobile } from '../../core/utils/mobile'
-import { type View, getModal, subModal } from '../../core/modal'
+import { getModal, subModal } from '../../core/modal/store'
+import type { View } from '../../core/modal/types'
 
 @customElement('routes-modal')
 export class RotesModal extends LitElement {

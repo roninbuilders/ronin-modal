@@ -6,18 +6,19 @@ import { roninBlue } from '../../../assets/roninBlue'
 import { retry } from '../../../assets/try'
 import { WALLETCONNECT_ID } from '../../../core/utils/constants'
 import { isAndroid } from '../../../core/utils/mobile'
-import { Core_status, getCore, subCore } from '../../../core/wallet'
 import { closeModal, connectModal } from '../../../core/modal'
+import { CoreStatus } from '../../../core/wallet/types'
+import { getCore, subCore } from '../../../core/wallet/store'
 
 @customElement('mobile-connect-view')
 export class MobileConnectView extends LitElement {
 	static styles = styles
 
-	@state() protected _status: Core_status | 'ReadyToConnect'
+	@state() protected _status: CoreStatus | 'ReadyToConnect'
 
 	protected _unsubscribeStatus: () => void
 
-	protected _handleStatus(status: Core_status) {
+	protected _handleStatus(status: CoreStatus) {
 		if (status === 'Connecting') {
 			this._status = 'ReadyToConnect'
 			return

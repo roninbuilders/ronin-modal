@@ -3,15 +3,21 @@ import { customElement } from 'lit/decorators.js'
 import { styles } from './styles'
 
 import { blo } from 'blo'
-import { getCore } from '../../../core/wallet'
 import { roninBlue } from '../../../assets/roninBlue'
 import { arrowImg } from '../../../assets/arrow'
+import { getCore } from '../../../core/wallet/store'
 
 @customElement('siwe-view')
 export class SIWEView extends LitElement {
 	static styles = styles
 
-	private signIn() {}
+	private async signIn() {
+    const { getSIWE } = await import('@roninbuilders/siwe')
+    const signIn = getSIWE.signIn()
+    if(signIn) {
+      await signIn()
+    }
+  }
 
 	protected profileTemplate() {
 		const address = getCore.address()
