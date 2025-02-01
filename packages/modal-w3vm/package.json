@@ -1,6 +1,6 @@
 {
   "name": "@roninbuilders/modal",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Framework agnostic Ronin Wallet Modal for Websites",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -20,7 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "@w3vm/core": "0.0.4",
-    "@w3vm/walletconnect": "0.0.7",
+    "@w3vm/walletconnect": "0.0.9",
     "@sky-mavis/waypoint": "4.1.0",
     "@roninbuilders/modal-ui": "workspace: *"
   },
