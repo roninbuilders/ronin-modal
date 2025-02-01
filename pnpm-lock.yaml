@@ -129,7 +129,7 @@ importers:
         specifier: 0.0.11
         version: 0.0.11(typescript@5.7.3)
       '@roninbuilders/siwe':
-        specifier: '>=0'
+        specifier: 0.0.1
         version: link:../siwe
       blo:
         specifier: 1.1.1
