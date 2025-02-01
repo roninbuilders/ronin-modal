@@ -24,6 +24,13 @@ export const styles = css`
   width: 100%;
 }
 
+#ronin-white-btn .ronin-white{
+  width: 24.25px;
+  padding: 0 5px;
+  height: auto;
+  fill: ${modal.color};
+}
+
 #title{
   display: flex;
   justify-content: space-around;

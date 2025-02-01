@@ -21,7 +21,8 @@ export class MainView extends LitElement {
         <cross-rmc></cross-rmc>
       </span>
       <div id="card-container" >
-        <small-card text="Browser Extension" type="injected">${roninBlue}</small-card>
+        <small-card text="Browser Extension" type="injected" id="ronin-white-btn">${roninWhite}</small-card>
+        <small-card text="Ronin Waypoint" type="waypoint">${roninBlue}</small-card>
         <small-card text="Mobile Wallet" type="walletConnect" >${qrImg}</small-card>
       </div>
     `

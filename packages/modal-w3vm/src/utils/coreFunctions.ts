@@ -1,4 +1,4 @@
-import { CoreStatus, RONIN_RDNS, WALLETCONNECT_ID } from '@roninbuilders/modal-ui'
+import { CoreStatus, RONIN_RDNS, WALLETCONNECT_ID, WAYPOINT_ID } from '@roninbuilders/modal-ui'
 import { connectW3, disconnectW3, getW3, subW3 } from '@w3vm/core'
 import { Callback } from '../types'
 import { subWC } from '@w3vm/walletconnect'
@@ -38,6 +38,11 @@ export async function connectWalletConnect() {
 
 export async function connectExtension() {
 	const connector = getW3.connectors().find(({ id }) => id === RONIN_RDNS)
+	if (connector) connectW3({ connector })
+}
+
+export async function connectWaypoint() {
+	const connector = getW3.connectors().find(({ id }) => id === WAYPOINT_ID)
 	if (connector) connectW3({ connector })
 }
 

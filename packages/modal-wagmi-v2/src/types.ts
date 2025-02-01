@@ -18,6 +18,10 @@ export type CreateRoninModalOptions = {
 	}
 	transport?: Transport
 	darkMode?: boolean
+	waypoint?: {
+		clientId: string
+		chainId: number
+	}
 }
 
 declare global {

@@ -1,5 +1,5 @@
-import { createCore, initModal, setModal } from '@roninbuilders/modal-ui'
-import { getW3, initW3 } from '@w3vm/core'
+import { createCore, initModal, setModal, WAYPOINT_ID } from '@roninbuilders/modal-ui'
+import { Connector, EIP1193Provider, getW3, initW3, Injected } from '@w3vm/core'
 import { WalletConnect } from '@w3vm/walletconnect'
 import type { RoninOptions } from './types'
 import {
@@ -8,13 +8,15 @@ import {
 	extensionInstalled,
 	connectWalletConnect,
 	connectExtension,
+	connectWaypoint,
 	disconnect,
 	subscribe_status,
 	subscribe_address,
 	subscribe_URI,
 } from './utils/coreFunctions'
+import { WaypointProvider } from '@sky-mavis/waypoint'
 
-export function createRoninModal({ SSR, projectId, chain, darkMode, siweConfig: _siweConfig }: RoninOptions) {
+export function createRoninModal({ SSR, projectId, chain, darkMode, siweConfig: _siweConfig, waypoint }: RoninOptions) {
 	if (darkMode) setModal.darkMode(darkMode)
 
 	initModal()
@@ -22,14 +24,30 @@ export function createRoninModal({ SSR, projectId, chain, darkMode, siweConfig: 
 	let siweConfig
 	if (_siweConfig) siweConfig = { ..._siweConfig, signMessage, getAddress: getW3.address, getChainId: getW3.chainId }
 
-	const w3props = initW3({
-		connectors: [
-			new WalletConnect({
-				projectId,
-				showQrModal: false,
-				chains: [Number(chain.chainId)],
+	let connectors: Connector[] = [
+		new WalletConnect({
+			projectId,
+			showQrModal: false,
+			chains: [Number(chain.chainId)],
+		}),
+	]
+
+	if (waypoint) {
+		const provider = WaypointProvider.create({
+			clientId: waypoint.clientId,
+			chainId: waypoint.chainId,
+		}) as EIP1193Provider
+
+		connectors.push(
+			new Injected({
+				id: WAYPOINT_ID,
+				name: 'Ronin Waypoint',
+				getProvider: () => provider,
 			}),
-		],
+		)
+	}
+	const w3props = initW3({
+		connectors,
 		SSR,
 	})
 
@@ -39,6 +57,7 @@ export function createRoninModal({ SSR, projectId, chain, darkMode, siweConfig: 
 		extensionInstalled,
 		connectWalletConnect,
 		connectExtension,
+		connectWaypoint,
 		disconnect,
 		subscribe_status,
 		subscribe_address,

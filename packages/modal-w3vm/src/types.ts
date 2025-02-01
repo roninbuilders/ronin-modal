@@ -7,6 +7,10 @@ export type RoninOptions = {
 	chain: Chain
 	darkMode?: boolean
 	siweConfig?: Omit<SIWEConfig, 'getChainId' | 'getAddress' | 'signMessage'>
+	waypoint?: {
+		clientId: string
+		chainId: number
+	}
 }
 
 export type Callback<T> = (status: T) => void

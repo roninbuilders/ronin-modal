@@ -12,12 +12,12 @@ export class SIWEView extends LitElement {
 	static styles = styles
 
 	private async signIn() {
-    const { getSIWE } = await import('@roninbuilders/siwe')
-    const signIn = getSIWE.signIn()
-    if(signIn) {
-      await signIn()
-    }
-  }
+		const { getSIWE } = await import('@roninbuilders/siwe')
+		const signIn = getSIWE.signIn()
+		if (signIn) {
+			await signIn()
+		}
+	}
 
 	protected profileTemplate() {
 		const address = getCore.address()

@@ -1,8 +1,5 @@
 {
   "private": true,
-  "engines": {
-    "pnpm": ">=8.6.5"
-  },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "watch": "turbo run --filter './packages/*' --parallel watch",
@@ -15,6 +12,6 @@
     "clean": "turbo run --filter './packages/*' upload"
   },
   "devDependencies": {
-    "turbo": "^1.10.15"
+    "turbo": "1.10.15"
   }
 }

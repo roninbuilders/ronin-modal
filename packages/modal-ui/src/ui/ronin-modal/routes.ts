@@ -41,6 +41,8 @@ export class RotesModal extends LitElement {
 				return html`<qr-code></qr-code>`
 			case 'extension':
 				return html`<extension-view></extension-view>`
+			case 'waypoint':
+				return html`<waypoint-view></waypoint-view>`
 			case 'SIWE':
 				return html`<siwe-view></siwe-view>`
 			default:

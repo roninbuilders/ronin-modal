@@ -1,7 +1,7 @@
 import { LitElement, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import { styles } from './styles'
-import { INJECTED_ID, WALLETCONNECT_ID } from '../../../../core/utils/constants'
+import { INJECTED_ID, WALLETCONNECT_ID, WAYPOINT_ID } from '../../../../core/utils/constants'
 import { connectModal } from '../../../../core/modal'
 import type { ConnectorID } from '../../../../core/modal/types'
 import { setModal } from '../../../../core/modal/store'
@@ -23,6 +23,8 @@ export class SmallCard extends LitElement {
 				break
 			case WALLETCONNECT_ID:
 				setModal.view('qr-code')
+			case WAYPOINT_ID:
+				setModal.view('waypoint')
 				break
 			default:
 				throw new Error('Invalid type in small-card element')

@@ -1,9 +1,9 @@
 import { createStore } from 'vanilla-cafe'
 
 interface SIWEStore {
-	signIn: (()=>Promise<boolean>) | undefined
-	signOut: (()=>Promise<void>) | undefined
-  getSession: (()=>Promise<boolean>) | undefined
+	signIn: (() => Promise<boolean>) | undefined
+	signOut: (() => Promise<void>) | undefined
+	getSession: (() => Promise<boolean>) | undefined
 }
 
 export const {
@@ -13,5 +13,5 @@ export const {
 } = createStore<SIWEStore>({
 	signIn: undefined,
 	signOut: undefined,
-  getSession: undefined
+	getSession: undefined,
 })

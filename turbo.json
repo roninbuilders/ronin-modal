@@ -1,6 +1,11 @@
 {
   "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
+    "@roninbuilders/modal-ui#build":{
+      "outputs": ["dist/**"],
+      "dependsOn": ["^@roninbuilders/siwe#build"],
+      "cache": false
+    },
     "@roninbuilders/modal#build":{
       "outputs": ["dist/**"],
       "dependsOn": ["^@roninbuilders/modal-ui#build"],

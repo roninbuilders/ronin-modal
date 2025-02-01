@@ -1,4 +1,4 @@
-import type { SIWEConfig } from "@roninbuilders/siwe"
+import type { SIWEConfig } from '@roninbuilders/siwe'
 
 export type Subscriber<T> = (callback: (status: T) => void) => () => void
 
@@ -15,11 +15,13 @@ export interface CoreStates {
 	address: string | undefined
 	RNS: string | undefined
 	URI: string
-  is_SIWE_enabled: boolean
+	is_SIWE_enabled: boolean
 	extensionInstalled: () => boolean
 	connectWalletConnect?: () => void
 	connectExtension?: () => void
+	connectWaypoint?: () => void
 	disconnect?: () => void
 }
 
-export type CreateCore = Omit<CoreStates, 'URI' | 'RNS' | 'is_SIWE_enabled'> & CoreSubscribers & { siweConfig?: SIWEConfig }
+export type CreateCore = Omit<CoreStates, 'URI' | 'RNS' | 'is_SIWE_enabled'> &
+	CoreSubscribers & { siweConfig?: SIWEConfig }

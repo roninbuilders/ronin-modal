@@ -5,6 +5,7 @@ import '../views/extension-view/index'
 import '../views/mobile-connect-view/index'
 import '../views/siwe-view/index'
 import '../views/account-view/index'
+import '../views/waypoint-view/index'
 
 /* Components */
 import '../components/cross-btn/index'

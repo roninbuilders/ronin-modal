@@ -1,4 +1,4 @@
-import { INJECTED_ID, WALLETCONNECT_ID } from '../utils/constants'
+import { INJECTED_ID, WALLETCONNECT_ID, WAYPOINT_ID } from '../utils/constants'
 import { isMobile } from '../utils/mobile'
 import { getCore } from '../wallet/store'
 import { setModal } from './store'
@@ -26,16 +26,16 @@ export function openModal() {
 
 export async function closeModal() {
 	setModal.open(false), setModal.view('main')
-  
-  if(getCore.is_SIWE_enabled() && getCore.address()){
-    const { getSIWE } = await import('@roninbuilders/siwe')
-    const getSession = getSIWE.getSession()
 
-    const isValid = await getSession?.()
-    if(!isValid){
-      getCore.disconnect()?.()
-    }
-  }
+	if (getCore.is_SIWE_enabled() && getCore.address()) {
+		const { getSIWE } = await import('@roninbuilders/siwe')
+		const getSession = getSIWE.getSession()
+
+		const isValid = await getSession?.()
+		if (!isValid) {
+			getCore.disconnect()?.()
+		}
+	}
 }
 
 export function goToMain() {
@@ -45,15 +45,16 @@ export function goToMain() {
 export async function connectModal(CONNECTOR_ID: ConnectorID) {
 	if (CONNECTOR_ID === WALLETCONNECT_ID) getCore.connectWalletConnect()?.()
 	if (CONNECTOR_ID === INJECTED_ID) getCore.connectExtension()?.()
+	if (CONNECTOR_ID === WAYPOINT_ID) getCore.connectWaypoint()?.()
 }
 
-export async function onConnect(){
-  if (getCore.address()) {
-    if(getCore.is_SIWE_enabled()){
-      setModal.view('SIWE')
-      return
-    }
-    closeModal()
-    return
-  }
+export async function onConnect() {
+	if (getCore.address()) {
+		if (getCore.is_SIWE_enabled()) {
+			setModal.view('SIWE')
+			return
+		}
+		closeModal()
+		return
+	}
 }

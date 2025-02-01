@@ -1,5 +1,5 @@
-import { createStore } from "vanilla-cafe";
-import type { ModalStore } from "./types";
+import { createStore } from 'vanilla-cafe'
+import type { ModalStore } from './types'
 
 export const {
 	set: setModal,

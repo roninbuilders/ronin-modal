@@ -1,4 +1,12 @@
-import { CoreStatus, WALLETCONNECT_ID, createCore, initModal, setCore, setModal } from '@roninbuilders/modal-ui'
+import {
+	CoreStatus,
+	WALLETCONNECT_ID,
+	WAYPOINT_ID,
+	createCore,
+	initModal,
+	setCore,
+	setModal,
+} from '@roninbuilders/modal-ui'
 import type { Callback, CreateRoninModalOptions, WagmiStore } from './types'
 import { createStore } from 'vanilla-cafe'
 import {
@@ -10,9 +18,12 @@ import {
 	http,
 	watchAccount,
 	GetAccountReturnType,
+	injected,
 } from '@wagmi/core'
 import { walletConnect } from '@wagmi/connectors'
 import { RONIN_RDNS } from '@roninbuilders/modal-ui'
+import { WaypointProvider } from '@sky-mavis/waypoint'
+import { EIP1193Provider } from 'viem'
 
 const { set: setWagmi, get: getWagmi } = createStore<WagmiStore>({
 	config: undefined,
@@ -24,6 +35,7 @@ export function createRoninModal({
 	metadata,
 	transport,
 	darkMode,
+	waypoint,
 }: CreateRoninModalOptions): ReturnType<typeof createConfig> {
 	if (darkMode) setModal.darkMode(darkMode)
 
@@ -31,12 +43,28 @@ export function createRoninModal({
 
 	if (!projectId) throw Error('Project ID is undefined')
 
-	const connectors = [walletConnect({ projectId, showQrModal: false, metadata })]
+	const waypointConnector = waypoint
+		? injected({
+				target() {
+					return {
+						id: 'waypoint',
+						name: 'Ronin Waypoint',
+						provider: WaypointProvider.create({
+							clientId: waypoint.clientId,
+							chainId: waypoint.chainId,
+						}) as EIP1193Provider,
+					}
+				},
+			})
+		: undefined
+	const connectors = waypointConnector
+		? [walletConnect({ projectId, showQrModal: false, metadata }), waypointConnector]
+		: [walletConnect({ projectId, showQrModal: false, metadata })]
 
 	const defaultRPC = chain.rpcUrls.default.http[0]
 	const config = createConfig({
 		chains: [chain],
-		connectors,
+		connectors: connectors,
 		transports: {
 			[chain.id]: transport ? transport : http(defaultRPC),
 		},
@@ -49,6 +77,7 @@ export function createRoninModal({
 		extensionInstalled,
 		connectWalletConnect,
 		connectExtension,
+		connectWaypoint,
 		disconnect,
 		subscribe_status,
 		subscribe_address,
@@ -87,6 +116,14 @@ async function connectWalletConnect() {
 async function connectExtension() {
 	const config = getConfig()
 	const connector = getConnectors(config).find(({ id }) => id === RONIN_RDNS)
+
+	if (!connector) throw Error('Connector not found')
+	await connect(config, { connector })
+}
+
+async function connectWaypoint() {
+	const config = getConfig()
+	const connector = getConnectors(config).find(({ id }) => id === WAYPOINT_ID)
 
 	if (!connector) throw Error('Connector not found')
 	await connect(config, { connector })

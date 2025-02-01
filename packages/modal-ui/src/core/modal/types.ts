@@ -1,6 +1,6 @@
-export type View = 'main' | 'qr-code' | 'extension' | 'install' | 'account' | 'SIWE'
+export type View = 'main' | 'qr-code' | 'extension' | 'install' | 'account' | 'SIWE' | 'waypoint'
 
-export type ConnectorID = 'injected' | 'walletConnect'
+export type ConnectorID = 'injected' | 'walletConnect' | 'waypoint'
 
 export interface ModalStore {
 	open: boolean

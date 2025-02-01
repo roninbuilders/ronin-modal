@@ -1,5 +1,5 @@
 import { css } from 'lit'
-import { getModal } from '../../core/modal'
+import { getModal } from '../../core/modal/store'
 
 const dark = getModal.darkMode()
 
