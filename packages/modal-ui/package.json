@@ -22,18 +22,15 @@
     "@roninbuilders/rns": "0.0.11",
     "blo": "1.1.1",
     "lit": "2.8.0",
-    "qrcode": "1.5.3"
+    "qrcode": "1.5.3",
+    "@roninbuilders/siwe": "0.0.2"
   },
   "peerDependencies": {
     "typescript": ">=5",
-    "vanilla-cafe": ">=0",
-    "@roninbuilders/siwe": ">=0"
+    "vanilla-cafe": ">=0"
   },
   "peerDependenciesMeta": {
     "typescript": {
-      "optional": true
-    },
-    "@roninbuilders/siwe": {
       "optional": true
     }
   },

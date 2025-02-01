@@ -8,12 +8,12 @@
     },
     "@roninbuilders/modal#build":{
       "outputs": ["dist/**"],
-      "dependsOn": ["^@roninbuilders/modal-ui#build", "^@roninbuilders/siwe#build"],
+      "dependsOn": ["^@roninbuilders/modal-ui#build"],
       "cache": false
     },
     "@roninbuilders/modal-wagmi#build":{
       "outputs": ["dist/**"],
-      "dependsOn": ["^@roninbuilders/modal-ui#build", "^@roninbuilders/siwe#build"],
+      "dependsOn": ["^@roninbuilders/modal-ui#build"],
       "cache": false
     },
     "react-wagmi":{
