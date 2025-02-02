@@ -190,6 +190,9 @@ importers:
 
   packages/modal-wagmi-v2:
     dependencies:
+      '@roninbuilders/modal':
+        specifier: workspace:^
+        version: link:../modal-w3vm
       '@roninbuilders/modal-ui':
         specifier: 'workspace: *'
         version: link:../modal-ui
