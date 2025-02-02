@@ -14,7 +14,6 @@ export function createCore(config: CreateCore) {
 
 	setCore.address(config.address)
 	setCore.status(config.status)
-
 	setCore.extensionInstalled(() => config.extensionInstalled)
 	setCore.connectExtension(() => config.connectExtension)
 	setCore.connectWaypoint(() => config.connectWaypoint)

@@ -23,6 +23,7 @@ export class SmallCard extends LitElement {
 				break
 			case WALLETCONNECT_ID:
 				setModal.view('qr-code')
+				break
 			case WAYPOINT_ID:
 				setModal.view('waypoint')
 				break
