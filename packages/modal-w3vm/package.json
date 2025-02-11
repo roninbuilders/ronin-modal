@@ -1,6 +1,6 @@
 {
   "name": "@roninbuilders/modal",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Framework agnostic Ronin Wallet Modal for Websites",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
