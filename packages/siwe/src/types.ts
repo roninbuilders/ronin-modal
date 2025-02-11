@@ -14,5 +14,5 @@ export type SIWEConfig = {
 	onSignIn?: (session?: unknown) => unknown
 	signOut: (args?: unknown) => Promise<unknown> | unknown
 	verifyMessage: ({ message, signature }: { message: string; signature: string }) => unknown
-	message: Omit<SiweMessage, 'nonce' | 'address' | 'chainId'>
+	message?: Partial<Omit<SiweMessage, 'nonce' | 'address' | 'chainId'>>
 }
