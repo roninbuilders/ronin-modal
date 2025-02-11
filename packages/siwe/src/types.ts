@@ -1,4 +1,4 @@
-import { SiweMessage } from 'siwe'
+import { SiweMessage } from 'viem/siwe'
 
 export type SIWEConfig = {
 	getChainId: () => Promise<number | undefined> | number | undefined
@@ -14,5 +14,5 @@ export type SIWEConfig = {
 	onSignIn?: (session?: unknown) => unknown
 	signOut: (args?: unknown) => Promise<unknown> | unknown
 	verifyMessage: ({ message, signature }: { message: string; signature: string }) => unknown
-	message: Omit<ConstructorParameters<typeof SiweMessage>, 'nonce' | 'address' | 'chainId'>
+	message: Omit<SiweMessage, 'nonce' | 'address' | 'chainId'>
 }
