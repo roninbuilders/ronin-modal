@@ -35,7 +35,7 @@ export function createRoninModal({ SSR, projectId, chain, darkMode, siweConfig: 
 	if (waypoint) {
 		const provider = WaypointProvider.create({
 			clientId: waypoint.clientId,
-			chainId: waypoint.chainId,
+			chainId: Number(chain.chainId),
 		}) as EIP1193Provider
 
 		connectors.push(

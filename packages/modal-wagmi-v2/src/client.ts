@@ -51,7 +51,7 @@ export function createRoninModal({
 						name: 'Ronin Waypoint',
 						provider: WaypointProvider.create({
 							clientId: waypoint.clientId,
-							chainId: waypoint.chainId,
+							chainId: chain.id,
 						}) as EIP1193Provider,
 					}
 				},

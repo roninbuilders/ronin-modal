@@ -9,7 +9,6 @@ export type RoninOptions = {
 	siweConfig?: Omit<SIWEConfig, 'getChainId' | 'getAddress' | 'signMessage'>
 	waypoint?: {
 		clientId: string
-		chainId: number
 	}
 }
 

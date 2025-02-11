@@ -1,6 +1,6 @@
 import { setSIWE } from './store'
 import { SIWEConfig } from './types'
-import { SiweMessage } from 'siwe'
+import { createSiweMessage as _createSiweMesage } from 'viem/siwe'
 
 export async function initSIWE({
 	getNonce,
@@ -19,7 +19,7 @@ export async function initSIWE({
 	const origin = window.location.origin
 
 	async function createSiweMessage() {
-		const address = await getAddress()
+		const address = await getAddress() as `0x${string}` | undefined
 		if (!address) throw new Error('Error creating a SIWE message - wallet disconnected')
 
 		const nonce = await getNonce()
@@ -30,17 +30,16 @@ export async function initSIWE({
 		if (chainId !== 2020 && chainId !== 2021)
 			throw new Error('Error creating a SIWE message - invalid Chain ID: Please switch to the Ronin Network')
 
-		const _message = new SiweMessage({
+		return _createSiweMesage({
 			domain,
 			address,
-			statement: 'Sign in With Ronin.',
+			statement: 'Sign In With Ronin.',
 			uri: origin,
 			version: '1',
 			chainId,
 			nonce,
 			...message,
 		})
-		return _message.prepareMessage()
 	}
 
 	async function signIn() {
