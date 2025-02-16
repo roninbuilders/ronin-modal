@@ -6,6 +6,7 @@ import { blo } from 'blo'
 import { roninBlue } from '../../../assets/roninBlue'
 import { arrowImg } from '../../../assets/arrow'
 import { getCore } from '../../../core/wallet/store'
+import { closeModal } from '../../../core/modal'
 
 @customElement('siwe-view')
 export class SIWEView extends LitElement {
@@ -15,7 +16,13 @@ export class SIWEView extends LitElement {
 		const { getSIWE } = await import('@roninbuilders/siwe')
 		const signIn = getSIWE.signIn()
 		if (signIn) {
-			await signIn()
+			const res = await signIn()
+      
+      if(res){
+        closeModal()
+      }else{
+        throw Error("ERROR in Sign In With Ronin")
+      }
 		}
 	}
 

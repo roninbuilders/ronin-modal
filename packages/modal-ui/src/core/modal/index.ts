@@ -1,6 +1,6 @@
 import { INJECTED_ID, WALLETCONNECT_ID, WAYPOINT_ID } from '../utils/constants'
 import { isMobile } from '../utils/mobile'
-import { getCore } from '../wallet/store'
+import { getCore, subCore } from '../wallet/store'
 import { setModal } from './store'
 import { ConnectorID } from './types'
 
@@ -24,6 +24,18 @@ export function openModal() {
 	setModal.open(true)
 }
 
+
+subCore.address((address)=>{
+	if(address){
+		if (getCore.is_SIWE_enabled()) {
+			setModal.view('SIWE')
+			return
+		}
+		closeModal()
+		return
+	}
+})
+
 export async function closeModal() {
 	setModal.open(false), setModal.view('main')
 
@@ -46,15 +58,4 @@ export async function connectModal(CONNECTOR_ID: ConnectorID) {
 	if (CONNECTOR_ID === WALLETCONNECT_ID) getCore.connectWalletConnect()?.()
 	if (CONNECTOR_ID === INJECTED_ID) getCore.connectExtension()?.()
 	if (CONNECTOR_ID === WAYPOINT_ID) getCore.connectWaypoint()?.()
-}
-
-export async function onConnect() {
-	if (getCore.address()) {
-		if (getCore.is_SIWE_enabled()) {
-			setModal.view('SIWE')
-			return
-		}
-		closeModal()
-		return
-	}
 }

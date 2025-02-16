@@ -10,9 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@roninbuilders/modal": "workspace:*",
+    "@w3vm/react": "^0.0.7",
+    "ox": "^0.6.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@roninbuilders/modal": "workspace:*"
+    "viem": "2.22.17"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",

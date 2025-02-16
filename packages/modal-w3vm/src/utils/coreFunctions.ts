@@ -6,7 +6,7 @@ import { subWC } from '@w3vm/walletconnect'
 export async function signMessage(message: string) {
 	const provider = getW3.walletProvider()
 	const address = getW3.address()
-
+	
 	const signature = await provider?.request({
 		method: 'personal_sign',
 		params: [message, address],

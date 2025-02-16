@@ -4,6 +4,7 @@ interface SIWEStore {
 	signIn: (() => Promise<boolean>) | undefined
 	signOut: (() => Promise<void>) | undefined
 	getSession: (() => Promise<boolean>) | undefined
+	signature: string | undefined
 }
 
 export const {
@@ -14,4 +15,5 @@ export const {
 	signIn: undefined,
 	signOut: undefined,
 	getSession: undefined,
+	signature: undefined
 })

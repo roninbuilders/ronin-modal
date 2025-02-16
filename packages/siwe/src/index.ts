@@ -15,7 +15,7 @@ export async function initSIWE({
 }: SIWEConfig) {
 	if (typeof window === 'undefined') return
 
-	const domain = window.location.host
+	const domain = window.location.hostname
 	const origin = window.location.origin
 
 	async function createSiweMessage() {
@@ -30,6 +30,9 @@ export async function initSIWE({
 		if (chainId !== 2020 && chainId !== 2021)
 			throw new Error('Error creating a SIWE message - invalid Chain ID: Please switch to the Ronin Network')
 
+		const currentDate = new Date();
+		currentDate.setDate(currentDate.getDate() + 1)
+		
 		return _createSiweMesage({
 			domain,
 			address,
@@ -38,12 +41,14 @@ export async function initSIWE({
 			version: '1',
 			chainId,
 			nonce,
+			expirationTime: currentDate,
 			...message,
 		})
 	}
 
 	async function signIn() {
 		const message = await createSiweMessage()
+		
 		const signature = await signMessage(message)
 
 		const isValid = await verifyMessage({ message, signature })
@@ -53,6 +58,8 @@ export async function initSIWE({
 		if (!session) throw new Error('Error verifying SIWE signature - session is undefined')
 
 		if (onSignIn) onSignIn(session)
+
+		return Boolean(signature) && Boolean(isValid) && Boolean(session)
 	}
 
 	setSIWE.signIn(() => signIn)
