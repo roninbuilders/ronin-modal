@@ -1,14 +1,24 @@
 {
   "name": "@roninbuilders/modal-wagmi",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Ronin Wallet Modal with Wagmi v2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./react": {
+      "import": "./dist/react.js",
+      "types": "./dist/react.d.ts"
+    }
+  },
   "files": [
     "dist"
   ],
   "scripts": {
-    "watch": "tsup --watch",
+    "watch": "tsup --watch --onSuccess 'tsup --dts-only'",
     "build": "tsup",
     "format": "pnpm dlx @biomejs/biome format src --write",
     "upload": "pnpm run build && pnpm publish",
@@ -21,17 +31,22 @@
   "dependencies": {
     "@roninbuilders/modal": "workspace:^",
     "@roninbuilders/modal-ui": "workspace: *",
-    "@sky-mavis/waypoint": "4.1.0"
+    "@sky-mavis/waypoint": "4.1.0",
+    "@lit/react": "1.0.7"
   },
   "peerDependencies": {
     "@wagmi/connectors": ">=4.0.0",
     "@wagmi/core": ">=2.0.0",
     "typescript": ">=5",
     "vanilla-cafe": ">=0",
-    "viem": ">=2.0.0"
+    "viem": ">=2.0.0",
+    "react": ">=16"
   },
   "peerDependenciesMeta": {
     "typescript": {
+      "optional": true
+    },
+    "react": {
       "optional": true
     }
   },
@@ -51,6 +66,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.3.3",
-    "tsup": "^6.7.0"
+    "tsup": "^6.7.0",
+    "@types/react": "^19.0.10"
   }
 }

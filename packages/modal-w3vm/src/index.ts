@@ -1,5 +1,6 @@
 export { saigon } from './chains/saigon'
 export { ronin } from './chains/mainnet'
 export { createRoninModal } from './client'
+export { RoninButton } from '@roninbuilders/modal-ui'
 export { setModal, subModal, getModal, openModal, closeModal } from '@roninbuilders/modal-ui'
 export type { RoninOptions } from './types'

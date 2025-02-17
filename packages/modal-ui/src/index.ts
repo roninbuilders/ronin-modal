@@ -1,5 +1,7 @@
 import './ui/button'
 
+export { RoninButton } from './ui/button'
+
 export {
 	openModal,
 	closeModal,
