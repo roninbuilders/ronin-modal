@@ -18,7 +18,7 @@
     "dist"
   ],
   "scripts": {
-    "watch": "tsup --watch --onSuccess 'tsup --dts-only'",
+    "watch": "tsup --watch --onSuccess 'tsc --watch --emitDeclarationOnly'",
     "build": "tsup",
     "format": "pnpm dlx @biomejs/biome format src --write",
     "upload": "pnpm run build && pnpm publish",

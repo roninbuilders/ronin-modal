@@ -7,8 +7,11 @@
 
     /* Emit */
     "declaration": true,
+    "emitDeclarationOnly": true,
     "noEmit": true,
     "esModuleInterop": true,
+    "outDir": "dist",
+    "declarationDir": "dist",
     "forceConsistentCasingInFileNames": true,
     "lib": ["es2019", "es2017", "dom"],
     "noImplicitAny": true,
