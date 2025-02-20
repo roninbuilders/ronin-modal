@@ -11,7 +11,7 @@ export class BackButton extends LitElement {
       border: none;
       color: ${modal.color};
       padding: 0;
-      margin: 0;
+      margin: 0 16px;
       cursor: pointer;
     
       display: flex;

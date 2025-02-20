@@ -29,7 +29,7 @@ export class RotesModal extends LitElement {
 	}
 
 	getCurrentView() {
-		if (isMobile() && this._view !== 'account') {
+		if (isMobile() && this._view === 'qr-code') {
 			return html`<mobile-connect-view></mobile-connect-view>`
 		}
 		switch (this._view) {

@@ -16,6 +16,7 @@ export interface CoreStates {
 	RNS: string | undefined
 	URI: string
 	is_SIWE_enabled: boolean
+	isWaypoint: boolean
 	extensionInstalled: () => boolean
 	connectWalletConnect?: () => void
 	connectExtension?: () => void

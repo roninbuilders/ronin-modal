@@ -63,6 +63,7 @@ export function createRoninModal({ SSR, projectId, chain, darkMode, siweConfig: 
 		subscribe_address,
 		subscribe_URI,
 		siweConfig,
+		isWaypoint: Boolean(waypoint)
 	})
 
 	return w3props

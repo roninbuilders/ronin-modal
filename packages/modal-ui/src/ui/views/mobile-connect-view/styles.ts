@@ -26,12 +26,10 @@ export const styles = css`
 
   #title{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
     width: 100%;
-  
-    margin-right: 1px;
   }
   
   #title img{

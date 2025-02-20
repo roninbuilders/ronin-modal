@@ -82,6 +82,7 @@ export function createRoninModal({
 		subscribe_status,
 		subscribe_address,
 		subscribe_URI,
+		isWaypoint: Boolean(waypoint)
 	})
 
 	return config

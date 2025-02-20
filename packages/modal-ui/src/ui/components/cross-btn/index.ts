@@ -20,11 +20,11 @@ export class CrossButton extends LitElement {
       align-items: center;
       transition: all .1s ease;
       
-      transition: transform .2s ease;
+      transition: filter 0.3s ease-in-out;
     }
     
     button:hover{
-      transform: scale(1.1);
+      filter: brightness(1.5);
     }
   `
 

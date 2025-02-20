@@ -6,7 +6,6 @@ import { title } from '../../css/global'
 export class TitleElement extends LitElement {
 	static styles = css`
     span{
-      margin-left: 13px;
       font-size: 22px;
       font-size: ${title.fontSize};
       font-weight: ${title.fontWeight};

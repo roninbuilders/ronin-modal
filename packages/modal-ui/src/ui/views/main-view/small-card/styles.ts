@@ -29,4 +29,12 @@ export const styles = css`
   width: var(--ronin-small-card-img-width, 34px);
   height: var(--ronin-small-card-img-height, 34px);
 }
+
+@media screen and (max-width: 768px) {
+  #card{
+    margin: 0px 15px;
+    padding: 5px 17px;
+    background-color: ${main_button.backgroundColor_hover};
+  }
+}
 `

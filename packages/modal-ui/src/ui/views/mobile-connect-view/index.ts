@@ -130,7 +130,8 @@ export class MobileConnectView extends LitElement {
 
 	render() {
 		return html`
-      <span id="title" >
+      <span id="title">
+			<back-rmc></back-rmc>
         <title-rmc>
           Ronin Wallet
         </title-rmc>

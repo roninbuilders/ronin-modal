@@ -19,8 +19,6 @@ export const styles = css`
     align-items: center;
     gap: 10px;
     width: 100%;
-    padding-top: 4px;
-    padding-left: 5px;
   }
 
   .install-svg{

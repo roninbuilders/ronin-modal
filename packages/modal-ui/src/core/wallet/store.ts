@@ -11,6 +11,7 @@ export const {
 	URI: '',
 	RNS: undefined,
 	is_SIWE_enabled: false,
+	isWaypoint: false,
 
 	/* functions */
 	extensionInstalled: () => false,

@@ -5,6 +5,7 @@ import { INJECTED_ID, WALLETCONNECT_ID, WAYPOINT_ID } from '../../../../core/uti
 import { connectModal } from '../../../../core/modal'
 import type { ConnectorID } from '../../../../core/modal/types'
 import { setModal } from '../../../../core/modal/store'
+import { isMobile } from '../../../../core/utils/mobile'
 
 @customElement('small-card')
 export class SmallCard extends LitElement {
@@ -16,7 +17,7 @@ export class SmallCard extends LitElement {
 	type?: ConnectorID
 
 	changeView() {
-		if (this.type) connectModal(this.type)
+		if (this.type && !(this.type === 'walletConnect' && isMobile())) connectModal(this.type)
 		switch (this.type) {
 			case INJECTED_ID:
 				setModal.view('extension')
