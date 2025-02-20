@@ -87,7 +87,7 @@ export class MobileConnectView extends LitElement {
 				if (isAndroid()) {
 					return html`
 					<span class="description" >
-						Press "Connect" and accept the request in your mobile wallet.
+						Press "Connect" and accept the request in your wallet.
 					</span>
           <button class="button" ?disabled="${Boolean(this._status === 'GeneratingURI')}" @click="${
 						this.handleConnectAndroid
