@@ -5,7 +5,7 @@ import { styles } from './styles'
 import './imports'
 import { isMobile } from '../../core/utils/mobile'
 import { classMap } from 'lit/directives/class-map.js'
-import { closeModal, connectModal } from '../../core/modal'
+import { closeModal } from '../../core/modal'
 import { subModal } from '../../core/modal/store'
 
 @customElement('ronin-modal')
@@ -28,9 +28,6 @@ export class RoninModal extends LitElement {
 		this.unsub_open = subModal.open(this._handleOpen.bind(this))
 
 		const mobile = isMobile()
-		if(mobile){
-			connectModal('walletConnect')
-		}
 		this.classes = { deskCard: !mobile, mobileCard: mobile }
 	}
 
