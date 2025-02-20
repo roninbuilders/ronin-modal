@@ -29,7 +29,7 @@ export const styles = css`
 
 #title{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   gap: 10px;
   width: 100%;
@@ -37,7 +37,9 @@ export const styles = css`
 
 #title .ronin-white {
   width: 16px;
+  padding: 0 13px;
   height: auto;
+  fill: ${modal.color};
 }
 
 .pfp-border{
@@ -117,5 +119,11 @@ export const styles = css`
   width:16px;
   margin-bottom: 2px;
   stroke: ${modal.color};
+}
+
+@media screen and (max-width: 768px) {
+  #title{
+    justify-content: space-around;
+  }
 }
 `
