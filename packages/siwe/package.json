@@ -1,6 +1,6 @@
 {
   "name": "@roninbuilders/siwe",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "SIWE adapter for Ronin Modal",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -23,7 +23,8 @@
   },
   "peerDependencies": {
     "typescript": ">=5",
-    "vanilla-cafe": ">=0"
+    "vanilla-cafe": ">=0",
+    "@roninbuilders/modal-ui": "workspace: *"
   },
   "peerDependenciesMeta": {
     "typescript": {
