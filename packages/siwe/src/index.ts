@@ -1,7 +1,6 @@
 import { setSIWE } from './store'
 import { SIWEConfig } from './types'
 import { createSiweMessage as _createSiweMesage } from 'viem/siwe'
-import { setCore, getCore } from "@roninbuilders/modal-ui";
 
 export async function initSIWE({
 	getNonce,
@@ -70,9 +69,3 @@ export async function initSIWE({
 
 export { getSIWE } from './store'
 export type { SIWEConfig }
-
-export function setIsSIWE(isEnabled: boolean) {
-	setCore.is_SIWE_enabled(isEnabled)
-}
-
-export const getIsSIWE = getCore.is_SIWE_enabled

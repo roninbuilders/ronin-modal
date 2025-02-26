@@ -1,6 +1,6 @@
 {
   "name": "@roninbuilders/modal",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "description": "Framework agnostic Ronin Wallet Modal for Websites",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,6 +12,10 @@
     "./react": {
       "import": "./dist/react.js",
       "types": "./dist/react.d.ts"
+    },
+    "./siwe": {
+      "import": "./dist/siwe.js",
+      "types": "./dist/siwe.d.ts"
     }
   },
   "files": [
