@@ -20,7 +20,6 @@ export type CreateRoninModalOptions = {
 	darkMode?: boolean
 	waypoint?: {
 		clientId: string
-		chainId: number
 	}
 }
 
