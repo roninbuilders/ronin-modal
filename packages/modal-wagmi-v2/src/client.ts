@@ -36,6 +36,7 @@ export function createRoninModal({
 	transport,
 	darkMode,
 	waypoint,
+	wagmiConfig = {}
 }: CreateRoninModalOptions): ReturnType<typeof createConfig> {
 	if (darkMode) setModal.darkMode(darkMode)
 
@@ -62,7 +63,9 @@ export function createRoninModal({
 		: [walletConnect({ projectId, showQrModal: false, metadata })]
 
 	const defaultRPC = chain.rpcUrls.default.http[0]
+	//@ts-ignore Typescript is not perfect.
 	const config = createConfig({
+		...wagmiConfig,
 		chains: [chain],
 		connectors: connectors,
 		transports: {

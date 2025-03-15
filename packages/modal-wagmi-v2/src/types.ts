@@ -1,4 +1,4 @@
-import { Config } from '@wagmi/core'
+import { Config, CreateConfigParameters } from '@wagmi/core'
 import { Chain, Transport } from 'viem'
 
 export type Callback<T> = (status: T) => void
@@ -21,6 +21,7 @@ export type CreateRoninModalOptions = {
 	waypoint?: {
 		clientId: string
 	}
+	wagmiConfig?: Partial<CreateConfigParameters>
 }
 
 declare global {
