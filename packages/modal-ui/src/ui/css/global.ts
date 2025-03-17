@@ -32,6 +32,7 @@ export const modal = {
 	borderRadius: css`var(--rm-global-border-radius, 14px)`,
 	backgroundColor: backgroundColor.modal,
 	color: color.modal,
+	zIndex: css`var(--rm-global-z-index, 2147483647)`,
 }
 
 export const title = {

@@ -19,6 +19,7 @@ export const styles = css`
     user-select: none;
 
     background-color: rgba(0, 0, 0, 0.3);
+    z-index: ${modal.zIndex};
   }
 
   .deskCard {
