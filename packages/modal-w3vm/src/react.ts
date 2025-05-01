@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useSyncExternalStore } from 'react';
 import {createComponent} from '@lit/react'
-import { RoninButton as elementClass } from '@roninbuilders/modal-ui';
+import { RoninButton as elementClass, getCore, subCore } from '@roninbuilders/modal-ui';
 
 export const RoninButton = createComponent({
   tagName: 'ronin-button',
@@ -10,3 +10,7 @@ export const RoninButton = createComponent({
     label: 'label',
   },
 });
+
+export function useRNS(){
+  return useSyncExternalStore(subCore.RNS, getCore.RNS, getCore.RNS);
+}

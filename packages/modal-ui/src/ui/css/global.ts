@@ -59,3 +59,8 @@ export const secondary_button = {
 	backgroundColor_hover: backgroundColor_hover.secondary_button,
 	color: color.secondary_button,
 }
+
+export const mobile = {
+	description_fontSize: css`var(--rm-mobile-description-font-size, 16px)`,
+	description_maxWidth: css`var(--rm-mobile-description-max-width, 70%)`,
+}

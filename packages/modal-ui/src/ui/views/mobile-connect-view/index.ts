@@ -99,7 +99,7 @@ export class MobileConnectView extends LitElement {
 				}
 				return html`
 				<span class="description" >
-					Press "Connect" and accept the request in your mobile wallet.
+					Press "Connect" and accept the request in your wallet.
 				</span>
         <button class="button" ?disabled="${Boolean(this._status === 'GeneratingURI')}" @click="${this.handleConnectIOS}" >
           <span>${this._status === 'GeneratingURI' ? 'Loading' : 'Connect'}</span>
@@ -109,7 +109,7 @@ export class MobileConnectView extends LitElement {
 				return html`
 				<span>Connecting...</span>
 				<span class="description" >
-					Accept the connection request in your mobile wallet.
+					Accept the connection request in your wallet.
 				</span>
         <div class="button secondary" @click="${() => connectModal(WALLETCONNECT_ID)}">${retry} Try Again</div>
 				${this.installTemplate()}

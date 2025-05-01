@@ -1,5 +1,5 @@
 import { css } from 'lit'
-import { modal, secondary_button } from '../../css/global'
+import { mobile, modal, secondary_button } from '../../css/global'
 import { connect_button } from '../../css/button'
 
 export const styles = css`
@@ -87,10 +87,10 @@ export const styles = css`
   }
 
   .description{
-    width: 230px;
+    max-width: ${mobile.description_maxWidth};
     height: 46px;
     text-align: center;
-    font-size: 16px;
+    font-size: ${mobile.description_fontSize};
     opacity: 0.7;
   }
 
