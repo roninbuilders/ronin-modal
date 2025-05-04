@@ -20,3 +20,17 @@ export function isIOS(): boolean {
 export function isMobile(): boolean {
 	return isAndroid() || isIOS()
 }
+
+/*In-App Mobile Browser
+https://docs.skymavis.com/api/wallet/injected-provider#mobile-app
+*/
+export function isMobileApp(): boolean{
+  return typeof window !== 'undefined' && Boolean(window.ronin) && Boolean(window.isWalletApp)
+}
+
+declare global {
+	interface Window {
+		ronin?: any,
+		isWalletApp?: boolean;
+	}
+}

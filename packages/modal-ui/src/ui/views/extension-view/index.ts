@@ -9,6 +9,7 @@ import { roninShiny } from '../../../assets/roninShiny'
 import { installImg } from '../../../assets/install'
 import type { CoreStatus } from '../../../core/wallet/types'
 import { getCore, subCore } from '../../../core/wallet/store'
+import { isMobileApp } from '../../../core/utils/mobile'
 
 @customElement('extension-view')
 export class ExtensionView extends LitElement {
@@ -52,7 +53,7 @@ export class ExtensionView extends LitElement {
 				<div class="text">
 					<span class="status" >Requesting Connection</span>
 					<span class="description" >
-						Open the Ronin browser extension.
+						Open the Ronin ${this.extensionTemplate()}.
 					</span>
 				</div>`
 			case undefined:
@@ -71,12 +72,19 @@ export class ExtensionView extends LitElement {
 		}
 	}
 
+	private extensionTemplate() {
+		if(isMobileApp()){
+		return "Mobile Wallet"
+		}
+		return "Browser Extension"
+	}
+
 	render() {
 		return html`
       <span id="title" >
         <back-rmc></back-rmc>
         <title-rmc>
-          Browser Extension
+          ${this.extensionTemplate()}
         </title-rmc>
         <cross-rmc></cross-rmc>
       </span>
